@@ -1,0 +1,216 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"init_lab1.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/init_lab1.c"
+  20              		.section	.text.GPIO_Init_CMSIS,"ax",%progbits
+  21              		.align	1
+  22              		.global	GPIO_Init_CMSIS
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	GPIO_Init_CMSIS:
+  28              	.LFB130:
+   1:Core/Src/init_lab1.c **** #include "init_lab1.h"
+   2:Core/Src/init_lab1.c **** 
+   3:Core/Src/init_lab1.c **** void GPIO_Init_CMSIS(void){
+  29              		.loc 1 3 27 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+   4:Core/Src/init_lab1.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN);            // Включен�
+  34              		.loc 1 4 5 view .LVU1
+  35 0000 0D4A     		ldr	r2, .L2
+  36 0002 136B     		ldr	r3, [r2, #48]
+  37 0004 43F00603 		orr	r3, r3, #6
+  38 0008 1363     		str	r3, [r2, #48]
+   5:Core/Src/init_lab1.c ****     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE14_0);                                  // Настрой�
+  39              		.loc 1 5 5 view .LVU2
+  40 000a 0C4B     		ldr	r3, .L2+4
+  41 000c 1A68     		ldr	r2, [r3]
+  42 000e 42F08052 		orr	r2, r2, #268435456
+  43 0012 1A60     		str	r2, [r3]
+   6:Core/Src/init_lab1.c ****     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_14);                                 // Установ�
+  44              		.loc 1 6 5 view .LVU3
+  45 0014 5A68     		ldr	r2, [r3, #4]
+  46 0016 22F48042 		bic	r2, r2, #16384
+  47 001a 5A60     		str	r2, [r3, #4]
+   7:Core/Src/init_lab1.c ****     SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR14_0);                          // Устанав�
+  48              		.loc 1 7 5 view .LVU4
+  49 001c 9A68     		ldr	r2, [r3, #8]
+  50 001e 42F08052 		orr	r2, r2, #268435456
+  51 0022 9A60     		str	r2, [r3, #8]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s 			page 2
+
+
+   8:Core/Src/init_lab1.c ****     CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD14_0);                                // Отключа�
+  52              		.loc 1 8 5 view .LVU5
+  53 0024 DA68     		ldr	r2, [r3, #12]
+  54 0026 22F08052 		bic	r2, r2, #268435456
+  55 002a DA60     		str	r2, [r3, #12]
+   9:Core/Src/init_lab1.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);                                        // Установ�
+  56              		.loc 1 9 5 view .LVU6
+  57 002c 9A69     		ldr	r2, [r3, #24]
+  58 002e 42F08042 		orr	r2, r2, #1073741824
+  59 0032 9A61     		str	r2, [r3, #24]
+  10:Core/Src/init_lab1.c **** }
+  60              		.loc 1 10 1 is_stmt 0 view .LVU7
+  61 0034 7047     		bx	lr
+  62              	.L3:
+  63 0036 00BF     		.align	2
+  64              	.L2:
+  65 0038 00380240 		.word	1073887232
+  66 003c 00040240 		.word	1073873920
+  67              		.cfi_endproc
+  68              	.LFE130:
+  70              		.section	.text.GPIO_Init_accessing_memory,"ax",%progbits
+  71              		.align	1
+  72              		.global	GPIO_Init_accessing_memory
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  77              	GPIO_Init_accessing_memory:
+  78              	.LFB131:
+  11:Core/Src/init_lab1.c **** void GPIO_Init_accessing_memory(void)
+  12:Core/Src/init_lab1.c **** {
+  79              		.loc 1 12 1 is_stmt 1 view -0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83              		@ link register save eliminated.
+  13:Core/Src/init_lab1.c ****     *(uint32_t*)(0x40023800UL + 0x30UL) |= 0x00000010UL;
+  84              		.loc 1 13 5 view .LVU9
+  85 0000 0A4A     		ldr	r2, .L5
+  86 0002 D2F83038 		ldr	r3, [r2, #2096]
+  87              		.loc 1 13 41 is_stmt 0 view .LVU10
+  88 0006 43F01003 		orr	r3, r3, #16
+  89 000a C2F83038 		str	r3, [r2, #2096]
+  14:Core/Src/init_lab1.c ****     *(uint32_t*)(0x40021000UL + 0x00UL) |= 0x00004000UL;                         // Настрой�
+  90              		.loc 1 14 5 is_stmt 1 view .LVU11
+  91 000e 084B     		ldr	r3, .L5+4
+  92 0010 1A68     		ldr	r2, [r3]
+  93              		.loc 1 14 41 is_stmt 0 view .LVU12
+  94 0012 42F48042 		orr	r2, r2, #16384
+  95 0016 1A60     		str	r2, [r3]
+  15:Core/Src/init_lab1.c ****     *(uint32_t*)(0x40021000UL + 0x04UL) |= 0x00000000UL;                         // Настрой�
+  96              		.loc 1 15 5 is_stmt 1 view .LVU13
+  16:Core/Src/init_lab1.c ****     *(uint32_t*)(0x40021000UL + 0x08UL) |= 0x00004000UL;                         // Настрой�
+  97              		.loc 1 16 5 view .LVU14
+  98 0018 9A68     		ldr	r2, [r3, #8]
+  99              		.loc 1 16 41 is_stmt 0 view .LVU15
+ 100 001a 42F48042 		orr	r2, r2, #16384
+ 101 001e 9A60     		str	r2, [r3, #8]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s 			page 3
+
+
+  17:Core/Src/init_lab1.c ****     *(uint32_t*)(0x40021000UL + 0x0CUL) |= 0x00000000UL;                         // Отключе�
+ 102              		.loc 1 17 5 is_stmt 1 view .LVU16
+  18:Core/Src/init_lab1.c ****     *(uint32_t*)(0x40021000UL + 0x18UL) |= 0x00800000UL;                         // Установ�
+ 103              		.loc 1 18 5 view .LVU17
+ 104 0020 9A69     		ldr	r2, [r3, #24]
+ 105              		.loc 1 18 41 is_stmt 0 view .LVU18
+ 106 0022 42F40002 		orr	r2, r2, #8388608
+ 107 0026 9A61     		str	r2, [r3, #24]
+  19:Core/Src/init_lab1.c **** }
+ 108              		.loc 1 19 1 view .LVU19
+ 109 0028 7047     		bx	lr
+ 110              	.L6:
+ 111 002a 00BF     		.align	2
+ 112              	.L5:
+ 113 002c 00300240 		.word	1073885184
+ 114 0030 00100240 		.word	1073876992
+ 115              		.cfi_endproc
+ 116              	.LFE131:
+ 118              		.section	.text.GPIO_Init_my_macros,"ax",%progbits
+ 119              		.align	1
+ 120              		.global	GPIO_Init_my_macros
+ 121              		.syntax unified
+ 122              		.thumb
+ 123              		.thumb_func
+ 125              	GPIO_Init_my_macros:
+ 126              	.LFB132:
+  20:Core/Src/init_lab1.c **** void GPIO_Init_my_macros(void)
+  21:Core/Src/init_lab1.c **** {
+ 127              		.loc 1 21 1 is_stmt 1 view -0
+ 128              		.cfi_startproc
+ 129              		@ args = 0, pretend = 0, frame = 0
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131              		@ link register save eliminated.
+  22:Core/Src/init_lab1.c ****     SET_BIT_my(RCC_AHB1ENR_my, RCC_AHB1ENR_GPIODEN_my);                          // Включае�
+ 132              		.loc 1 22 5 view .LVU21
+ 133 0000 0D4A     		ldr	r2, .L8
+ 134 0002 D2F83038 		ldr	r3, [r2, #2096]
+ 135 0006 43F00803 		orr	r3, r3, #8
+ 136 000a C2F83038 		str	r3, [r2, #2096]
+  23:Core/Src/init_lab1.c ****     SET_BIT_my(GPIOD_MODER_my, GPIOD_MODE_PIN0_OUT);                             // Настрой�
+ 137              		.loc 1 23 5 view .LVU22
+ 138 000e 0B4B     		ldr	r3, .L8+4
+ 139 0010 D3F8002C 		ldr	r2, [r3, #3072]
+ 140 0014 42F00102 		orr	r2, r2, #1
+ 141 0018 C3F8002C 		str	r2, [r3, #3072]
+  24:Core/Src/init_lab1.c ****     SET_BIT_my(GPIOD_OTYPER_my, GPIOD_OTYPER_PIN0_PP);                           // Настрой�
+ 142              		.loc 1 24 5 view .LVU23
+  25:Core/Src/init_lab1.c ****     SET_BIT_my(GPIOD_OSPEEDR_my, GPIOD_OSPEED_PIN0_MID);                         // Настрой�
+ 143              		.loc 1 25 5 view .LVU24
+ 144 001c D3F8082C 		ldr	r2, [r3, #3080]
+ 145 0020 42F00102 		orr	r2, r2, #1
+ 146 0024 C3F8082C 		str	r2, [r3, #3080]
+  26:Core/Src/init_lab1.c ****     SET_BIT_my(GPIOD_PUPDR_my, GPIOD_PUPDR_PIN0_NOPUPDR);                        // Отключе�
+ 147              		.loc 1 26 5 view .LVU25
+  27:Core/Src/init_lab1.c ****     SET_BIT_my(GPIOD_BSRR_my, GPIOD_BSRR_PIN0_RESET);                            // Установ�
+ 148              		.loc 1 27 5 view .LVU26
+ 149 0028 D3F8182C 		ldr	r2, [r3, #3096]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s 			page 4
+
+
+ 150 002c 42F48032 		orr	r2, r2, #65536
+ 151 0030 C3F8182C 		str	r2, [r3, #3096]
+  28:Core/Src/init_lab1.c **** }
+ 152              		.loc 1 28 1 is_stmt 0 view .LVU27
+ 153 0034 7047     		bx	lr
+ 154              	.L9:
+ 155 0036 00BF     		.align	2
+ 156              	.L8:
+ 157 0038 00300240 		.word	1073885184
+ 158 003c 00000240 		.word	1073872896
+ 159              		.cfi_endproc
+ 160              	.LFE132:
+ 162              		.text
+ 163              	.Letext0:
+ 164              		.file 2 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/mach
+ 165              		.file 3 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
+ 166              		.file 4 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 init_lab1.c
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:21     .text.GPIO_Init_CMSIS:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:27     .text.GPIO_Init_CMSIS:00000000 GPIO_Init_CMSIS
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:65     .text.GPIO_Init_CMSIS:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:71     .text.GPIO_Init_accessing_memory:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:77     .text.GPIO_Init_accessing_memory:00000000 GPIO_Init_accessing_memory
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:113    .text.GPIO_Init_accessing_memory:0000002c $d
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:119    .text.GPIO_Init_my_macros:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:125    .text.GPIO_Init_my_macros:00000000 GPIO_Init_my_macros
+C:\Users\lenovo\AppData\Local\Temp\ccjsWxlY.s:157    .text.GPIO_Init_my_macros:00000038 $d
+
+NO UNDEFINED SYMBOLS

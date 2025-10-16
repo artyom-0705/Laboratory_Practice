@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s 			page 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -27,82 +27,110 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s 			page 1
   24              		.thumb
   25              		.thumb_func
   27              	main:
-  28              	.LFB0:
-   1:Core/Src/main.c **** /*int main (void){
-   2:Core/Src/main.c ****     while(1){}
-   3:Core/Src/main.c **** }*/
-   4:Core/Src/main.c **** #include <stdint.h>
-   5:Core/Src/main.c **** 
-   6:Core/Src/main.c **** int main(void) { 
-  29              		.loc 1 6 16 view -0
+  28              	.LFB130:
+   1:Core/Src/main.c **** #include "../Inc/init_lab1.h"
+   2:Core/Src/main.c **** #include "../Inc/Lab1.h"
+   3:Core/Src/main.c **** 
+   4:Core/Src/main.c **** uint8_t en = 0;
+   5:Core/Src/main.c **** uint8_t score = 0;
+   6:Core/Src/main.c **** short int LD_1 = 0;
+   7:Core/Src/main.c **** short int LD_2 = 0;
+   8:Core/Src/main.c **** short int LD_3 = 0;
+   9:Core/Src/main.c **** 
+  10:Core/Src/main.c **** int main(void)
+  11:Core/Src/main.c **** {
+  29              		.loc 1 11 1 view -0
   30              		.cfi_startproc
-  31              		@ Volatile: function does not return.
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
-   7:Core/Src/main.c **** *(uint32_t*)(0x40023800UL 
-  35              		.loc 1 7 1 view .LVU1
-  36 0000 0D4A     		ldr	r2, .L3
-  37 0002 D2F83038 		ldr	r3, [r2, #2096]
-   8:Core/Src/main.c **** + 
-   9:Core/Src/main.c **** 0x30UL) 
-  10:Core/Src/main.c **** |= 
-  38              		.loc 1 10 1 is_stmt 0 view .LVU2
-  39 0006 43F00203 		orr	r3, r3, #2
-  40 000a C2F83038 		str	r3, [r2, #2096]
-  11:Core/Src/main.c **** 0x02; 
-  12:Core/Src/main.c **** //Включение тактирования порта GPIOB 
-  13:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x00UL) |= 0x4000; //Настройка работы 7-го пина GP
-  41              		.loc 1 13 1 is_stmt 1 view .LVU3
-  42 000e 0B4B     		ldr	r3, .L3+4
-  43 0010 D3F80024 		ldr	r2, [r3, #1024]
-  44              		.loc 1 13 37 is_stmt 0 view .LVU4
-  45 0014 42F48042 		orr	r2, r2, #16384
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s 			page 2
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  12:Core/Src/main.c ****     GPIO_Init_CMSIS();
+  38              		.loc 1 12 5 view .LVU1
+  39 0002 FFF7FEFF 		bl	GPIO_Init_CMSIS
+  40              	.LVL0:
+  13:Core/Src/main.c ****     GPIO_Init_accessing_memory();
+  41              		.loc 1 13 5 view .LVU2
+  42 0006 FFF7FEFF 		bl	GPIO_Init_accessing_memory
+  43              	.LVL1:
+  14:Core/Src/main.c ****     GPIO_Init_my_macros();
+  44              		.loc 1 14 5 view .LVU3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s 			page 2
 
 
-  46 0018 C3F80024 		str	r2, [r3, #1024]
-  14:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x04UL) |= 0x00; //Настройка на PushPull работу 7-го
-  47              		.loc 1 14 1 is_stmt 1 view .LVU5
-  15:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x08UL) |= 0x4000; //Настройка скорости работы 7
-  48              		.loc 1 15 1 view .LVU6
-  49 001c D3F80824 		ldr	r2, [r3, #1032]
-  50              		.loc 1 15 37 is_stmt 0 view .LVU7
-  51 0020 42F48042 		orr	r2, r2, #16384
-  52 0024 C3F80824 		str	r2, [r3, #1032]
-  16:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x0CUL) |= 0x00; //Отключение PU/PD резисторов дл
-  53              		.loc 1 16 1 is_stmt 1 view .LVU8
-  54              	.L2:
-  17:Core/Src/main.c **** while(1){ 
-  55              		.loc 1 17 1 view .LVU9
-  18:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x18UL) |= 0x80; //Установка единицы в 7-ой бит �
-  56              		.loc 1 18 1 discriminator 1 view .LVU10
-  57 0028 044A     		ldr	r2, .L3+4
-  58 002a D2F81834 		ldr	r3, [r2, #1048]
-  59              		.loc 1 18 37 is_stmt 0 discriminator 1 view .LVU11
-  60 002e 43F08003 		orr	r3, r3, #128
-  61 0032 C2F81834 		str	r3, [r2, #1048]
-  17:Core/Src/main.c **** while(1){ 
-  62              		.loc 1 17 6 is_stmt 1 view .LVU12
-  63 0036 F7E7     		b	.L2
-  64              	.L4:
-  65              		.align	2
-  66              	.L3:
-  67 0038 00300240 		.word	1073885184
-  68 003c 00000240 		.word	1073872896
-  69              		.cfi_endproc
-  70              	.LFE0:
-  72              		.text
-  73              	.Letext0:
-  74              		.file 2 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/mach
-  75              		.file 3 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s 			page 3
+  45 000a FFF7FEFF 		bl	GPIO_Init_my_macros
+  46              	.LVL2:
+  15:Core/Src/main.c ****     Variant_6(&en, &score);
+  47              		.loc 1 15 5 view .LVU4
+  48 000e 0349     		ldr	r1, .L3
+  49 0010 0348     		ldr	r0, .L3+4
+  50 0012 FFF7FEFF 		bl	Variant_6
+  51              	.LVL3:
+  16:Core/Src/main.c ****     //extra_task(&en, &score, &LD_1, &LD_2, &LD_3);
+  17:Core/Src/main.c **** }...
+  52              		.loc 1 17 1 is_stmt 0 view .LVU5
+  53 0016 0020     		movs	r0, #0
+  54 0018 08BD     		pop	{r3, pc}
+  55              	.L4:
+  56 001a 00BF     		.align	2
+  57              	.L3:
+  58 001c 00000000 		.word	score
+  59 0020 00000000 		.word	en
+  60              		.cfi_endproc
+  61              	.LFE130:
+  63              		.global	LD_3
+  64              		.section	.bss.LD_3,"aw",%nobits
+  65              		.align	1
+  68              	LD_3:
+  69 0000 0000     		.space	2
+  70              		.global	LD_2
+  71              		.section	.bss.LD_2,"aw",%nobits
+  72              		.align	1
+  75              	LD_2:
+  76 0000 0000     		.space	2
+  77              		.global	LD_1
+  78              		.section	.bss.LD_1,"aw",%nobits
+  79              		.align	1
+  82              	LD_1:
+  83 0000 0000     		.space	2
+  84              		.global	score
+  85              		.section	.bss.score,"aw",%nobits
+  88              	score:
+  89 0000 00       		.space	1
+  90              		.global	en
+  91              		.section	.bss.en,"aw",%nobits
+  94              	en:
+  95 0000 00       		.space	1
+  96              		.text
+  97              	.Letext0:
+  98              		.file 2 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/mach
+  99              		.file 3 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
+ 100              		.file 4 "Core/Src/../Inc/init_lab1.h"
+ 101              		.file 5 "Core/Src/../Inc/Lab1.h"
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s:21     .text.main:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s:27     .text.main:00000000 main
-C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s:67     .text.main:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:21     .text.main:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:27     .text.main:00000000 main
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:58     .text.main:0000001c $d
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:88     .bss.score:00000000 score
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:94     .bss.en:00000000 en
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:68     .bss.LD_3:00000000 LD_3
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:65     .bss.LD_3:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:75     .bss.LD_2:00000000 LD_2
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:72     .bss.LD_2:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:82     .bss.LD_1:00000000 LD_1
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:79     .bss.LD_1:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:89     .bss.score:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccI9lv4h.s:95     .bss.en:00000000 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+GPIO_Init_CMSIS
+GPIO_Init_accessing_memory
+GPIO_Init_my_macros
+Variant_6

@@ -1,0 +1,108 @@
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/main.c"
+  20              		.section	.text.main,"ax",%progbits
+  21              		.align	1
+  22              		.global	main
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	main:
+  28              	.LFB0:
+   1:Core/Src/main.c **** /*int main (void){
+   2:Core/Src/main.c ****     while(1){}
+   3:Core/Src/main.c **** }*/
+   4:Core/Src/main.c **** #include <stdint.h>
+   5:Core/Src/main.c **** 
+   6:Core/Src/main.c **** int main(void) { 
+  29              		.loc 1 6 16 view -0
+  30              		.cfi_startproc
+  31              		@ Volatile: function does not return.
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+   7:Core/Src/main.c **** *(uint32_t*)(0x40023800UL 
+  35              		.loc 1 7 1 view .LVU1
+  36 0000 0D4A     		ldr	r2, .L3
+  37 0002 D2F83038 		ldr	r3, [r2, #2096]
+   8:Core/Src/main.c **** + 
+   9:Core/Src/main.c **** 0x30UL) 
+  10:Core/Src/main.c **** |= 
+  38              		.loc 1 10 1 is_stmt 0 view .LVU2
+  39 0006 43F00203 		orr	r3, r3, #2
+  40 000a C2F83038 		str	r3, [r2, #2096]
+  11:Core/Src/main.c **** 0x02; 
+  12:Core/Src/main.c **** //Включение тактирования порта GPIOB 
+  13:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x00UL) |= 0x4000; //Настройка работы 7-го пина GP
+  41              		.loc 1 13 1 is_stmt 1 view .LVU3
+  42 000e 0B4B     		ldr	r3, .L3+4
+  43 0010 D3F80024 		ldr	r2, [r3, #1024]
+  44              		.loc 1 13 37 is_stmt 0 view .LVU4
+  45 0014 42F48042 		orr	r2, r2, #16384
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s 			page 2
+
+
+  46 0018 C3F80024 		str	r2, [r3, #1024]
+  14:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x04UL) |= 0x00; //Настройка на PushPull работу 7-го
+  47              		.loc 1 14 1 is_stmt 1 view .LVU5
+  15:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x08UL) |= 0x4000; //Настройка скорости работы 7
+  48              		.loc 1 15 1 view .LVU6
+  49 001c D3F80824 		ldr	r2, [r3, #1032]
+  50              		.loc 1 15 37 is_stmt 0 view .LVU7
+  51 0020 42F48042 		orr	r2, r2, #16384
+  52 0024 C3F80824 		str	r2, [r3, #1032]
+  16:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x0CUL) |= 0x00; //Отключение PU/PD резисторов дл
+  53              		.loc 1 16 1 is_stmt 1 view .LVU8
+  54              	.L2:
+  17:Core/Src/main.c **** while(1){ 
+  55              		.loc 1 17 1 view .LVU9
+  18:Core/Src/main.c **** *(uint32_t*)(0x40020400UL + 0x18UL) |= 0x80; //Установка единицы в 7-ой бит �
+  56              		.loc 1 18 1 discriminator 1 view .LVU10
+  57 0028 044A     		ldr	r2, .L3+4
+  58 002a D2F81834 		ldr	r3, [r2, #1048]
+  59              		.loc 1 18 37 is_stmt 0 discriminator 1 view .LVU11
+  60 002e 43F08003 		orr	r3, r3, #128
+  61 0032 C2F81834 		str	r3, [r2, #1048]
+  17:Core/Src/main.c **** while(1){ 
+  62              		.loc 1 17 6 is_stmt 1 view .LVU12
+  63 0036 F7E7     		b	.L2
+  64              	.L4:
+  65              		.align	2
+  66              	.L3:
+  67 0038 00300240 		.word	1073885184
+  68 003c 00000240 		.word	1073872896
+  69              		.cfi_endproc
+  70              	.LFE0:
+  72              		.text
+  73              	.Letext0:
+  74              		.file 2 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/mach
+  75              		.file 3 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s:21     .text.main:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s:27     .text.main:00000000 main
+C:\Users\lenovo\AppData\Local\Temp\ccQTdfcK.s:67     .text.main:00000038 $d
+
+NO UNDEFINED SYMBOLS

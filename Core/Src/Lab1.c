@@ -1,6 +1,6 @@
 #include "init_lab1.h"
 
-void Variant_6(uint8_t* en, uint8_t* score)                                 // Функция выполняющая задание из варианта 6, принимает указатели для возможности воспользоваться MCUViewer                             
+void Variant_6(uint8_t* en, uint8_t* score, bool* LD_1, bool* LD_2, bool* LD_3) // Функция выполняющая задание из варианта 6, принимает указатели для возможности воспользоваться MCUViewer                             
 {
     while (1)
     {
@@ -24,37 +24,41 @@ void Variant_6(uint8_t* en, uint8_t* score)                                 // �
 
         if(*score == 1 && *en == 0)                                         // Если счетчик равен 1 и en равен 0, включаем led 1
         {
+            *LD_1 = 1;
             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);      
         }
         if(*score == 2 && *en == 0)                                         // Если счетчик равен 2 и en равен 0, включаем led 2
         {
-            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);       
+            *LD_2 = 1; 
+            SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);        
         }
         if(*score == 3 && *en == 0)                                         // Если счетчик равен 3 и en равен 0, включаем led 3
         {
-            SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);          
+            *LD_3 = 1;
+            SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);            
         }
         
 
         if(*score == 1 && *en == 1)                                         // Если счетчик равен 1 и en равен 1, выключаем led 1
         {
-            SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);      
+            *LD_1 = 0;
+            SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);        
         }
         if(*score == 2 && *en == 1)                                         // Если счетчик равен 2 и en равен 1, выключаем led 2
         {
+            *LD_2 = 0;
             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);      
         }
         if(*score == 3 && *en == 1)                                         // Если счетчик равен 3 и en равен 1, выключаем led 3
         {
+            *LD_3 = 0;
             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);        
         }
         for(int i = 0; i < 400000; i++);                                    // Задержка для подавления дребезга контактов
     }
 }
 
-
-
-void extra_task(uint8_t* en, uint8_t* score, short int* LD_1, short int* LD_2, short int* LD_3)// Функция выполняющая дополнительное задание, принимает указатели для возможности воспользоваться MCUViewer
+void extra_task(uint8_t* en, uint8_t* score, bool* LD_1, bool* LD_2, bool* LD_3)// Функция выполняющая дополнительное задание, принимает указатели для возможности воспользоваться MCUViewer
 {
     while (1)
     {

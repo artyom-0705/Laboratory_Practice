@@ -1,7 +1,5 @@
 #include "init_lab1.h"
 
-
-
 void GPIO_Init_my_macros(void)
 {
     SET_BIT_my(RCC_AHB1ENR_my, RCC_AHB1ENR_GPIODEN_my);                          // Включаем тактирование D пинов, регистр RCC_AHB1ENR

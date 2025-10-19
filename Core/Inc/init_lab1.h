@@ -1,5 +1,6 @@
 #include "../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
 #include "../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
+#include <stdbool.h>
 
 #define RCC_AHB1ENR_my             (*(uint32_t*)(0x40023800UL + 0x30UL))       // Включение тактирования, регистр RCC (стр. 65) и регистр RCC_AHB1ENR (cтр. 182)
 #define GPIOD_MODER_my             (*(uint32_t*)(0x40020C00UL + 0x00UL))       // Установление выхода для порта, регистр GPIOx_MODER (RM стр 65 GPIOD и стр 284 GPIOx_MODER)

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 1
   42              	.LVL0:
   15:Core/Src/main.c ****     GPIO_Init_accessing_memory();                                      // Инициализаци�
   43              		.loc 1 15 5 view .LVU2
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s 			page 2
 
 
   44 0008 FFF7FEFF 		bl	GPIO_Init_accessing_memory
@@ -67,9 +67,8 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 1
   46              		.loc 1 16 5 view .LVU3
   47 000c FFF7FEFF 		bl	GPIO_Init_CMSIS
   48              	.LVL2:
-  17:Core/Src/main.c ****     //Variant_6(&en, &score, &LD_1, &LD_2, &LD_3, &press1, &press2);     // Выполненное 
-  18:Core/Src/main.c ****     extra_task(&en, &score, &LD_1, &LD_2, &LD_3, &press1, &press2);    // Выполненное д
-  49              		.loc 1 18 5 view .LVU4
+  17:Core/Src/main.c ****     Variant_6(&en, &score, &LD_1, &LD_2, &LD_3, &press1, &press2);     // Выполненное з
+  49              		.loc 1 17 5 view .LVU4
   50 0010 074B     		ldr	r3, .L3
   51 0012 0293     		str	r3, [sp, #8]
   52 0014 074B     		ldr	r3, .L3+4
@@ -80,8 +79,9 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 1
   57 001e 084A     		ldr	r2, .L3+16
   58 0020 0849     		ldr	r1, .L3+20
   59 0022 0948     		ldr	r0, .L3+24
-  60 0024 FFF7FEFF 		bl	extra_task
+  60 0024 FFF7FEFF 		bl	Variant_6
   61              	.LVL3:
+  18:Core/Src/main.c ****     //extra_task(&en, &score, &LD_1, &LD_2, &LD_3, &press1, &press2);    // Выполненное 
   19:Core/Src/main.c **** }...
   62              		.loc 1 19 1 is_stmt 0 view .LVU5
   63 0028 0020     		movs	r0, #0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 1
  101              		.section	.bss.LD_2,"aw",%nobits
  104              	LD_2:
  105 0000 00       		.space	1
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s 			page 3
 
 
  106              		.global	LD_1
@@ -139,31 +139,31 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 1
  127              		.file 3 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
  128              		.file 4 "Core/Src/../Inc/init_lab1.h"
  129              		.file 5 "Core/Src/../Inc/Lab1.h"
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s 			page 4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:21     .text.main:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:27     .text.main:00000000 main
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:72     .text.main:00000030 $d
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:86     .bss.press2:00000000 press2
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:92     .bss.press1:00000000 press1
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:98     .bss.LD_3:00000000 LD_3
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:104    .bss.LD_2:00000000 LD_2
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:110    .bss.LD_1:00000000 LD_1
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:116    .bss.score:00000000 score
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:122    .bss.en:00000000 en
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:87     .bss.press2:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:93     .bss.press1:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:99     .bss.LD_3:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:105    .bss.LD_2:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:111    .bss.LD_1:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:117    .bss.score:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccAr7wrw.s:123    .bss.en:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:21     .text.main:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:27     .text.main:00000000 main
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:72     .text.main:00000030 $d
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:86     .bss.press2:00000000 press2
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:92     .bss.press1:00000000 press1
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:98     .bss.LD_3:00000000 LD_3
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:104    .bss.LD_2:00000000 LD_2
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:110    .bss.LD_1:00000000 LD_1
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:116    .bss.score:00000000 score
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:122    .bss.en:00000000 en
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:87     .bss.press2:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:93     .bss.press1:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:99     .bss.LD_3:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:105    .bss.LD_2:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:111    .bss.LD_1:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:117    .bss.score:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccW2CPaT.s:123    .bss.en:00000000 $d
 
 UNDEFINED SYMBOLS
 GPIO_Init_my_macros
 GPIO_Init_accessing_memory
 GPIO_Init_CMSIS
-extra_task
+Variant_6

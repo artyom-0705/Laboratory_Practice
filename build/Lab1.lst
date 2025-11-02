@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -31,1127 +31,1196 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 1
   29              	.LFB130:
    1:Core/Src/Lab1.c **** #include "init_lab1.h"
    2:Core/Src/Lab1.c **** 
-   3:Core/Src/Lab1.c **** void Variant_6(uint8_t* en, uint8_t* score, bool* LD_1, bool* LD_2, bool* LD_3)                    
+   3:Core/Src/Lab1.c **** void Variant_6(uint8_t *en, uint8_t *score, bool *LD_1, bool *LD_2, bool *LD_3, bool *press1, bool 
    4:Core/Src/Lab1.c **** {
   30              		.loc 1 4 1 view -0
   31              		.cfi_startproc
-  32              		@ args = 4, pretend = 0, frame = 0
+  32              		@ args = 12, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
   34              		.loc 1 4 1 is_stmt 0 view .LVU1
-  35 0000 10B5     		push	{r4, lr}
+  35 0000 F0B5     		push	{r4, r5, r6, r7, lr}
   36              	.LCFI0:
-  37              		.cfi_def_cfa_offset 8
-  38              		.cfi_offset 4, -8
-  39              		.cfi_offset 14, -4
-  40 0002 9646     		mov	lr, r2
-  41 0004 9C46     		mov	ip, r3
-  42 0006 029C     		ldr	r4, [sp, #8]
-  43 0008 4DE0     		b	.L13
-  44              	.LVL1:
-  45              	.L3:
+  37              		.cfi_def_cfa_offset 20
+  38              		.cfi_offset 4, -20
+  39              		.cfi_offset 5, -16
+  40              		.cfi_offset 6, -12
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 1546     		mov	r5, r2
+  44 0004 1C46     		mov	r4, r3
+  45 0006 059E     		ldr	r6, [sp, #20]
+  46 0008 DDF818E0 		ldr	lr, [sp, #24]
+  47 000c 079F     		ldr	r7, [sp, #28]
+  48 000e 37E0     		b	.L2
+  49              	.LVL1:
+  50              	.L24:
    5:Core/Src/Lab1.c ****     while (1)
    6:Core/Src/Lab1.c ****     {
-   7:Core/Src/Lab1.c ****         if(READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_0) != 0)                       // Проверка н�
+   7:Core/Src/Lab1.c ****         if (READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_0) != 0)                      // Проверка н�
    8:Core/Src/Lab1.c ****         {
-   9:Core/Src/Lab1.c ****             if(*en == 0)                                                    // Если en была
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 2
+
+
+   9:Core/Src/Lab1.c ****             if (*press2 == 0)
   10:Core/Src/Lab1.c ****             {
-  11:Core/Src/Lab1.c ****             *en = 1;
-  12:Core/Src/Lab1.c ****             *score = 0;
-  13:Core/Src/Lab1.c ****             }
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 2
+  11:Core/Src/Lab1.c ****                 *en = (*en + 1) % 2;
+  51              		.loc 1 11 17 is_stmt 1 view .LVU2
+  52              		.loc 1 11 24 is_stmt 0 view .LVU3
+  53 0010 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+  54              		.loc 1 11 33 view .LVU4
+  55 0012 0133     		adds	r3, r3, #1
+  56 0014 03F00103 		and	r3, r3, #1
+  57 0018 48BF     		it	mi
+  58 001a 5B42     		rsbmi	r3, r3, #0
+  59              		.loc 1 11 21 view .LVU5
+  60 001c 0370     		strb	r3, [r0]
+  12:Core/Src/Lab1.c ****                 *score = 0;
+  61              		.loc 1 12 17 is_stmt 1 view .LVU6
+  62              		.loc 1 12 24 is_stmt 0 view .LVU7
+  63 001e 0023     		movs	r3, #0
+  64 0020 0B70     		strb	r3, [r1]
+  13:Core/Src/Lab1.c ****                 *press2 = 1;
+  65              		.loc 1 13 17 is_stmt 1 view .LVU8
+  66              		.loc 1 13 25 is_stmt 0 view .LVU9
+  67 0022 0122     		movs	r2, #1
+  68 0024 3A70     		strb	r2, [r7]
+  14:Core/Src/Lab1.c ****                 for (int i = 0; i < 400000; i++);                           // Задержка д�
+  69              		.loc 1 14 17 is_stmt 1 view .LVU10
+  70              	.LBB2:
+  71              		.loc 1 14 22 view .LVU11
+  72              	.LVL2:
+  73              		.loc 1 14 17 is_stmt 0 view .LVU12
+  74 0026 00E0     		b	.L5
+  75              	.LVL3:
+  76              	.L6:
+  77              		.loc 1 14 46 is_stmt 1 discriminator 3 view .LVU13
+  78 0028 0133     		adds	r3, r3, #1
+  79              	.LVL4:
+  80              	.L5:
+  81              		.loc 1 14 35 discriminator 1 view .LVU14
+  82 002a 464A     		ldr	r2, .L25
+  83 002c 9342     		cmp	r3, r2
+  84 002e FBDD     		ble	.L6
+  85 0030 2EE0     		b	.L4
+  86              	.LVL5:
+  87              	.L3:
+  88              		.loc 1 14 35 is_stmt 0 discriminator 1 view .LVU15
+  89              	.LBE2:
+  15:Core/Src/Lab1.c ****             }
+  16:Core/Src/Lab1.c ****         }
+  17:Core/Src/Lab1.c ****         else if ((READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_0) == 0) && (*press2 == 1))
+  90              		.loc 1 17 14 is_stmt 1 view .LVU16
+  91              		.loc 1 17 19 is_stmt 0 view .LVU17
+  92 0032 454B     		ldr	r3, .L25+4
+  93 0034 1B69     		ldr	r3, [r3, #16]
+  94              		.loc 1 17 17 view .LVU18
+  95 0036 13F0010F 		tst	r3, #1
+  96 003a 29D1     		bne	.L4
+  97              		.loc 1 17 66 discriminator 1 view .LVU19
+  98 003c 3B78     		ldrb	r3, [r7]	@ zero_extendqisi2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 3
 
 
-  14:Core/Src/Lab1.c ****             else                                                            // Иначе, en ст�
-  15:Core/Src/Lab1.c ****             {
-  16:Core/Src/Lab1.c ****             *en = 0;
-  46              		.loc 1 16 13 is_stmt 1 view .LVU2
-  47              		.loc 1 16 17 is_stmt 0 view .LVU3
-  48 000a 0023     		movs	r3, #0
-  49 000c 0370     		strb	r3, [r0]
-  17:Core/Src/Lab1.c ****             *score = 0;
-  50              		.loc 1 17 13 is_stmt 1 view .LVU4
-  51              		.loc 1 17 20 is_stmt 0 view .LVU5
-  52 000e 0B70     		strb	r3, [r1]
-  53 0010 55E0     		b	.L2
-  54              	.L15:
-  18:Core/Src/Lab1.c ****             }
-  19:Core/Src/Lab1.c ****         }
-  20:Core/Src/Lab1.c ****         if((READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_13) != 0) && (*score < 3))    // Если кнопк�
-  21:Core/Src/Lab1.c ****         {
-  22:Core/Src/Lab1.c ****             *score = *score + 1;
-  23:Core/Src/Lab1.c ****         }
-  24:Core/Src/Lab1.c **** 
-  25:Core/Src/Lab1.c ****         if(*score == 1 && *en == 0)                                         // Если счетч�
-  55              		.loc 1 25 27 discriminator 1 view .LVU6
-  56 0012 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
-  57              		.loc 1 25 24 discriminator 1 view .LVU7
-  58 0014 002B     		cmp	r3, #0
-  59 0016 5FD1     		bne	.L5
-  26:Core/Src/Lab1.c ****         {
-  27:Core/Src/Lab1.c ****             *LD_1 = 1;
-  60              		.loc 1 27 13 is_stmt 1 view .LVU8
-  61              		.loc 1 27 19 is_stmt 0 view .LVU9
-  62 0018 0123     		movs	r3, #1
-  63 001a 8EF80030 		strb	r3, [lr]
-  28:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);      
-  64              		.loc 1 28 13 is_stmt 1 view .LVU10
-  65 001e 374A     		ldr	r2, .L21
-  66 0020 9369     		ldr	r3, [r2, #24]
-  67 0022 43F00103 		orr	r3, r3, #1
-  68 0026 9361     		str	r3, [r2, #24]
-  69 0028 56E0     		b	.L5
-  70              	.L16:
+  99              		.loc 1 17 62 discriminator 1 view .LVU20
+ 100 003e 3BB3     		cbz	r3, .L4
+  18:Core/Src/Lab1.c ****         {
+  19:Core/Src/Lab1.c ****             *press2 = 0;
+ 101              		.loc 1 19 13 is_stmt 1 view .LVU21
+ 102              		.loc 1 19 21 is_stmt 0 view .LVU22
+ 103 0040 0023     		movs	r3, #0
+ 104 0042 3B70     		strb	r3, [r7]
+ 105 0044 24E0     		b	.L4
+ 106              	.L7:
+  20:Core/Src/Lab1.c ****         }
+  21:Core/Src/Lab1.c ****         if ((READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_13) != 0) && (*score < 3))   // Если кнопк�
+  22:Core/Src/Lab1.c ****         {
+  23:Core/Src/Lab1.c ****             if (*press1 == 0)
+  24:Core/Src/Lab1.c ****             {
+  25:Core/Src/Lab1.c ****                 *score = *score + 1;
+  26:Core/Src/Lab1.c ****                 *press1 = 1;
+  27:Core/Src/Lab1.c ****                 for (int i = 0; i < 400000; i++);                           // Задержка д�
+  28:Core/Src/Lab1.c ****             }
   29:Core/Src/Lab1.c ****         }
-  30:Core/Src/Lab1.c ****         if(*score == 2 && *en == 0)                                         // Если счетч�
-  71              		.loc 1 30 27 is_stmt 0 discriminator 1 view .LVU11
-  72 002a 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
-  73              		.loc 1 30 24 discriminator 1 view .LVU12
-  74 002c 002B     		cmp	r3, #0
-  75 002e 56D1     		bne	.L6
+  30:Core/Src/Lab1.c ****         else if ((READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_13) == 0) && (*press1 == 1))
+ 107              		.loc 1 30 14 is_stmt 1 view .LVU23
+ 108              		.loc 1 30 19 is_stmt 0 view .LVU24
+ 109 0046 404B     		ldr	r3, .L25+4
+ 110 0048 1B69     		ldr	r3, [r3, #16]
+ 111              		.loc 1 30 17 view .LVU25
+ 112 004a 13F4005F 		tst	r3, #8192
+ 113 004e 05D1     		bne	.L8
+ 114              		.loc 1 30 67 discriminator 1 view .LVU26
+ 115 0050 9EF80030 		ldrb	r3, [lr]	@ zero_extendqisi2
+ 116              		.loc 1 30 63 discriminator 1 view .LVU27
+ 117 0054 13B1     		cbz	r3, .L8
   31:Core/Src/Lab1.c ****         {
-  32:Core/Src/Lab1.c ****             *LD_2 = 1; 
-  76              		.loc 1 32 13 is_stmt 1 view .LVU13
-  77              		.loc 1 32 19 is_stmt 0 view .LVU14
-  78 0030 0123     		movs	r3, #1
-  79 0032 8CF80030 		strb	r3, [ip]
-  33:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);        
-  80              		.loc 1 33 13 is_stmt 1 view .LVU15
-  81 0036 324A     		ldr	r2, .L21+4
-  82 0038 9369     		ldr	r3, [r2, #24]
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 3
-
-
-  83 003a 43F08003 		orr	r3, r3, #128
-  84 003e 9361     		str	r3, [r2, #24]
-  85 0040 4DE0     		b	.L6
-  86              	.L17:
-  34:Core/Src/Lab1.c ****         }
-  35:Core/Src/Lab1.c ****         if(*score == 3 && *en == 0)                                         // Если счетч�
-  87              		.loc 1 35 27 is_stmt 0 discriminator 1 view .LVU16
-  88 0042 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
-  89              		.loc 1 35 24 discriminator 1 view .LVU17
-  90 0044 002B     		cmp	r3, #0
-  91 0046 4DD1     		bne	.L7
+  32:Core/Src/Lab1.c ****             *press1 = 0;
+ 118              		.loc 1 32 13 is_stmt 1 view .LVU28
+ 119              		.loc 1 32 21 is_stmt 0 view .LVU29
+ 120 0056 0023     		movs	r3, #0
+ 121 0058 8EF80030 		strb	r3, [lr]
+ 122              	.L8:
+  33:Core/Src/Lab1.c ****         }
+  34:Core/Src/Lab1.c **** 
+  35:Core/Src/Lab1.c ****         if (*score == 1 && *en == 0)                                        // Если счетч�
+ 123              		.loc 1 35 9 is_stmt 1 view .LVU30
+ 124              		.loc 1 35 13 is_stmt 0 view .LVU31
+ 125 005c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 126              		.loc 1 35 12 view .LVU32
+ 127 005e 012B     		cmp	r3, #1
+ 128 0060 2DD0     		beq	.L18
+ 129              	.L11:
   36:Core/Src/Lab1.c ****         {
-  37:Core/Src/Lab1.c ****             *LD_3 = 1;
-  92              		.loc 1 37 13 is_stmt 1 view .LVU18
-  93              		.loc 1 37 19 is_stmt 0 view .LVU19
-  94 0048 0123     		movs	r3, #1
-  95 004a 2370     		strb	r3, [r4]
-  38:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);            
-  96              		.loc 1 38 13 is_stmt 1 view .LVU20
-  97 004c 2D4A     		ldr	r2, .L21+8
-  98 004e 9369     		ldr	r3, [r2, #24]
-  99 0050 43F48043 		orr	r3, r3, #16384
- 100 0054 9361     		str	r3, [r2, #24]
- 101 0056 45E0     		b	.L7
- 102              	.L18:
+  37:Core/Src/Lab1.c ****             *LD_1 = 1;
+  38:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
   39:Core/Src/Lab1.c ****         }
-  40:Core/Src/Lab1.c ****         
-  41:Core/Src/Lab1.c **** 
-  42:Core/Src/Lab1.c ****         if(*score == 1 && *en == 1)                                         // Если счетч�
- 103              		.loc 1 42 27 is_stmt 0 discriminator 1 view .LVU21
- 104 0058 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 105              		.loc 1 42 24 discriminator 1 view .LVU22
- 106 005a 012B     		cmp	r3, #1
- 107 005c 45D1     		bne	.L8
-  43:Core/Src/Lab1.c ****         {
-  44:Core/Src/Lab1.c ****             *LD_1 = 0;
- 108              		.loc 1 44 13 is_stmt 1 view .LVU23
- 109              		.loc 1 44 19 is_stmt 0 view .LVU24
- 110 005e 0023     		movs	r3, #0
- 111 0060 8EF80030 		strb	r3, [lr]
-  45:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);        
- 112              		.loc 1 45 13 is_stmt 1 view .LVU25
- 113 0064 254A     		ldr	r2, .L21
- 114 0066 9369     		ldr	r3, [r2, #24]
- 115 0068 43F48033 		orr	r3, r3, #65536
- 116 006c 9361     		str	r3, [r2, #24]
- 117 006e 3CE0     		b	.L8
- 118              	.L19:
-  46:Core/Src/Lab1.c ****         }
-  47:Core/Src/Lab1.c ****         if(*score == 2 && *en == 1)                                         // Если счетч�
- 119              		.loc 1 47 27 is_stmt 0 discriminator 1 view .LVU26
- 120 0070 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 121              		.loc 1 47 24 discriminator 1 view .LVU27
- 122 0072 012B     		cmp	r3, #1
- 123 0074 3CD1     		bne	.L9
-  48:Core/Src/Lab1.c ****         {
-  49:Core/Src/Lab1.c ****             *LD_2 = 0;
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 4
+  40:Core/Src/Lab1.c ****         if (*score == 2 && *en == 0)                                        // Если счетч�
+ 130              		.loc 1 40 9 is_stmt 1 view .LVU33
+ 131              		.loc 1 40 13 is_stmt 0 view .LVU34
+ 132 0062 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 4
 
 
- 124              		.loc 1 49 13 is_stmt 1 view .LVU28
- 125              		.loc 1 49 19 is_stmt 0 view .LVU29
- 126 0076 0023     		movs	r3, #0
- 127 0078 8CF80030 		strb	r3, [ip]
-  50:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);      
- 128              		.loc 1 50 13 is_stmt 1 view .LVU30
- 129 007c 204A     		ldr	r2, .L21+4
- 130 007e 9369     		ldr	r3, [r2, #24]
- 131 0080 43F40003 		orr	r3, r3, #8388608
- 132 0084 9361     		str	r3, [r2, #24]
- 133 0086 33E0     		b	.L9
- 134              	.L20:
-  51:Core/Src/Lab1.c ****         }
-  52:Core/Src/Lab1.c ****         if(*score == 3 && *en == 1)                                         // Если счетч�
- 135              		.loc 1 52 27 is_stmt 0 discriminator 1 view .LVU31
- 136 0088 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 137              		.loc 1 52 24 discriminator 1 view .LVU32
- 138 008a 012B     		cmp	r3, #1
- 139 008c 33D1     		bne	.L10
-  53:Core/Src/Lab1.c ****         {
-  54:Core/Src/Lab1.c ****             *LD_3 = 0;
- 140              		.loc 1 54 13 is_stmt 1 view .LVU33
- 141              		.loc 1 54 19 is_stmt 0 view .LVU34
- 142 008e 0023     		movs	r3, #0
- 143 0090 2370     		strb	r3, [r4]
-  55:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);        
- 144              		.loc 1 55 13 is_stmt 1 view .LVU35
- 145 0092 1C4A     		ldr	r2, .L21+8
- 146 0094 9369     		ldr	r3, [r2, #24]
- 147 0096 43F08043 		orr	r3, r3, #1073741824
- 148 009a 9361     		str	r3, [r2, #24]
- 149 009c 2BE0     		b	.L10
- 150              	.LVL2:
- 151              	.L12:
- 152              	.LBB2:
-  56:Core/Src/Lab1.c ****         }
-  57:Core/Src/Lab1.c ****         for(int i = 0; i < 400000; i++);                                    // Задержка д�
- 153              		.loc 1 57 37 discriminator 3 view .LVU36
- 154 009e 0133     		adds	r3, r3, #1
- 155              	.LVL3:
- 156              	.L11:
- 157              		.loc 1 57 26 discriminator 1 view .LVU37
- 158 00a0 194A     		ldr	r2, .L21+12
- 159 00a2 9342     		cmp	r3, r2
- 160 00a4 FBDD     		ble	.L12
- 161              	.LVL4:
- 162              	.L13:
- 163              		.loc 1 57 26 is_stmt 0 discriminator 1 view .LVU38
- 164              	.LBE2:
+ 133              		.loc 1 40 12 view .LVU35
+ 134 0064 022B     		cmp	r3, #2
+ 135 0066 35D0     		beq	.L19
+ 136              	.L12:
+  41:Core/Src/Lab1.c ****         {
+  42:Core/Src/Lab1.c ****             *LD_2 = 1;
+  43:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+  44:Core/Src/Lab1.c ****         }
+  45:Core/Src/Lab1.c ****         if (*score == 3 && *en == 0)                                        // Если счетч�
+ 137              		.loc 1 45 9 is_stmt 1 view .LVU36
+ 138              		.loc 1 45 13 is_stmt 0 view .LVU37
+ 139 0068 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 140              		.loc 1 45 12 view .LVU38
+ 141 006a 032B     		cmp	r3, #3
+ 142 006c 3DD0     		beq	.L20
+ 143              	.L13:
+  46:Core/Src/Lab1.c ****         {
+  47:Core/Src/Lab1.c ****             *LD_3 = 1;
+  48:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
+  49:Core/Src/Lab1.c ****         }
+  50:Core/Src/Lab1.c **** 
+  51:Core/Src/Lab1.c ****         if (*score == 1 && *en == 1)                                        // Если счетч�
+ 144              		.loc 1 51 9 is_stmt 1 view .LVU39
+ 145              		.loc 1 51 13 is_stmt 0 view .LVU40
+ 146 006e 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 147              		.loc 1 51 12 view .LVU41
+ 148 0070 012B     		cmp	r3, #1
+ 149 0072 45D0     		beq	.L21
+ 150              	.L14:
+  52:Core/Src/Lab1.c ****         {
+  53:Core/Src/Lab1.c ****             *LD_1 = 0;
+  54:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);
+  55:Core/Src/Lab1.c ****         }
+  56:Core/Src/Lab1.c ****         if (*score == 2 && *en == 1)                                        // Если счетч�
+ 151              		.loc 1 56 9 is_stmt 1 view .LVU42
+ 152              		.loc 1 56 13 is_stmt 0 view .LVU43
+ 153 0074 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 154              		.loc 1 56 12 view .LVU44
+ 155 0076 022B     		cmp	r3, #2
+ 156 0078 4DD0     		beq	.L22
+ 157              	.L15:
+  57:Core/Src/Lab1.c ****         {
+  58:Core/Src/Lab1.c ****             *LD_2 = 0;
+  59:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);
+  60:Core/Src/Lab1.c ****         }
+  61:Core/Src/Lab1.c ****         if (*score == 3 && *en == 1)                                        // Если счетч�
+ 158              		.loc 1 61 9 is_stmt 1 view .LVU45
+ 159              		.loc 1 61 13 is_stmt 0 view .LVU46
+ 160 007a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 161              		.loc 1 61 12 view .LVU47
+ 162 007c 032B     		cmp	r3, #3
+ 163 007e 55D0     		beq	.L23
+ 164              	.L2:
    5:Core/Src/Lab1.c ****     {
- 165              		.loc 1 5 5 is_stmt 1 view .LVU39
+ 165              		.loc 1 5 5 is_stmt 1 view .LVU48
    7:Core/Src/Lab1.c ****         {
- 166              		.loc 1 7 9 view .LVU40
-   7:Core/Src/Lab1.c ****         {
- 167              		.loc 1 7 12 is_stmt 0 view .LVU41
- 168 00a6 194B     		ldr	r3, .L21+16
- 169 00a8 1B69     		ldr	r3, [r3, #16]
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 5
+ 166              		.loc 1 7 9 view .LVU49
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 5
 
 
    7:Core/Src/Lab1.c ****         {
- 170              		.loc 1 7 11 view .LVU42
- 171 00aa 13F0010F 		tst	r3, #1
- 172 00ae 06D0     		beq	.L2
+ 167              		.loc 1 7 13 is_stmt 0 view .LVU50
+ 168 0080 314B     		ldr	r3, .L25+4
+ 169 0082 1B69     		ldr	r3, [r3, #16]
+   7:Core/Src/Lab1.c ****         {
+ 170              		.loc 1 7 12 view .LVU51
+ 171 0084 13F0010F 		tst	r3, #1
+ 172 0088 D3D0     		beq	.L3
    9:Core/Src/Lab1.c ****             {
- 173              		.loc 1 9 13 is_stmt 1 view .LVU43
+ 173              		.loc 1 9 13 is_stmt 1 view .LVU52
    9:Core/Src/Lab1.c ****             {
- 174              		.loc 1 9 16 is_stmt 0 view .LVU44
- 175 00b0 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 174              		.loc 1 9 17 is_stmt 0 view .LVU53
+ 175 008a 3B78     		ldrb	r3, [r7]	@ zero_extendqisi2
    9:Core/Src/Lab1.c ****             {
- 176              		.loc 1 9 15 view .LVU45
- 177 00b2 002B     		cmp	r3, #0
- 178 00b4 A9D1     		bne	.L3
-  11:Core/Src/Lab1.c ****             *score = 0;
- 179              		.loc 1 11 13 is_stmt 1 view .LVU46
-  11:Core/Src/Lab1.c ****             *score = 0;
- 180              		.loc 1 11 17 is_stmt 0 view .LVU47
- 181 00b6 0123     		movs	r3, #1
- 182 00b8 0370     		strb	r3, [r0]
-  12:Core/Src/Lab1.c ****             }
- 183              		.loc 1 12 13 is_stmt 1 view .LVU48
-  12:Core/Src/Lab1.c ****             }
- 184              		.loc 1 12 20 is_stmt 0 view .LVU49
- 185 00ba 0023     		movs	r3, #0
- 186 00bc 0B70     		strb	r3, [r1]
- 187              	.L2:
-  20:Core/Src/Lab1.c ****         {
- 188              		.loc 1 20 9 is_stmt 1 view .LVU50
-  20:Core/Src/Lab1.c ****         {
- 189              		.loc 1 20 13 is_stmt 0 view .LVU51
- 190 00be 134B     		ldr	r3, .L21+16
- 191 00c0 1B69     		ldr	r3, [r3, #16]
-  20:Core/Src/Lab1.c ****         {
- 192              		.loc 1 20 11 view .LVU52
- 193 00c2 13F4005F 		tst	r3, #8192
- 194 00c6 04D0     		beq	.L4
-  20:Core/Src/Lab1.c ****         {
- 195              		.loc 1 20 61 discriminator 1 view .LVU53
- 196 00c8 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-  20:Core/Src/Lab1.c ****         {
- 197              		.loc 1 20 57 discriminator 1 view .LVU54
- 198 00ca 022B     		cmp	r3, #2
- 199 00cc 01D8     		bhi	.L4
-  22:Core/Src/Lab1.c ****         }
- 200              		.loc 1 22 13 is_stmt 1 view .LVU55
-  22:Core/Src/Lab1.c ****         }
- 201              		.loc 1 22 29 is_stmt 0 view .LVU56
- 202 00ce 0133     		adds	r3, r3, #1
-  22:Core/Src/Lab1.c ****         }
- 203              		.loc 1 22 20 view .LVU57
- 204 00d0 0B70     		strb	r3, [r1]
- 205              	.L4:
-  25:Core/Src/Lab1.c ****         {
- 206              		.loc 1 25 9 is_stmt 1 view .LVU58
-  25:Core/Src/Lab1.c ****         {
- 207              		.loc 1 25 12 is_stmt 0 view .LVU59
- 208 00d2 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 6
+ 176              		.loc 1 9 16 view .LVU54
+ 177 008c 002B     		cmp	r3, #0
+ 178 008e BFD0     		beq	.L24
+ 179              	.L4:
+  21:Core/Src/Lab1.c ****         {
+ 180              		.loc 1 21 9 is_stmt 1 view .LVU55
+  21:Core/Src/Lab1.c ****         {
+ 181              		.loc 1 21 14 is_stmt 0 view .LVU56
+ 182 0090 2D4B     		ldr	r3, .L25+4
+ 183 0092 1B69     		ldr	r3, [r3, #16]
+  21:Core/Src/Lab1.c ****         {
+ 184              		.loc 1 21 12 view .LVU57
+ 185 0094 13F4005F 		tst	r3, #8192
+ 186 0098 D5D0     		beq	.L7
+  21:Core/Src/Lab1.c ****         {
+ 187              		.loc 1 21 62 discriminator 1 view .LVU58
+ 188 009a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  21:Core/Src/Lab1.c ****         {
+ 189              		.loc 1 21 58 discriminator 1 view .LVU59
+ 190 009c 022B     		cmp	r3, #2
+ 191 009e D2D8     		bhi	.L7
+  23:Core/Src/Lab1.c ****             {
+ 192              		.loc 1 23 13 is_stmt 1 view .LVU60
+  23:Core/Src/Lab1.c ****             {
+ 193              		.loc 1 23 17 is_stmt 0 view .LVU61
+ 194 00a0 9EF80020 		ldrb	r2, [lr]	@ zero_extendqisi2
+  23:Core/Src/Lab1.c ****             {
+ 195              		.loc 1 23 16 view .LVU62
+ 196 00a4 002A     		cmp	r2, #0
+ 197 00a6 D9D1     		bne	.L8
+  25:Core/Src/Lab1.c ****                 *press1 = 1;
+ 198              		.loc 1 25 17 is_stmt 1 view .LVU63
+  25:Core/Src/Lab1.c ****                 *press1 = 1;
+ 199              		.loc 1 25 33 is_stmt 0 view .LVU64
+ 200 00a8 0133     		adds	r3, r3, #1
+  25:Core/Src/Lab1.c ****                 *press1 = 1;
+ 201              		.loc 1 25 24 view .LVU65
+ 202 00aa 0B70     		strb	r3, [r1]
+  26:Core/Src/Lab1.c ****                 for (int i = 0; i < 400000; i++);                           // Задержка д�
+ 203              		.loc 1 26 17 is_stmt 1 view .LVU66
+  26:Core/Src/Lab1.c ****                 for (int i = 0; i < 400000; i++);                           // Задержка д�
+ 204              		.loc 1 26 25 is_stmt 0 view .LVU67
+ 205 00ac 0123     		movs	r3, #1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 6
 
 
-  25:Core/Src/Lab1.c ****         {
- 209              		.loc 1 25 11 view .LVU60
- 210 00d4 012B     		cmp	r3, #1
- 211 00d6 9CD0     		beq	.L15
- 212              	.L5:
-  30:Core/Src/Lab1.c ****         {
- 213              		.loc 1 30 9 is_stmt 1 view .LVU61
-  30:Core/Src/Lab1.c ****         {
- 214              		.loc 1 30 12 is_stmt 0 view .LVU62
- 215 00d8 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-  30:Core/Src/Lab1.c ****         {
- 216              		.loc 1 30 11 view .LVU63
- 217 00da 022B     		cmp	r3, #2
- 218 00dc A5D0     		beq	.L16
- 219              	.L6:
+ 206 00ae 8EF80030 		strb	r3, [lr]
+  27:Core/Src/Lab1.c ****             }
+ 207              		.loc 1 27 17 is_stmt 1 view .LVU68
+ 208              	.LBB3:
+  27:Core/Src/Lab1.c ****             }
+ 209              		.loc 1 27 22 view .LVU69
+ 210              	.LVL6:
+  27:Core/Src/Lab1.c ****             }
+ 211              		.loc 1 27 26 is_stmt 0 view .LVU70
+ 212 00b2 0023     		movs	r3, #0
+ 213              	.LVL7:
+ 214              	.L9:
+  27:Core/Src/Lab1.c ****             }
+ 215              		.loc 1 27 35 is_stmt 1 discriminator 1 view .LVU71
+ 216 00b4 234A     		ldr	r2, .L25
+ 217 00b6 9342     		cmp	r3, r2
+ 218 00b8 D0DC     		bgt	.L8
+  27:Core/Src/Lab1.c ****             }
+ 219              		.loc 1 27 46 discriminator 3 view .LVU72
+ 220 00ba 0133     		adds	r3, r3, #1
+ 221              	.LVL8:
+  27:Core/Src/Lab1.c ****             }
+ 222              		.loc 1 27 46 is_stmt 0 discriminator 3 view .LVU73
+ 223 00bc FAE7     		b	.L9
+ 224              	.LVL9:
+ 225              	.L18:
+  27:Core/Src/Lab1.c ****             }
+ 226              		.loc 1 27 46 discriminator 3 view .LVU74
+ 227              	.LBE3:
   35:Core/Src/Lab1.c ****         {
- 220              		.loc 1 35 9 is_stmt 1 view .LVU64
+ 228              		.loc 1 35 28 discriminator 1 view .LVU75
+ 229 00be 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
   35:Core/Src/Lab1.c ****         {
- 221              		.loc 1 35 12 is_stmt 0 view .LVU65
- 222 00de 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-  35:Core/Src/Lab1.c ****         {
- 223              		.loc 1 35 11 view .LVU66
- 224 00e0 032B     		cmp	r3, #3
- 225 00e2 AED0     		beq	.L17
- 226              	.L7:
-  42:Core/Src/Lab1.c ****         {
- 227              		.loc 1 42 9 is_stmt 1 view .LVU67
-  42:Core/Src/Lab1.c ****         {
- 228              		.loc 1 42 12 is_stmt 0 view .LVU68
- 229 00e4 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-  42:Core/Src/Lab1.c ****         {
- 230              		.loc 1 42 11 view .LVU69
- 231 00e6 012B     		cmp	r3, #1
- 232 00e8 B6D0     		beq	.L18
- 233              	.L8:
-  47:Core/Src/Lab1.c ****         {
- 234              		.loc 1 47 9 is_stmt 1 view .LVU70
-  47:Core/Src/Lab1.c ****         {
- 235              		.loc 1 47 12 is_stmt 0 view .LVU71
- 236 00ea 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-  47:Core/Src/Lab1.c ****         {
- 237              		.loc 1 47 11 view .LVU72
- 238 00ec 022B     		cmp	r3, #2
- 239 00ee BFD0     		beq	.L19
- 240              	.L9:
-  52:Core/Src/Lab1.c ****         {
- 241              		.loc 1 52 9 is_stmt 1 view .LVU73
-  52:Core/Src/Lab1.c ****         {
- 242              		.loc 1 52 12 is_stmt 0 view .LVU74
- 243 00f0 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-  52:Core/Src/Lab1.c ****         {
- 244              		.loc 1 52 11 view .LVU75
- 245 00f2 032B     		cmp	r3, #3
- 246 00f4 C8D0     		beq	.L20
- 247              	.L10:
- 248              		.loc 1 57 9 is_stmt 1 view .LVU76
- 249              	.LBB3:
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 7
+ 230              		.loc 1 35 25 discriminator 1 view .LVU76
+ 231 00c0 002B     		cmp	r3, #0
+ 232 00c2 CED1     		bne	.L11
+  37:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 233              		.loc 1 37 13 is_stmt 1 view .LVU77
+  37:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 234              		.loc 1 37 19 is_stmt 0 view .LVU78
+ 235 00c4 0123     		movs	r3, #1
+ 236 00c6 2B70     		strb	r3, [r5]
+  38:Core/Src/Lab1.c ****         }
+ 237              		.loc 1 38 13 is_stmt 1 view .LVU79
+ 238 00c8 204A     		ldr	r2, .L25+8
+ 239 00ca 9369     		ldr	r3, [r2, #24]
+ 240 00cc 43F00103 		orr	r3, r3, #1
+ 241 00d0 9361     		str	r3, [r2, #24]
+ 242 00d2 C6E7     		b	.L11
+ 243              	.L19:
+  40:Core/Src/Lab1.c ****         {
+ 244              		.loc 1 40 28 is_stmt 0 discriminator 1 view .LVU80
+ 245 00d4 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+  40:Core/Src/Lab1.c ****         {
+ 246              		.loc 1 40 25 discriminator 1 view .LVU81
+ 247 00d6 002B     		cmp	r3, #0
+ 248 00d8 C6D1     		bne	.L12
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 7
 
 
- 250              		.loc 1 57 13 view .LVU77
- 251              	.LVL5:
- 252              		.loc 1 57 17 is_stmt 0 view .LVU78
- 253 00f6 0023     		movs	r3, #0
- 254              		.loc 1 57 9 view .LVU79
- 255 00f8 D2E7     		b	.L11
- 256              	.L22:
- 257 00fa 00BF     		.align	2
- 258              	.L21:
- 259 00fc 000C0240 		.word	1073875968
- 260 0100 00100240 		.word	1073876992
- 261 0104 00040240 		.word	1073873920
- 262 0108 7F1A0600 		.word	399999
- 263 010c 00080240 		.word	1073874944
- 264              	.LBE3:
- 265              		.cfi_endproc
- 266              	.LFE130:
- 268              		.section	.text.extra_task,"ax",%progbits
- 269              		.align	1
- 270              		.global	extra_task
- 271              		.syntax unified
- 272              		.thumb
- 273              		.thumb_func
- 275              	extra_task:
- 276              	.LVL6:
- 277              	.LFB131:
-  58:Core/Src/Lab1.c ****     }
-  59:Core/Src/Lab1.c **** }
-  60:Core/Src/Lab1.c **** 
-  61:Core/Src/Lab1.c **** 
-  62:Core/Src/Lab1.c **** 
-  63:Core/Src/Lab1.c **** void extra_task(uint8_t* en, uint8_t* score, bool* LD_1, bool* LD_2, bool* LD_3)// Функция �
-  64:Core/Src/Lab1.c **** {
- 278              		.loc 1 64 1 is_stmt 1 view -0
- 279              		.cfi_startproc
- 280              		@ args = 4, pretend = 0, frame = 0
- 281              		@ frame_needed = 0, uses_anonymous_args = 0
- 282              		.loc 1 64 1 is_stmt 0 view .LVU81
- 283 0000 30B5     		push	{r4, r5, lr}
- 284              	.LCFI1:
- 285              		.cfi_def_cfa_offset 12
- 286              		.cfi_offset 4, -12
- 287              		.cfi_offset 5, -8
- 288              		.cfi_offset 14, -4
- 289 0002 9646     		mov	lr, r2
- 290 0004 9C46     		mov	ip, r3
- 291 0006 039C     		ldr	r4, [sp, #12]
- 292 0008 E5E0     		b	.L56
- 293              	.LVL7:
- 294              	.L31:
-  65:Core/Src/Lab1.c ****     while (1)
-  66:Core/Src/Lab1.c ****     {
-  67:Core/Src/Lab1.c ****         if(READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_0) != 0)                                          // �
-  68:Core/Src/Lab1.c ****         {
-  69:Core/Src/Lab1.c ****             if(*en % 6 == 0)                                                                   // �
-  70:Core/Src/Lab1.c ****             {
-  71:Core/Src/Lab1.c ****                 *en = 1;
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 8
+  42:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 249              		.loc 1 42 13 is_stmt 1 view .LVU82
+  42:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 250              		.loc 1 42 19 is_stmt 0 view .LVU83
+ 251 00da 0123     		movs	r3, #1
+ 252 00dc 2370     		strb	r3, [r4]
+  43:Core/Src/Lab1.c ****         }
+ 253              		.loc 1 43 13 is_stmt 1 view .LVU84
+ 254 00de 1C4A     		ldr	r2, .L25+12
+ 255 00e0 9369     		ldr	r3, [r2, #24]
+ 256 00e2 43F08003 		orr	r3, r3, #128
+ 257 00e6 9361     		str	r3, [r2, #24]
+ 258 00e8 BEE7     		b	.L12
+ 259              	.L20:
+  45:Core/Src/Lab1.c ****         {
+ 260              		.loc 1 45 28 is_stmt 0 discriminator 1 view .LVU85
+ 261 00ea 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+  45:Core/Src/Lab1.c ****         {
+ 262              		.loc 1 45 25 discriminator 1 view .LVU86
+ 263 00ec 002B     		cmp	r3, #0
+ 264 00ee BED1     		bne	.L13
+  47:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
+ 265              		.loc 1 47 13 is_stmt 1 view .LVU87
+  47:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
+ 266              		.loc 1 47 19 is_stmt 0 view .LVU88
+ 267 00f0 0123     		movs	r3, #1
+ 268 00f2 3370     		strb	r3, [r6]
+  48:Core/Src/Lab1.c ****         }
+ 269              		.loc 1 48 13 is_stmt 1 view .LVU89
+ 270 00f4 174A     		ldr	r2, .L25+16
+ 271 00f6 9369     		ldr	r3, [r2, #24]
+ 272 00f8 43F48043 		orr	r3, r3, #16384
+ 273 00fc 9361     		str	r3, [r2, #24]
+ 274 00fe B6E7     		b	.L13
+ 275              	.L21:
+  51:Core/Src/Lab1.c ****         {
+ 276              		.loc 1 51 28 is_stmt 0 discriminator 1 view .LVU90
+ 277 0100 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+  51:Core/Src/Lab1.c ****         {
+ 278              		.loc 1 51 25 discriminator 1 view .LVU91
+ 279 0102 012B     		cmp	r3, #1
+ 280 0104 B6D1     		bne	.L14
+  53:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);
+ 281              		.loc 1 53 13 is_stmt 1 view .LVU92
+  53:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);
+ 282              		.loc 1 53 19 is_stmt 0 view .LVU93
+ 283 0106 0023     		movs	r3, #0
+ 284 0108 2B70     		strb	r3, [r5]
+  54:Core/Src/Lab1.c ****         }
+ 285              		.loc 1 54 13 is_stmt 1 view .LVU94
+ 286 010a 104A     		ldr	r2, .L25+8
+ 287 010c 9369     		ldr	r3, [r2, #24]
+ 288 010e 43F48033 		orr	r3, r3, #65536
+ 289 0112 9361     		str	r3, [r2, #24]
+ 290 0114 AEE7     		b	.L14
+ 291              	.L22:
+  56:Core/Src/Lab1.c ****         {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 8
 
 
- 295              		.loc 1 71 17 is_stmt 1 view .LVU82
- 296              		.loc 1 71 21 is_stmt 0 view .LVU83
- 297 000a 0123     		movs	r3, #1
- 298 000c 0370     		strb	r3, [r0]
-  72:Core/Src/Lab1.c ****                 *score = 0;
- 299              		.loc 1 72 17 is_stmt 1 view .LVU84
- 300              		.loc 1 72 24 is_stmt 0 view .LVU85
- 301 000e 0023     		movs	r3, #0
- 302 0010 0B70     		strb	r3, [r1]
- 303              	.L24:
-  73:Core/Src/Lab1.c ****             }
-  74:Core/Src/Lab1.c ****             
-  75:Core/Src/Lab1.c ****             else if(*en % 6 == 1)                                                              // �
+ 292              		.loc 1 56 28 is_stmt 0 discriminator 1 view .LVU95
+ 293 0116 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+  56:Core/Src/Lab1.c ****         {
+ 294              		.loc 1 56 25 discriminator 1 view .LVU96
+ 295 0118 012B     		cmp	r3, #1
+ 296 011a AED1     		bne	.L15
+  58:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);
+ 297              		.loc 1 58 13 is_stmt 1 view .LVU97
+  58:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);
+ 298              		.loc 1 58 19 is_stmt 0 view .LVU98
+ 299 011c 0023     		movs	r3, #0
+ 300 011e 2370     		strb	r3, [r4]
+  59:Core/Src/Lab1.c ****         }
+ 301              		.loc 1 59 13 is_stmt 1 view .LVU99
+ 302 0120 0B4A     		ldr	r2, .L25+12
+ 303 0122 9369     		ldr	r3, [r2, #24]
+ 304 0124 43F40003 		orr	r3, r3, #8388608
+ 305 0128 9361     		str	r3, [r2, #24]
+ 306 012a A6E7     		b	.L15
+ 307              	.L23:
+ 308              		.loc 1 61 28 is_stmt 0 discriminator 1 view .LVU100
+ 309 012c 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 310              		.loc 1 61 25 discriminator 1 view .LVU101
+ 311 012e 012B     		cmp	r3, #1
+ 312 0130 A6D1     		bne	.L2
+  62:Core/Src/Lab1.c ****         {
+  63:Core/Src/Lab1.c ****             *LD_3 = 0;
+ 313              		.loc 1 63 13 is_stmt 1 view .LVU102
+ 314              		.loc 1 63 19 is_stmt 0 view .LVU103
+ 315 0132 0023     		movs	r3, #0
+ 316 0134 3370     		strb	r3, [r6]
+  64:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);
+ 317              		.loc 1 64 13 is_stmt 1 view .LVU104
+ 318 0136 074A     		ldr	r2, .L25+16
+ 319 0138 9369     		ldr	r3, [r2, #24]
+ 320 013a 43F08043 		orr	r3, r3, #1073741824
+ 321 013e 9361     		str	r3, [r2, #24]
+ 322 0140 9EE7     		b	.L2
+ 323              	.L26:
+ 324 0142 00BF     		.align	2
+ 325              	.L25:
+ 326 0144 7F1A0600 		.word	399999
+ 327 0148 00080240 		.word	1073874944
+ 328 014c 000C0240 		.word	1073875968
+ 329 0150 00100240 		.word	1073876992
+ 330 0154 00040240 		.word	1073873920
+ 331              		.cfi_endproc
+ 332              	.LFE130:
+ 334              		.section	.text.extra_task,"ax",%progbits
+ 335              		.align	1
+ 336              		.global	extra_task
+ 337              		.syntax unified
+ 338              		.thumb
+ 339              		.thumb_func
+ 341              	extra_task:
+ 342              	.LVL10:
+ 343              	.LFB131:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 9
+
+
+  65:Core/Src/Lab1.c ****         }
+  66:Core/Src/Lab1.c ****     }
+  67:Core/Src/Lab1.c **** }
+  68:Core/Src/Lab1.c **** 
+  69:Core/Src/Lab1.c **** void extra_task(uint8_t *en, uint8_t *score, bool *LD_1, bool *LD_2, bool *LD_3, bool *press1, bool
+  70:Core/Src/Lab1.c **** {
+ 344              		.loc 1 70 1 view -0
+ 345              		.cfi_startproc
+ 346              		@ args = 12, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		.loc 1 70 1 is_stmt 0 view .LVU106
+ 349 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 350              	.LCFI1:
+ 351              		.cfi_def_cfa_offset 20
+ 352              		.cfi_offset 4, -20
+ 353              		.cfi_offset 5, -16
+ 354              		.cfi_offset 6, -12
+ 355              		.cfi_offset 7, -8
+ 356              		.cfi_offset 14, -4
+ 357 0002 9646     		mov	lr, r2
+ 358 0004 9C46     		mov	ip, r3
+ 359 0006 059C     		ldr	r4, [sp, #20]
+ 360 0008 069E     		ldr	r6, [sp, #24]
+ 361 000a 079D     		ldr	r5, [sp, #28]
+ 362 000c 58E0     		b	.L28
+ 363              	.LVL11:
+ 364              	.L68:
+  71:Core/Src/Lab1.c ****     while (1)
+  72:Core/Src/Lab1.c ****     {
+  73:Core/Src/Lab1.c ****         if (READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_0) != 0)                      // Проверка н�
+  74:Core/Src/Lab1.c ****         {
+  75:Core/Src/Lab1.c ****             if (*press2 == 0)
   76:Core/Src/Lab1.c ****             {
-  77:Core/Src/Lab1.c ****                 *en = 2;
+  77:Core/Src/Lab1.c ****                 *en = (*en + 1) % 6;                                        // Переключен
+ 365              		.loc 1 77 17 is_stmt 1 view .LVU107
+ 366              		.loc 1 77 24 is_stmt 0 view .LVU108
+ 367 000e 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
+ 368              		.loc 1 77 28 view .LVU109
+ 369 0010 0132     		adds	r2, r2, #1
+ 370              		.loc 1 77 33 view .LVU110
+ 371 0012 A3F15533 		sub	r3, r3, #1431655765
+ 372 0016 03F10043 		add	r3, r3, #-2147483648
+ 373 001a 83FB0273 		smull	r7, r3, r3, r2
+ 374 001e 03EB4303 		add	r3, r3, r3, lsl #1
+ 375 0022 A2EB4303 		sub	r3, r2, r3, lsl #1
+ 376              		.loc 1 77 21 view .LVU111
+ 377 0026 0370     		strb	r3, [r0]
   78:Core/Src/Lab1.c ****                 *score = 0;
-  79:Core/Src/Lab1.c ****             }
-  80:Core/Src/Lab1.c ****             else if(*en % 6 == 2)                                                              // �
-  81:Core/Src/Lab1.c ****             {
-  82:Core/Src/Lab1.c ****                 *en = 3;
-  83:Core/Src/Lab1.c ****                 *score = 0;
-  84:Core/Src/Lab1.c ****             }
-  85:Core/Src/Lab1.c ****             else if(*en % 6 == 3)                                                              // �
-  86:Core/Src/Lab1.c ****             {
-  87:Core/Src/Lab1.c ****                 *en = 4;
-  88:Core/Src/Lab1.c ****                 *score = 0;
-  89:Core/Src/Lab1.c ****             }
-  90:Core/Src/Lab1.c ****             else if(*en % 6 == 4)                                                              // �
+ 378              		.loc 1 78 17 is_stmt 1 view .LVU112
+ 379              		.loc 1 78 24 is_stmt 0 view .LVU113
+ 380 0028 0023     		movs	r3, #0
+ 381 002a 0B70     		strb	r3, [r1]
+  79:Core/Src/Lab1.c ****                 *press2 = 1;
+ 382              		.loc 1 79 17 is_stmt 1 view .LVU114
+ 383              		.loc 1 79 25 is_stmt 0 view .LVU115
+ 384 002c 0122     		movs	r2, #1
+ 385 002e 2A70     		strb	r2, [r5]
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 10
+
+
+  80:Core/Src/Lab1.c ****                 for (int i = 0; i < 400000; i++);                           // Задержка д�
+ 386              		.loc 1 80 17 is_stmt 1 view .LVU116
+ 387              	.LBB4:
+ 388              		.loc 1 80 22 view .LVU117
+ 389              	.LVL12:
+ 390              		.loc 1 80 17 is_stmt 0 view .LVU118
+ 391 0030 00E0     		b	.L31
+ 392              	.LVL13:
+ 393              	.L32:
+ 394              		.loc 1 80 46 is_stmt 1 discriminator 3 view .LVU119
+ 395 0032 0133     		adds	r3, r3, #1
+ 396              	.LVL14:
+ 397              	.L31:
+ 398              		.loc 1 80 35 discriminator 1 view .LVU120
+ 399 0034 774A     		ldr	r2, .L69
+ 400 0036 9342     		cmp	r3, r2
+ 401 0038 FBDD     		ble	.L32
+ 402 003a 49E0     		b	.L30
+ 403              	.LVL15:
+ 404              	.L29:
+ 405              		.loc 1 80 35 is_stmt 0 discriminator 1 view .LVU121
+ 406              	.LBE4:
+  81:Core/Src/Lab1.c ****             }
+  82:Core/Src/Lab1.c ****         }
+  83:Core/Src/Lab1.c ****         else if ((READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_0) == 0) && (*press2 == 1))
+ 407              		.loc 1 83 14 is_stmt 1 view .LVU122
+ 408              		.loc 1 83 19 is_stmt 0 view .LVU123
+ 409 003c 764B     		ldr	r3, .L69+4
+ 410 003e 1B69     		ldr	r3, [r3, #16]
+ 411              		.loc 1 83 17 view .LVU124
+ 412 0040 13F0010F 		tst	r3, #1
+ 413 0044 44D1     		bne	.L30
+ 414              		.loc 1 83 66 discriminator 1 view .LVU125
+ 415 0046 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 416              		.loc 1 83 62 discriminator 1 view .LVU126
+ 417 0048 002B     		cmp	r3, #0
+ 418 004a 41D0     		beq	.L30
+  84:Core/Src/Lab1.c ****         {
+  85:Core/Src/Lab1.c ****             *press2 = 0;
+ 419              		.loc 1 85 13 is_stmt 1 view .LVU127
+ 420              		.loc 1 85 21 is_stmt 0 view .LVU128
+ 421 004c 0023     		movs	r3, #0
+ 422 004e 2B70     		strb	r3, [r5]
+ 423 0050 3EE0     		b	.L30
+ 424              	.LVL16:
+ 425              	.L36:
+ 426              	.LBB5:
+  86:Core/Src/Lab1.c ****         }
+  87:Core/Src/Lab1.c **** 
+  88:Core/Src/Lab1.c ****         if ((READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_13) != 0) && (*score < 3))   // Если кнопк�
+  89:Core/Src/Lab1.c ****         {
+  90:Core/Src/Lab1.c ****             if (*press1 == 0)
   91:Core/Src/Lab1.c ****             {
-  92:Core/Src/Lab1.c ****                 *en = 5;
-  93:Core/Src/Lab1.c ****                 *score = 0;
-  94:Core/Src/Lab1.c ****             }
-  95:Core/Src/Lab1.c ****             else if(*en % 6 == 5)                                                              // �
-  96:Core/Src/Lab1.c ****             {
-  97:Core/Src/Lab1.c ****                 *en = 0;
-  98:Core/Src/Lab1.c ****                 *score = 0;
-  99:Core/Src/Lab1.c ****             }    
- 100:Core/Src/Lab1.c ****         }
- 101:Core/Src/Lab1.c **** 
- 102:Core/Src/Lab1.c ****         if((READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_13) != 0) && (*score < 3))                       // �
- 304              		.loc 1 102 9 is_stmt 1 view .LVU86
- 305              		.loc 1 102 13 is_stmt 0 view .LVU87
- 306 0012 824B     		ldr	r3, .L68
- 307 0014 1B69     		ldr	r3, [r3, #16]
- 308              		.loc 1 102 11 view .LVU88
- 309 0016 13F4005F 		tst	r3, #8192
- 310 001a 04D0     		beq	.L32
- 311              		.loc 1 102 61 discriminator 1 view .LVU89
- 312 001c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 313              		.loc 1 102 57 discriminator 1 view .LVU90
- 314 001e 022B     		cmp	r3, #2
- 315 0020 01D8     		bhi	.L32
- 103:Core/Src/Lab1.c ****         {
- 104:Core/Src/Lab1.c ****             *score = *score + 1;
- 316              		.loc 1 104 13 is_stmt 1 view .LVU91
- 317              		.loc 1 104 29 is_stmt 0 view .LVU92
- 318 0022 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 9
+  92:Core/Src/Lab1.c ****                 *score = *score + 1;
+  93:Core/Src/Lab1.c ****                 *press1 = 1;
+  94:Core/Src/Lab1.c ****                 for (int i = 0; i < 400000; i++);                           // Задержка д�
+ 427              		.loc 1 94 46 is_stmt 1 discriminator 3 view .LVU129
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 11
 
 
- 319              		.loc 1 104 20 view .LVU93
- 320 0024 0B70     		strb	r3, [r1]
- 321              	.L32:
- 105:Core/Src/Lab1.c ****         }
- 106:Core/Src/Lab1.c **** 
- 107:Core/Src/Lab1.c ****         if((*score == 1) && (*en % 2 == 0))                                                    // �
- 322              		.loc 1 107 9 is_stmt 1 view .LVU94
- 323              		.loc 1 107 13 is_stmt 0 view .LVU95
- 324 0026 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 325              		.loc 1 107 11 view .LVU96
- 326 0028 012B     		cmp	r3, #1
- 327 002a 3FD0     		beq	.L59
- 328              	.L33:
- 108:Core/Src/Lab1.c ****         {   
- 109:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);                                                
- 110:Core/Src/Lab1.c ****             *LD_1 = 1;
- 111:Core/Src/Lab1.c ****         }
- 112:Core/Src/Lab1.c ****         if((*score == 2) && (*en % 2 == 0))                                                    // �
- 329              		.loc 1 112 9 is_stmt 1 view .LVU97
- 330              		.loc 1 112 13 is_stmt 0 view .LVU98
- 331 002c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 332              		.loc 1 112 11 view .LVU99
- 333 002e 022B     		cmp	r3, #2
- 334 0030 49D0     		beq	.L60
- 335              	.L34:
- 113:Core/Src/Lab1.c ****         {
- 114:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
- 115:Core/Src/Lab1.c ****             *LD_2 = 1;
- 116:Core/Src/Lab1.c ****         }
- 117:Core/Src/Lab1.c ****         if((*score == 3) && (*en % 2 == 0))                                                    // �
- 336              		.loc 1 117 9 is_stmt 1 view .LVU100
- 337              		.loc 1 117 13 is_stmt 0 view .LVU101
- 338 0032 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 339              		.loc 1 117 11 view .LVU102
- 340 0034 032B     		cmp	r3, #3
- 341 0036 53D0     		beq	.L61
- 342              	.L35:
- 118:Core/Src/Lab1.c ****         {
- 119:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14); 
- 120:Core/Src/Lab1.c ****             *LD_3 = 1;
- 121:Core/Src/Lab1.c ****         }
- 122:Core/Src/Lab1.c ****         
- 123:Core/Src/Lab1.c **** 
- 124:Core/Src/Lab1.c ****         if((*score == 1) && (*en % 2 == 1))                                                    // �
- 343              		.loc 1 124 9 is_stmt 1 view .LVU103
- 344              		.loc 1 124 13 is_stmt 0 view .LVU104
- 345 0038 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 346              		.loc 1 124 11 view .LVU105
- 347 003a 012B     		cmp	r3, #1
- 348 003c 5CD0     		beq	.L62
- 349              	.L36:
+ 428 0052 0133     		adds	r3, r3, #1
+ 429              	.LVL17:
+ 430              	.L35:
+ 431              		.loc 1 94 35 discriminator 1 view .LVU130
+ 432 0054 6F4A     		ldr	r2, .L69
+ 433 0056 9342     		cmp	r3, r2
+ 434 0058 FBDD     		ble	.L36
+ 435 005a 08E0     		b	.L34
+ 436              	.LVL18:
+ 437              	.L33:
+ 438              		.loc 1 94 35 is_stmt 0 discriminator 1 view .LVU131
+ 439              	.LBE5:
+  95:Core/Src/Lab1.c ****             }
+  96:Core/Src/Lab1.c ****             
+  97:Core/Src/Lab1.c ****         }
+  98:Core/Src/Lab1.c ****         else if ((READ_BIT(GPIOC->IDR, GPIO_IDR_IDR_13) == 0) && (*press1 == 1))
+ 440              		.loc 1 98 14 is_stmt 1 view .LVU132
+ 441              		.loc 1 98 19 is_stmt 0 view .LVU133
+ 442 005c 6E4B     		ldr	r3, .L69+4
+ 443 005e 1B69     		ldr	r3, [r3, #16]
+ 444              		.loc 1 98 17 view .LVU134
+ 445 0060 13F4005F 		tst	r3, #8192
+ 446 0064 03D1     		bne	.L34
+ 447              		.loc 1 98 67 discriminator 1 view .LVU135
+ 448 0066 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
+ 449              		.loc 1 98 63 discriminator 1 view .LVU136
+ 450 0068 0BB1     		cbz	r3, .L34
+  99:Core/Src/Lab1.c ****         {
+ 100:Core/Src/Lab1.c ****             *press1 = 0;
+ 451              		.loc 1 100 13 is_stmt 1 view .LVU137
+ 452              		.loc 1 100 21 is_stmt 0 view .LVU138
+ 453 006a 0023     		movs	r3, #0
+ 454 006c 3370     		strb	r3, [r6]
+ 455              	.L34:
+ 101:Core/Src/Lab1.c ****         }
+ 102:Core/Src/Lab1.c **** 
+ 103:Core/Src/Lab1.c ****         if ((*score == 1) && (*en % 2 == 0))                                // Если счетч�
+ 456              		.loc 1 103 9 is_stmt 1 view .LVU139
+ 457              		.loc 1 103 14 is_stmt 0 view .LVU140
+ 458 006e 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 459              		.loc 1 103 12 view .LVU141
+ 460 0070 012B     		cmp	r3, #1
+ 461 0072 3ED0     		beq	.L59
+ 462              	.L37:
+ 104:Core/Src/Lab1.c ****         {
+ 105:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 106:Core/Src/Lab1.c ****             *LD_1 = 1;
+ 107:Core/Src/Lab1.c ****         }
+ 108:Core/Src/Lab1.c ****         if ((*score == 2) && (*en % 2 == 0))                                // Если счетч�
+ 463              		.loc 1 108 9 is_stmt 1 view .LVU142
+ 464              		.loc 1 108 14 is_stmt 0 view .LVU143
+ 465 0074 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 466              		.loc 1 108 12 view .LVU144
+ 467 0076 022B     		cmp	r3, #2
+ 468 0078 48D0     		beq	.L60
+ 469              	.L38:
+ 109:Core/Src/Lab1.c ****         {
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 12
+
+
+ 110:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 111:Core/Src/Lab1.c ****             *LD_2 = 1;
+ 112:Core/Src/Lab1.c ****         }
+ 113:Core/Src/Lab1.c ****         if ((*score == 3) && (*en % 2 == 0))                                // Если счетч�
+ 470              		.loc 1 113 9 is_stmt 1 view .LVU145
+ 471              		.loc 1 113 14 is_stmt 0 view .LVU146
+ 472 007a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 473              		.loc 1 113 12 view .LVU147
+ 474 007c 032B     		cmp	r3, #3
+ 475 007e 52D0     		beq	.L61
+ 476              	.L39:
+ 114:Core/Src/Lab1.c ****         {
+ 115:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
+ 116:Core/Src/Lab1.c ****             *LD_3 = 1;
+ 117:Core/Src/Lab1.c ****         }
+ 118:Core/Src/Lab1.c **** 
+ 119:Core/Src/Lab1.c ****         if ((*score == 1) && (*en % 2 == 1))                                // Если счетч�
+ 477              		.loc 1 119 9 is_stmt 1 view .LVU148
+ 478              		.loc 1 119 14 is_stmt 0 view .LVU149
+ 479 0080 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 480              		.loc 1 119 12 view .LVU150
+ 481 0082 012B     		cmp	r3, #1
+ 482 0084 5BD0     		beq	.L62
+ 483              	.L40:
+ 120:Core/Src/Lab1.c ****         {
+ 121:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);
+ 122:Core/Src/Lab1.c ****             *LD_1 = 0;
+ 123:Core/Src/Lab1.c ****         }
+ 124:Core/Src/Lab1.c ****         if ((*score == 2) && (*en % 2 == 1))                                // Если счетч�
+ 484              		.loc 1 124 9 is_stmt 1 view .LVU151
+ 485              		.loc 1 124 14 is_stmt 0 view .LVU152
+ 486 0086 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 487              		.loc 1 124 12 view .LVU153
+ 488 0088 022B     		cmp	r3, #2
+ 489 008a 65D0     		beq	.L63
+ 490              	.L41:
  125:Core/Src/Lab1.c ****         {
- 126:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);  
- 127:Core/Src/Lab1.c ****             *LD_1 = 0;
+ 126:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);
+ 127:Core/Src/Lab1.c ****             *LD_2 = 0;
  128:Core/Src/Lab1.c ****         }
- 129:Core/Src/Lab1.c ****         if((*score == 2) && (*en % 2 == 1))                                                    // �
- 350              		.loc 1 129 9 is_stmt 1 view .LVU106
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 10
-
-
- 351              		.loc 1 129 13 is_stmt 0 view .LVU107
- 352 003e 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 353              		.loc 1 129 11 view .LVU108
- 354 0040 022B     		cmp	r3, #2
- 355 0042 66D0     		beq	.L63
- 356              	.L37:
+ 129:Core/Src/Lab1.c ****         if ((*score == 3) && (*en % 2 == 1))                                // Если счетч�
+ 491              		.loc 1 129 9 is_stmt 1 view .LVU154
+ 492              		.loc 1 129 14 is_stmt 0 view .LVU155
+ 493 008c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 494              		.loc 1 129 12 view .LVU156
+ 495 008e 032B     		cmp	r3, #3
+ 496 0090 6FD0     		beq	.L64
+ 497              	.L42:
  130:Core/Src/Lab1.c ****         {
- 131:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);
- 132:Core/Src/Lab1.c ****             *LD_2 = 0;
+ 131:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);
+ 132:Core/Src/Lab1.c ****             *LD_3 = 0;
  133:Core/Src/Lab1.c ****         }
- 134:Core/Src/Lab1.c ****         if((*score == 3) && (*en % 2 == 1))                                                    // �
- 357              		.loc 1 134 9 is_stmt 1 view .LVU109
- 358              		.loc 1 134 13 is_stmt 0 view .LVU110
- 359 0044 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 360              		.loc 1 134 11 view .LVU111
- 361 0046 032B     		cmp	r3, #3
- 362 0048 70D0     		beq	.L64
- 363              	.L38:
- 135:Core/Src/Lab1.c ****         {
- 136:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14); 
- 137:Core/Src/Lab1.c ****             *LD_3 = 0;
- 138:Core/Src/Lab1.c ****         }
- 139:Core/Src/Lab1.c **** 
- 140:Core/Src/Lab1.c **** 
- 141:Core/Src/Lab1.c ****         if ((*LD_1 == 1)  && (*en == 0 || *en == 1))                                          // Е
- 364              		.loc 1 141 9 is_stmt 1 view .LVU112
- 365              		.loc 1 141 14 is_stmt 0 view .LVU113
- 366 004a 9EF80030 		ldrb	r3, [lr]	@ zero_extendqisi2
- 367              		.loc 1 141 12 view .LVU114
- 368 004e 13B1     		cbz	r3, .L39
- 369              		.loc 1 141 31 discriminator 1 view .LVU115
- 370 0050 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 371              		.loc 1 141 27 discriminator 1 view .LVU116
- 372 0052 012B     		cmp	r3, #1
- 373 0054 76D9     		bls	.L65
- 374              	.L39:
- 142:Core/Src/Lab1.c ****         {
- 143:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);
- 144:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 145:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
- 146:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
+ 134:Core/Src/Lab1.c **** 
+ 135:Core/Src/Lab1.c ****         if ((*LD_1 == 1) && (*en == 0 || *en == 1))                         // Если LD_1 = 1 (�
+ 498              		.loc 1 135 9 is_stmt 1 view .LVU157
+ 499              		.loc 1 135 14 is_stmt 0 view .LVU158
+ 500 0092 9EF80030 		ldrb	r3, [lr]	@ zero_extendqisi2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 13
+
+
+ 501              		.loc 1 135 12 view .LVU159
+ 502 0096 13B1     		cbz	r3, .L43
+ 503              		.loc 1 135 30 discriminator 1 view .LVU160
+ 504 0098 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 505              		.loc 1 135 26 discriminator 1 view .LVU161
+ 506 009a 012B     		cmp	r3, #1
+ 507 009c 75D9     		bls	.L65
+ 508              	.L43:
+ 136:Core/Src/Lab1.c ****         {
+ 137:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);
+ 138:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 139:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 140:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 141:Core/Src/Lab1.c ****         }
+ 142:Core/Src/Lab1.c ****         if ((*LD_2 == 1) && (*en == 2 || *en == 3))                         // Если LD_2 = 1 (�
+ 509              		.loc 1 142 9 is_stmt 1 view .LVU162
+ 510              		.loc 1 142 14 is_stmt 0 view .LVU163
+ 511 009e 9CF80030 		ldrb	r3, [ip]	@ zero_extendqisi2
+ 512              		.loc 1 142 12 view .LVU164
+ 513 00a2 2BB1     		cbz	r3, .L48
+ 514              		.loc 1 142 30 discriminator 1 view .LVU165
+ 515 00a4 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 516              		.loc 1 142 39 discriminator 1 view .LVU166
+ 517 00a6 023B     		subs	r3, r3, #2
+ 518 00a8 DBB2     		uxtb	r3, r3
+ 519              		.loc 1 142 26 discriminator 1 view .LVU167
+ 520 00aa 012B     		cmp	r3, #1
+ 521 00ac 40F28480 		bls	.L66
+ 522              	.L48:
+ 143:Core/Src/Lab1.c ****         {
+ 144:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);
+ 145:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 146:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 147:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 148:Core/Src/Lab1.c ****         }
+ 149:Core/Src/Lab1.c ****         if ((*LD_3 == 1) && (*en == 4 || *en == 5))                         // Если LD_3 = 1 (�
+ 523              		.loc 1 149 9 is_stmt 1 view .LVU168
+ 524              		.loc 1 149 14 is_stmt 0 view .LVU169
+ 525 00b0 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 526              		.loc 1 149 12 view .LVU170
+ 527 00b2 2BB1     		cbz	r3, .L28
+ 528              		.loc 1 149 30 discriminator 1 view .LVU171
+ 529 00b4 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 530              		.loc 1 149 39 discriminator 1 view .LVU172
+ 531 00b6 043B     		subs	r3, r3, #4
+ 532 00b8 DBB2     		uxtb	r3, r3
+ 533              		.loc 1 149 26 discriminator 1 view .LVU173
+ 534 00ba 012B     		cmp	r3, #1
+ 535 00bc 40F29380 		bls	.L67
+ 536              	.L28:
+  71:Core/Src/Lab1.c ****     {
+ 537              		.loc 1 71 5 is_stmt 1 view .LVU174
+  73:Core/Src/Lab1.c ****         {
+ 538              		.loc 1 73 9 view .LVU175
+  73:Core/Src/Lab1.c ****         {
+ 539              		.loc 1 73 13 is_stmt 0 view .LVU176
+ 540 00c0 554B     		ldr	r3, .L69+4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 14
+
+
+ 541 00c2 1B69     		ldr	r3, [r3, #16]
+  73:Core/Src/Lab1.c ****         {
+ 542              		.loc 1 73 12 view .LVU177
+ 543 00c4 13F0010F 		tst	r3, #1
+ 544 00c8 B8D0     		beq	.L29
+  75:Core/Src/Lab1.c ****             {
+ 545              		.loc 1 75 13 is_stmt 1 view .LVU178
+  75:Core/Src/Lab1.c ****             {
+ 546              		.loc 1 75 17 is_stmt 0 view .LVU179
+ 547 00ca 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  75:Core/Src/Lab1.c ****             {
+ 548              		.loc 1 75 16 view .LVU180
+ 549 00cc 002B     		cmp	r3, #0
+ 550 00ce 9ED0     		beq	.L68
+ 551              	.L30:
+  88:Core/Src/Lab1.c ****         {
+ 552              		.loc 1 88 9 is_stmt 1 view .LVU181
+  88:Core/Src/Lab1.c ****         {
+ 553              		.loc 1 88 14 is_stmt 0 view .LVU182
+ 554 00d0 514B     		ldr	r3, .L69+4
+ 555 00d2 1B69     		ldr	r3, [r3, #16]
+  88:Core/Src/Lab1.c ****         {
+ 556              		.loc 1 88 12 view .LVU183
+ 557 00d4 13F4005F 		tst	r3, #8192
+ 558 00d8 C0D0     		beq	.L33
+  88:Core/Src/Lab1.c ****         {
+ 559              		.loc 1 88 62 discriminator 1 view .LVU184
+ 560 00da 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  88:Core/Src/Lab1.c ****         {
+ 561              		.loc 1 88 58 discriminator 1 view .LVU185
+ 562 00dc 022B     		cmp	r3, #2
+ 563 00de BDD8     		bhi	.L33
+  90:Core/Src/Lab1.c ****             {
+ 564              		.loc 1 90 13 is_stmt 1 view .LVU186
+  90:Core/Src/Lab1.c ****             {
+ 565              		.loc 1 90 17 is_stmt 0 view .LVU187
+ 566 00e0 3278     		ldrb	r2, [r6]	@ zero_extendqisi2
+  90:Core/Src/Lab1.c ****             {
+ 567              		.loc 1 90 16 view .LVU188
+ 568 00e2 002A     		cmp	r2, #0
+ 569 00e4 C3D1     		bne	.L34
+  92:Core/Src/Lab1.c ****                 *press1 = 1;
+ 570              		.loc 1 92 17 is_stmt 1 view .LVU189
+  92:Core/Src/Lab1.c ****                 *press1 = 1;
+ 571              		.loc 1 92 33 is_stmt 0 view .LVU190
+ 572 00e6 0133     		adds	r3, r3, #1
+  92:Core/Src/Lab1.c ****                 *press1 = 1;
+ 573              		.loc 1 92 24 view .LVU191
+ 574 00e8 0B70     		strb	r3, [r1]
+  93:Core/Src/Lab1.c ****                 for (int i = 0; i < 400000; i++);                           // Задержка д�
+ 575              		.loc 1 93 17 is_stmt 1 view .LVU192
+  93:Core/Src/Lab1.c ****                 for (int i = 0; i < 400000; i++);                           // Задержка д�
+ 576              		.loc 1 93 25 is_stmt 0 view .LVU193
+ 577 00ea 0123     		movs	r3, #1
+ 578 00ec 3370     		strb	r3, [r6]
+  94:Core/Src/Lab1.c ****             }
+ 579              		.loc 1 94 17 is_stmt 1 view .LVU194
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 15
+
+
+ 580              	.LBB6:
+  94:Core/Src/Lab1.c ****             }
+ 581              		.loc 1 94 22 view .LVU195
+ 582              	.LVL19:
+  94:Core/Src/Lab1.c ****             }
+ 583              		.loc 1 94 26 is_stmt 0 view .LVU196
+ 584 00ee 0023     		movs	r3, #0
+  94:Core/Src/Lab1.c ****             }
+ 585              		.loc 1 94 17 view .LVU197
+ 586 00f0 B0E7     		b	.L35
+ 587              	.LVL20:
+ 588              	.L59:
+  94:Core/Src/Lab1.c ****             }
+ 589              		.loc 1 94 17 view .LVU198
+ 590              	.LBE6:
+ 103:Core/Src/Lab1.c ****         {
+ 591              		.loc 1 103 31 discriminator 1 view .LVU199
+ 592 00f2 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 103:Core/Src/Lab1.c ****         {
+ 593              		.loc 1 103 27 discriminator 1 view .LVU200
+ 594 00f4 13F0010F 		tst	r3, #1
+ 595 00f8 BCD1     		bne	.L37
+ 105:Core/Src/Lab1.c ****             *LD_1 = 1;
+ 596              		.loc 1 105 13 is_stmt 1 view .LVU201
+ 597 00fa 484A     		ldr	r2, .L69+8
+ 598 00fc 9369     		ldr	r3, [r2, #24]
+ 599 00fe 43F00103 		orr	r3, r3, #1
+ 600 0102 9361     		str	r3, [r2, #24]
+ 106:Core/Src/Lab1.c ****         }
+ 601              		.loc 1 106 13 view .LVU202
+ 106:Core/Src/Lab1.c ****         }
+ 602              		.loc 1 106 19 is_stmt 0 view .LVU203
+ 603 0104 0123     		movs	r3, #1
+ 604 0106 8EF80030 		strb	r3, [lr]
+ 605 010a B3E7     		b	.L37
+ 606              	.L60:
+ 108:Core/Src/Lab1.c ****         {
+ 607              		.loc 1 108 31 discriminator 1 view .LVU204
+ 608 010c 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 108:Core/Src/Lab1.c ****         {
+ 609              		.loc 1 108 27 discriminator 1 view .LVU205
+ 610 010e 13F0010F 		tst	r3, #1
+ 611 0112 B2D1     		bne	.L38
+ 110:Core/Src/Lab1.c ****             *LD_2 = 1;
+ 612              		.loc 1 110 13 is_stmt 1 view .LVU206
+ 613 0114 424A     		ldr	r2, .L69+12
+ 614 0116 9369     		ldr	r3, [r2, #24]
+ 615 0118 43F08003 		orr	r3, r3, #128
+ 616 011c 9361     		str	r3, [r2, #24]
+ 111:Core/Src/Lab1.c ****         }
+ 617              		.loc 1 111 13 view .LVU207
+ 111:Core/Src/Lab1.c ****         }
+ 618              		.loc 1 111 19 is_stmt 0 view .LVU208
+ 619 011e 0123     		movs	r3, #1
+ 620 0120 8CF80030 		strb	r3, [ip]
+ 621 0124 A9E7     		b	.L38
+ 622              	.L61:
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 16
+
+
+ 113:Core/Src/Lab1.c ****         {
+ 623              		.loc 1 113 31 discriminator 1 view .LVU209
+ 624 0126 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 113:Core/Src/Lab1.c ****         {
+ 625              		.loc 1 113 27 discriminator 1 view .LVU210
+ 626 0128 13F0010F 		tst	r3, #1
+ 627 012c A8D1     		bne	.L39
+ 115:Core/Src/Lab1.c ****             *LD_3 = 1;
+ 628              		.loc 1 115 13 is_stmt 1 view .LVU211
+ 629 012e 3D4A     		ldr	r2, .L69+16
+ 630 0130 9369     		ldr	r3, [r2, #24]
+ 631 0132 43F48043 		orr	r3, r3, #16384
+ 632 0136 9361     		str	r3, [r2, #24]
+ 116:Core/Src/Lab1.c ****         }
+ 633              		.loc 1 116 13 view .LVU212
+ 116:Core/Src/Lab1.c ****         }
+ 634              		.loc 1 116 19 is_stmt 0 view .LVU213
+ 635 0138 0123     		movs	r3, #1
+ 636 013a 2370     		strb	r3, [r4]
+ 637 013c A0E7     		b	.L39
+ 638              	.L62:
+ 119:Core/Src/Lab1.c ****         {
+ 639              		.loc 1 119 31 discriminator 1 view .LVU214
+ 640 013e 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 119:Core/Src/Lab1.c ****         {
+ 641              		.loc 1 119 27 discriminator 1 view .LVU215
+ 642 0140 13F0010F 		tst	r3, #1
+ 643 0144 9FD0     		beq	.L40
+ 121:Core/Src/Lab1.c ****             *LD_1 = 0;
+ 644              		.loc 1 121 13 is_stmt 1 view .LVU216
+ 645 0146 354A     		ldr	r2, .L69+8
+ 646 0148 9369     		ldr	r3, [r2, #24]
+ 647 014a 43F48033 		orr	r3, r3, #65536
+ 648 014e 9361     		str	r3, [r2, #24]
+ 122:Core/Src/Lab1.c ****         }
+ 649              		.loc 1 122 13 view .LVU217
+ 122:Core/Src/Lab1.c ****         }
+ 650              		.loc 1 122 19 is_stmt 0 view .LVU218
+ 651 0150 0023     		movs	r3, #0
+ 652 0152 8EF80030 		strb	r3, [lr]
+ 653 0156 96E7     		b	.L40
+ 654              	.L63:
+ 124:Core/Src/Lab1.c ****         {
+ 655              		.loc 1 124 31 discriminator 1 view .LVU219
+ 656 0158 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 124:Core/Src/Lab1.c ****         {
+ 657              		.loc 1 124 27 discriminator 1 view .LVU220
+ 658 015a 13F0010F 		tst	r3, #1
+ 659 015e 95D0     		beq	.L41
+ 126:Core/Src/Lab1.c ****             *LD_2 = 0;
+ 660              		.loc 1 126 13 is_stmt 1 view .LVU221
+ 661 0160 2F4A     		ldr	r2, .L69+12
+ 662 0162 9369     		ldr	r3, [r2, #24]
+ 663 0164 43F40003 		orr	r3, r3, #8388608
+ 664 0168 9361     		str	r3, [r2, #24]
+ 127:Core/Src/Lab1.c ****         }
+ 665              		.loc 1 127 13 view .LVU222
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 17
+
+
+ 127:Core/Src/Lab1.c ****         }
+ 666              		.loc 1 127 19 is_stmt 0 view .LVU223
+ 667 016a 0023     		movs	r3, #0
+ 668 016c 8CF80030 		strb	r3, [ip]
+ 669 0170 8CE7     		b	.L41
+ 670              	.L64:
+ 129:Core/Src/Lab1.c ****         {
+ 671              		.loc 1 129 31 discriminator 1 view .LVU224
+ 672 0172 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 129:Core/Src/Lab1.c ****         {
+ 673              		.loc 1 129 27 discriminator 1 view .LVU225
+ 674 0174 13F0010F 		tst	r3, #1
+ 675 0178 8BD0     		beq	.L42
+ 131:Core/Src/Lab1.c ****             *LD_3 = 0;
+ 676              		.loc 1 131 13 is_stmt 1 view .LVU226
+ 677 017a 2A4A     		ldr	r2, .L69+16
+ 678 017c 9369     		ldr	r3, [r2, #24]
+ 679 017e 43F08043 		orr	r3, r3, #1073741824
+ 680 0182 9361     		str	r3, [r2, #24]
+ 132:Core/Src/Lab1.c ****         }
+ 681              		.loc 1 132 13 view .LVU227
+ 132:Core/Src/Lab1.c ****         }
+ 682              		.loc 1 132 19 is_stmt 0 view .LVU228
+ 683 0184 0023     		movs	r3, #0
+ 684 0186 2370     		strb	r3, [r4]
+ 685 0188 83E7     		b	.L42
+ 686              	.L65:
+ 137:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 687              		.loc 1 137 13 is_stmt 1 view .LVU229
+ 688 018a 244A     		ldr	r2, .L69+8
+ 689 018c 9369     		ldr	r3, [r2, #24]
+ 690 018e 43F48033 		orr	r3, r3, #65536
+ 691 0192 9361     		str	r3, [r2, #24]
+ 138:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 692              		.loc 1 138 13 view .LVU230
+ 693              	.LBB7:
+ 138:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 694              		.loc 1 138 18 view .LVU231
+ 695              	.LVL21:
+ 138:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 696              		.loc 1 138 22 is_stmt 0 view .LVU232
+ 697 0194 0023     		movs	r3, #0
+ 138:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 698              		.loc 1 138 13 view .LVU233
+ 699 0196 00E0     		b	.L44
+ 700              	.LVL22:
+ 701              	.L45:
+ 138:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 702              		.loc 1 138 42 is_stmt 1 discriminator 3 view .LVU234
+ 703 0198 0133     		adds	r3, r3, #1
+ 704              	.LVL23:
+ 705              	.L44:
+ 138:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
+ 706              		.loc 1 138 31 discriminator 1 view .LVU235
+ 707 019a 234A     		ldr	r2, .L69+20
+ 708 019c 9342     		cmp	r3, r2
+ 709 019e FBDD     		ble	.L45
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 18
+
+
+ 710              	.LBE7:
+ 139:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 711              		.loc 1 139 13 view .LVU236
+ 712 01a0 1E4A     		ldr	r2, .L69+8
+ 713 01a2 9369     		ldr	r3, [r2, #24]
+ 714              	.LVL24:
+ 139:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 715              		.loc 1 139 13 is_stmt 0 view .LVU237
+ 716 01a4 43F00103 		orr	r3, r3, #1
+ 717 01a8 9361     		str	r3, [r2, #24]
+ 140:Core/Src/Lab1.c ****         }
+ 718              		.loc 1 140 13 is_stmt 1 view .LVU238
+ 719              	.LBB8:
+ 140:Core/Src/Lab1.c ****         }
+ 720              		.loc 1 140 18 view .LVU239
+ 721              	.LVL25:
+ 140:Core/Src/Lab1.c ****         }
+ 722              		.loc 1 140 22 is_stmt 0 view .LVU240
+ 723 01aa 0023     		movs	r3, #0
+ 140:Core/Src/Lab1.c ****         }
+ 724              		.loc 1 140 13 view .LVU241
+ 725 01ac 00E0     		b	.L46
+ 726              	.LVL26:
+ 727              	.L47:
+ 140:Core/Src/Lab1.c ****         }
+ 728              		.loc 1 140 42 is_stmt 1 discriminator 3 view .LVU242
+ 729 01ae 0133     		adds	r3, r3, #1
+ 730              	.LVL27:
+ 731              	.L46:
+ 140:Core/Src/Lab1.c ****         }
+ 732              		.loc 1 140 31 discriminator 1 view .LVU243
+ 733 01b0 1D4A     		ldr	r2, .L69+20
+ 734 01b2 9342     		cmp	r3, r2
+ 735 01b4 FBDD     		ble	.L47
+ 736 01b6 72E7     		b	.L43
+ 737              	.LVL28:
+ 738              	.L66:
+ 140:Core/Src/Lab1.c ****         }
+ 739              		.loc 1 140 31 is_stmt 0 discriminator 1 view .LVU244
+ 740              	.LBE8:
+ 144:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 741              		.loc 1 144 13 is_stmt 1 view .LVU245
+ 742 01b8 194A     		ldr	r2, .L69+12
+ 743 01ba 9369     		ldr	r3, [r2, #24]
+ 744 01bc 43F40003 		orr	r3, r3, #8388608
+ 745 01c0 9361     		str	r3, [r2, #24]
+ 145:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 746              		.loc 1 145 13 view .LVU246
+ 747              	.LBB9:
+ 145:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 748              		.loc 1 145 18 view .LVU247
+ 749              	.LVL29:
+ 145:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 750              		.loc 1 145 22 is_stmt 0 view .LVU248
+ 751 01c2 0023     		movs	r3, #0
+ 145:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 752              		.loc 1 145 13 view .LVU249
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 19
+
+
+ 753 01c4 00E0     		b	.L49
+ 754              	.LVL30:
+ 755              	.L50:
+ 145:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 756              		.loc 1 145 42 is_stmt 1 discriminator 3 view .LVU250
+ 757 01c6 0133     		adds	r3, r3, #1
+ 758              	.LVL31:
+ 759              	.L49:
+ 145:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
+ 760              		.loc 1 145 31 discriminator 1 view .LVU251
+ 761 01c8 174A     		ldr	r2, .L69+20
+ 762 01ca 9342     		cmp	r3, r2
+ 763 01cc FBDD     		ble	.L50
+ 764              	.LBE9:
+ 146:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 765              		.loc 1 146 13 view .LVU252
+ 766 01ce 144A     		ldr	r2, .L69+12
+ 767 01d0 9369     		ldr	r3, [r2, #24]
+ 768              	.LVL32:
+ 146:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 769              		.loc 1 146 13 is_stmt 0 view .LVU253
+ 770 01d2 43F08003 		orr	r3, r3, #128
+ 771 01d6 9361     		str	r3, [r2, #24]
  147:Core/Src/Lab1.c ****         }
- 148:Core/Src/Lab1.c ****         if ((*LD_2 == 1) && (*en == 2 || *en == 3))                                           // Е
- 375              		.loc 1 148 9 is_stmt 1 view .LVU117
- 376              		.loc 1 148 14 is_stmt 0 view .LVU118
- 377 0056 9CF80030 		ldrb	r3, [ip]	@ zero_extendqisi2
- 378              		.loc 1 148 12 view .LVU119
- 379 005a 2BB1     		cbz	r3, .L44
- 380              		.loc 1 148 30 discriminator 1 view .LVU120
- 381 005c 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 382              		.loc 1 148 39 discriminator 1 view .LVU121
- 383 005e 023B     		subs	r3, r3, #2
- 384 0060 DBB2     		uxtb	r3, r3
- 385              		.loc 1 148 26 discriminator 1 view .LVU122
- 386 0062 012B     		cmp	r3, #1
- 387 0064 40F28580 		bls	.L66
- 388              	.L44:
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 11
+ 772              		.loc 1 147 13 is_stmt 1 view .LVU254
+ 773              	.LBB10:
+ 147:Core/Src/Lab1.c ****         }
+ 774              		.loc 1 147 18 view .LVU255
+ 775              	.LVL33:
+ 147:Core/Src/Lab1.c ****         }
+ 776              		.loc 1 147 22 is_stmt 0 view .LVU256
+ 777 01d8 0023     		movs	r3, #0
+ 147:Core/Src/Lab1.c ****         }
+ 778              		.loc 1 147 13 view .LVU257
+ 779 01da 00E0     		b	.L51
+ 780              	.LVL34:
+ 781              	.L52:
+ 147:Core/Src/Lab1.c ****         }
+ 782              		.loc 1 147 42 is_stmt 1 discriminator 3 view .LVU258
+ 783 01dc 0133     		adds	r3, r3, #1
+ 784              	.LVL35:
+ 785              	.L51:
+ 147:Core/Src/Lab1.c ****         }
+ 786              		.loc 1 147 31 discriminator 1 view .LVU259
+ 787 01de 124A     		ldr	r2, .L69+20
+ 788 01e0 9342     		cmp	r3, r2
+ 789 01e2 FBDD     		ble	.L52
+ 790 01e4 64E7     		b	.L48
+ 791              	.LVL36:
+ 792              	.L67:
+ 147:Core/Src/Lab1.c ****         }
+ 793              		.loc 1 147 31 is_stmt 0 discriminator 1 view .LVU260
+ 794              	.LBE10:
+ 150:Core/Src/Lab1.c ****         {
+ 151:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);
+ 795              		.loc 1 151 13 is_stmt 1 view .LVU261
+ 796 01e6 0F4A     		ldr	r2, .L69+16
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 20
 
 
- 149:Core/Src/Lab1.c ****         {
- 150:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BR7);
- 151:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 152:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
- 153:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 154:Core/Src/Lab1.c ****         }
- 155:Core/Src/Lab1.c ****         if ((*LD_3 == 1)  && (*en == 4 || *en == 5))                                           // �
- 389              		.loc 1 155 9 is_stmt 1 view .LVU123
- 390              		.loc 1 155 14 is_stmt 0 view .LVU124
- 391 0068 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 392              		.loc 1 155 12 view .LVU125
- 393 006a 2BB1     		cbz	r3, .L49
- 394              		.loc 1 155 31 discriminator 1 view .LVU126
- 395 006c 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 396              		.loc 1 155 40 discriminator 1 view .LVU127
- 397 006e 043B     		subs	r3, r3, #4
- 398 0070 DBB2     		uxtb	r3, r3
- 399              		.loc 1 155 27 discriminator 1 view .LVU128
- 400 0072 012B     		cmp	r3, #1
- 401 0074 40F29480 		bls	.L67
- 402              	.L49:
- 156:Core/Src/Lab1.c ****         {
- 157:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);
- 158:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 159:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
- 160:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 161:Core/Src/Lab1.c ****         }
- 162:Core/Src/Lab1.c ****         for(int i = 0; i < 300000; i++);                                                       // �
- 403              		.loc 1 162 9 is_stmt 1 view .LVU129
- 404              	.LBB4:
- 405              		.loc 1 162 13 view .LVU130
- 406              	.LVL8:
- 407              		.loc 1 162 17 is_stmt 0 view .LVU131
- 408 0078 0023     		movs	r3, #0
- 409              		.loc 1 162 9 view .LVU132
- 410 007a A9E0     		b	.L54
- 411              	.LVL9:
- 412              	.L30:
- 413              		.loc 1 162 9 view .LVU133
- 414              	.LBE4:
-  77:Core/Src/Lab1.c ****                 *score = 0;
- 415              		.loc 1 77 17 is_stmt 1 view .LVU134
-  77:Core/Src/Lab1.c ****                 *score = 0;
- 416              		.loc 1 77 21 is_stmt 0 view .LVU135
- 417 007c 0223     		movs	r3, #2
- 418 007e 0370     		strb	r3, [r0]
-  78:Core/Src/Lab1.c ****             }
- 419              		.loc 1 78 17 is_stmt 1 view .LVU136
-  78:Core/Src/Lab1.c ****             }
- 420              		.loc 1 78 24 is_stmt 0 view .LVU137
- 421 0080 0023     		movs	r3, #0
- 422 0082 0B70     		strb	r3, [r1]
- 423 0084 C5E7     		b	.L24
- 424              	.L29:
-  82:Core/Src/Lab1.c ****                 *score = 0;
- 425              		.loc 1 82 17 is_stmt 1 view .LVU138
-  82:Core/Src/Lab1.c ****                 *score = 0;
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 12
+ 797 01e8 9369     		ldr	r3, [r2, #24]
+ 798 01ea 43F08043 		orr	r3, r3, #1073741824
+ 799 01ee 9361     		str	r3, [r2, #24]
+ 152:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 800              		.loc 1 152 13 view .LVU262
+ 801              	.LBB11:
+ 802              		.loc 1 152 18 view .LVU263
+ 803              	.LVL37:
+ 804              		.loc 1 152 22 is_stmt 0 view .LVU264
+ 805 01f0 0023     		movs	r3, #0
+ 806              		.loc 1 152 13 view .LVU265
+ 807 01f2 00E0     		b	.L54
+ 808              	.LVL38:
+ 809              	.L55:
+ 810              		.loc 1 152 42 is_stmt 1 discriminator 3 view .LVU266
+ 811 01f4 0133     		adds	r3, r3, #1
+ 812              	.LVL39:
+ 813              	.L54:
+ 814              		.loc 1 152 31 discriminator 1 view .LVU267
+ 815 01f6 0C4A     		ldr	r2, .L69+20
+ 816 01f8 9342     		cmp	r3, r2
+ 817 01fa FBDD     		ble	.L55
+ 818              	.LBE11:
+ 153:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
+ 819              		.loc 1 153 13 view .LVU268
+ 820 01fc 094A     		ldr	r2, .L69+16
+ 821 01fe 9369     		ldr	r3, [r2, #24]
+ 822              	.LVL40:
+ 823              		.loc 1 153 13 is_stmt 0 view .LVU269
+ 824 0200 43F48043 		orr	r3, r3, #16384
+ 825 0204 9361     		str	r3, [r2, #24]
+ 154:Core/Src/Lab1.c ****             for (int i = 0; i < 100000; i++);
+ 826              		.loc 1 154 13 is_stmt 1 view .LVU270
+ 827              	.LBB12:
+ 828              		.loc 1 154 18 view .LVU271
+ 829              	.LVL41:
+ 830              		.loc 1 154 22 is_stmt 0 view .LVU272
+ 831 0206 0023     		movs	r3, #0
+ 832 0208 00E0     		b	.L56
+ 833              	.LVL42:
+ 834              	.L57:
+ 835              		.loc 1 154 42 is_stmt 1 discriminator 3 view .LVU273
+ 836 020a 0133     		adds	r3, r3, #1
+ 837              	.LVL43:
+ 838              	.L56:
+ 839              		.loc 1 154 31 discriminator 1 view .LVU274
+ 840 020c 064A     		ldr	r2, .L69+20
+ 841 020e 9342     		cmp	r3, r2
+ 842 0210 FBDD     		ble	.L57
+ 843 0212 55E7     		b	.L28
+ 844              	.L70:
+ 845              		.align	2
+ 846              	.L69:
+ 847 0214 7F1A0600 		.word	399999
+ 848 0218 00080240 		.word	1073874944
+ 849 021c 000C0240 		.word	1073875968
+ 850 0220 00100240 		.word	1073876992
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 21
 
 
- 426              		.loc 1 82 21 is_stmt 0 view .LVU139
- 427 0086 0323     		movs	r3, #3
- 428 0088 0370     		strb	r3, [r0]
-  83:Core/Src/Lab1.c ****             }
- 429              		.loc 1 83 17 is_stmt 1 view .LVU140
-  83:Core/Src/Lab1.c ****             }
- 430              		.loc 1 83 24 is_stmt 0 view .LVU141
- 431 008a 0023     		movs	r3, #0
- 432 008c 0B70     		strb	r3, [r1]
- 433 008e C0E7     		b	.L24
- 434              	.L28:
-  87:Core/Src/Lab1.c ****                 *score = 0;
- 435              		.loc 1 87 17 is_stmt 1 view .LVU142
-  87:Core/Src/Lab1.c ****                 *score = 0;
- 436              		.loc 1 87 21 is_stmt 0 view .LVU143
- 437 0090 0423     		movs	r3, #4
- 438 0092 0370     		strb	r3, [r0]
-  88:Core/Src/Lab1.c ****             }
- 439              		.loc 1 88 17 is_stmt 1 view .LVU144
-  88:Core/Src/Lab1.c ****             }
- 440              		.loc 1 88 24 is_stmt 0 view .LVU145
- 441 0094 0023     		movs	r3, #0
- 442 0096 0B70     		strb	r3, [r1]
- 443 0098 BBE7     		b	.L24
- 444              	.L27:
-  92:Core/Src/Lab1.c ****                 *score = 0;
- 445              		.loc 1 92 17 is_stmt 1 view .LVU146
-  92:Core/Src/Lab1.c ****                 *score = 0;
- 446              		.loc 1 92 21 is_stmt 0 view .LVU147
- 447 009a 0523     		movs	r3, #5
- 448 009c 0370     		strb	r3, [r0]
-  93:Core/Src/Lab1.c ****             }
- 449              		.loc 1 93 17 is_stmt 1 view .LVU148
-  93:Core/Src/Lab1.c ****             }
- 450              		.loc 1 93 24 is_stmt 0 view .LVU149
- 451 009e 0023     		movs	r3, #0
- 452 00a0 0B70     		strb	r3, [r1]
- 453 00a2 B6E7     		b	.L24
- 454              	.L25:
-  97:Core/Src/Lab1.c ****                 *score = 0;
- 455              		.loc 1 97 17 is_stmt 1 view .LVU150
-  97:Core/Src/Lab1.c ****                 *score = 0;
- 456              		.loc 1 97 21 is_stmt 0 view .LVU151
- 457 00a4 0023     		movs	r3, #0
- 458 00a6 0370     		strb	r3, [r0]
-  98:Core/Src/Lab1.c ****             }    
- 459              		.loc 1 98 17 is_stmt 1 view .LVU152
-  98:Core/Src/Lab1.c ****             }    
- 460              		.loc 1 98 24 is_stmt 0 view .LVU153
- 461 00a8 0B70     		strb	r3, [r1]
- 462 00aa B2E7     		b	.L24
- 463              	.L59:
- 107:Core/Src/Lab1.c ****         {   
- 464              		.loc 1 107 30 discriminator 1 view .LVU154
- 465 00ac 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 107:Core/Src/Lab1.c ****         {   
- 466              		.loc 1 107 26 discriminator 1 view .LVU155
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 13
-
-
- 467 00ae 13F0010F 		tst	r3, #1
- 468 00b2 BBD1     		bne	.L33
- 109:Core/Src/Lab1.c ****             *LD_1 = 1;
- 469              		.loc 1 109 13 is_stmt 1 view .LVU156
- 470 00b4 5A4A     		ldr	r2, .L68+4
- 471 00b6 9369     		ldr	r3, [r2, #24]
- 472 00b8 43F00103 		orr	r3, r3, #1
- 473 00bc 9361     		str	r3, [r2, #24]
- 110:Core/Src/Lab1.c ****         }
- 474              		.loc 1 110 13 view .LVU157
- 110:Core/Src/Lab1.c ****         }
- 475              		.loc 1 110 19 is_stmt 0 view .LVU158
- 476 00be 0123     		movs	r3, #1
- 477 00c0 8EF80030 		strb	r3, [lr]
- 478 00c4 B2E7     		b	.L33
- 479              	.L60:
- 112:Core/Src/Lab1.c ****         {
- 480              		.loc 1 112 30 discriminator 1 view .LVU159
- 481 00c6 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 112:Core/Src/Lab1.c ****         {
- 482              		.loc 1 112 26 discriminator 1 view .LVU160
- 483 00c8 13F0010F 		tst	r3, #1
- 484 00cc B1D1     		bne	.L34
- 114:Core/Src/Lab1.c ****             *LD_2 = 1;
- 485              		.loc 1 114 13 is_stmt 1 view .LVU161
- 486 00ce 554A     		ldr	r2, .L68+8
- 487 00d0 9369     		ldr	r3, [r2, #24]
- 488 00d2 43F08003 		orr	r3, r3, #128
- 489 00d6 9361     		str	r3, [r2, #24]
- 115:Core/Src/Lab1.c ****         }
- 490              		.loc 1 115 13 view .LVU162
- 115:Core/Src/Lab1.c ****         }
- 491              		.loc 1 115 19 is_stmt 0 view .LVU163
- 492 00d8 0123     		movs	r3, #1
- 493 00da 8CF80030 		strb	r3, [ip]
- 494 00de A8E7     		b	.L34
- 495              	.L61:
- 117:Core/Src/Lab1.c ****         {
- 496              		.loc 1 117 30 discriminator 1 view .LVU164
- 497 00e0 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 117:Core/Src/Lab1.c ****         {
- 498              		.loc 1 117 26 discriminator 1 view .LVU165
- 499 00e2 13F0010F 		tst	r3, #1
- 500 00e6 A7D1     		bne	.L35
- 119:Core/Src/Lab1.c ****             *LD_3 = 1;
- 501              		.loc 1 119 13 is_stmt 1 view .LVU166
- 502 00e8 4F4A     		ldr	r2, .L68+12
- 503 00ea 9369     		ldr	r3, [r2, #24]
- 504 00ec 43F48043 		orr	r3, r3, #16384
- 505 00f0 9361     		str	r3, [r2, #24]
- 120:Core/Src/Lab1.c ****         }
- 506              		.loc 1 120 13 view .LVU167
- 120:Core/Src/Lab1.c ****         }
- 507              		.loc 1 120 19 is_stmt 0 view .LVU168
- 508 00f2 0123     		movs	r3, #1
- 509 00f4 2370     		strb	r3, [r4]
- 510 00f6 9FE7     		b	.L35
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 14
-
-
- 511              	.L62:
- 124:Core/Src/Lab1.c ****         {
- 512              		.loc 1 124 30 discriminator 1 view .LVU169
- 513 00f8 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 124:Core/Src/Lab1.c ****         {
- 514              		.loc 1 124 26 discriminator 1 view .LVU170
- 515 00fa 13F0010F 		tst	r3, #1
- 516 00fe 9ED0     		beq	.L36
- 126:Core/Src/Lab1.c ****             *LD_1 = 0;
- 517              		.loc 1 126 13 is_stmt 1 view .LVU171
- 518 0100 474A     		ldr	r2, .L68+4
- 519 0102 9369     		ldr	r3, [r2, #24]
- 520 0104 43F48033 		orr	r3, r3, #65536
- 521 0108 9361     		str	r3, [r2, #24]
- 127:Core/Src/Lab1.c ****         }
- 522              		.loc 1 127 13 view .LVU172
- 127:Core/Src/Lab1.c ****         }
- 523              		.loc 1 127 19 is_stmt 0 view .LVU173
- 524 010a 0023     		movs	r3, #0
- 525 010c 8EF80030 		strb	r3, [lr]
- 526 0110 95E7     		b	.L36
- 527              	.L63:
- 129:Core/Src/Lab1.c ****         {
- 528              		.loc 1 129 30 discriminator 1 view .LVU174
- 529 0112 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 129:Core/Src/Lab1.c ****         {
- 530              		.loc 1 129 26 discriminator 1 view .LVU175
- 531 0114 13F0010F 		tst	r3, #1
- 532 0118 94D0     		beq	.L37
- 131:Core/Src/Lab1.c ****             *LD_2 = 0;
- 533              		.loc 1 131 13 is_stmt 1 view .LVU176
- 534 011a 424A     		ldr	r2, .L68+8
- 535 011c 9369     		ldr	r3, [r2, #24]
- 536 011e 43F40003 		orr	r3, r3, #8388608
- 537 0122 9361     		str	r3, [r2, #24]
- 132:Core/Src/Lab1.c ****         }
- 538              		.loc 1 132 13 view .LVU177
- 132:Core/Src/Lab1.c ****         }
- 539              		.loc 1 132 19 is_stmt 0 view .LVU178
- 540 0124 0023     		movs	r3, #0
- 541 0126 8CF80030 		strb	r3, [ip]
- 542 012a 8BE7     		b	.L37
- 543              	.L64:
- 134:Core/Src/Lab1.c ****         {
- 544              		.loc 1 134 30 discriminator 1 view .LVU179
- 545 012c 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 134:Core/Src/Lab1.c ****         {
- 546              		.loc 1 134 26 discriminator 1 view .LVU180
- 547 012e 13F0010F 		tst	r3, #1
- 548 0132 8AD0     		beq	.L38
- 136:Core/Src/Lab1.c ****             *LD_3 = 0;
- 549              		.loc 1 136 13 is_stmt 1 view .LVU181
- 550 0134 3C4A     		ldr	r2, .L68+12
- 551 0136 9369     		ldr	r3, [r2, #24]
- 552 0138 43F08043 		orr	r3, r3, #1073741824
- 553 013c 9361     		str	r3, [r2, #24]
- 137:Core/Src/Lab1.c ****         }
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 15
-
-
- 554              		.loc 1 137 13 view .LVU182
- 137:Core/Src/Lab1.c ****         }
- 555              		.loc 1 137 19 is_stmt 0 view .LVU183
- 556 013e 0023     		movs	r3, #0
- 557 0140 2370     		strb	r3, [r4]
- 558 0142 82E7     		b	.L38
- 559              	.L65:
- 143:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 560              		.loc 1 143 13 is_stmt 1 view .LVU184
- 561 0144 364A     		ldr	r2, .L68+4
- 562 0146 9369     		ldr	r3, [r2, #24]
- 563 0148 43F48033 		orr	r3, r3, #65536
- 564 014c 9361     		str	r3, [r2, #24]
- 144:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
- 565              		.loc 1 144 13 view .LVU185
- 566              	.LBB5:
- 144:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
- 567              		.loc 1 144 17 view .LVU186
- 568              	.LVL10:
- 144:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
- 569              		.loc 1 144 21 is_stmt 0 view .LVU187
- 570 014e 0023     		movs	r3, #0
- 144:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
- 571              		.loc 1 144 13 view .LVU188
- 572 0150 00E0     		b	.L40
- 573              	.LVL11:
- 574              	.L41:
- 144:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
- 575              		.loc 1 144 41 is_stmt 1 discriminator 3 view .LVU189
- 576 0152 0133     		adds	r3, r3, #1
- 577              	.LVL12:
- 578              	.L40:
- 144:Core/Src/Lab1.c ****             SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);
- 579              		.loc 1 144 30 discriminator 1 view .LVU190
- 580 0154 354A     		ldr	r2, .L68+16
- 581 0156 9342     		cmp	r3, r2
- 582 0158 FBDD     		ble	.L41
- 583              	.LBE5:
- 145:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 584              		.loc 1 145 13 view .LVU191
- 585 015a 314A     		ldr	r2, .L68+4
- 586 015c 9369     		ldr	r3, [r2, #24]
- 587              	.LVL13:
- 145:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 588              		.loc 1 145 13 is_stmt 0 view .LVU192
- 589 015e 43F00103 		orr	r3, r3, #1
- 590 0162 9361     		str	r3, [r2, #24]
- 146:Core/Src/Lab1.c ****         }
- 591              		.loc 1 146 13 is_stmt 1 view .LVU193
- 592              	.LBB6:
- 146:Core/Src/Lab1.c ****         }
- 593              		.loc 1 146 17 view .LVU194
- 594              	.LVL14:
- 146:Core/Src/Lab1.c ****         }
- 595              		.loc 1 146 21 is_stmt 0 view .LVU195
- 596 0164 0023     		movs	r3, #0
- 146:Core/Src/Lab1.c ****         }
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 16
-
-
- 597              		.loc 1 146 13 view .LVU196
- 598 0166 00E0     		b	.L42
- 599              	.LVL15:
- 600              	.L43:
- 146:Core/Src/Lab1.c ****         }
- 601              		.loc 1 146 41 is_stmt 1 discriminator 3 view .LVU197
- 602 0168 0133     		adds	r3, r3, #1
- 603              	.LVL16:
- 604              	.L42:
- 146:Core/Src/Lab1.c ****         }
- 605              		.loc 1 146 30 discriminator 1 view .LVU198
- 606 016a 304A     		ldr	r2, .L68+16
- 607 016c 9342     		cmp	r3, r2
- 608 016e FBDD     		ble	.L43
- 609 0170 71E7     		b	.L39
- 610              	.LVL17:
- 611              	.L66:
- 146:Core/Src/Lab1.c ****         }
- 612              		.loc 1 146 30 is_stmt 0 discriminator 1 view .LVU199
- 613              	.LBE6:
- 150:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 614              		.loc 1 150 13 is_stmt 1 view .LVU200
- 615 0172 2C4A     		ldr	r2, .L68+8
- 616 0174 9369     		ldr	r3, [r2, #24]
- 617 0176 43F40003 		orr	r3, r3, #8388608
- 618 017a 9361     		str	r3, [r2, #24]
- 151:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
- 619              		.loc 1 151 13 view .LVU201
- 620              	.LBB7:
- 151:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
- 621              		.loc 1 151 17 view .LVU202
- 622              	.LVL18:
- 151:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
- 623              		.loc 1 151 21 is_stmt 0 view .LVU203
- 624 017c 0023     		movs	r3, #0
- 151:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
- 625              		.loc 1 151 13 view .LVU204
- 626 017e 00E0     		b	.L45
- 627              	.LVL19:
- 628              	.L46:
- 151:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
- 629              		.loc 1 151 41 is_stmt 1 discriminator 3 view .LVU205
- 630 0180 0133     		adds	r3, r3, #1
- 631              	.LVL20:
- 632              	.L45:
- 151:Core/Src/Lab1.c ****             SET_BIT(GPIOE->BSRR, GPIO_BSRR_BS7);
- 633              		.loc 1 151 30 discriminator 1 view .LVU206
- 634 0182 2A4A     		ldr	r2, .L68+16
- 635 0184 9342     		cmp	r3, r2
- 636 0186 FBDD     		ble	.L46
- 637              	.LBE7:
- 152:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 638              		.loc 1 152 13 view .LVU207
- 639 0188 264A     		ldr	r2, .L68+8
- 640 018a 9369     		ldr	r3, [r2, #24]
- 641              	.LVL21:
- 152:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 17
-
-
- 642              		.loc 1 152 13 is_stmt 0 view .LVU208
- 643 018c 43F08003 		orr	r3, r3, #128
- 644 0190 9361     		str	r3, [r2, #24]
- 153:Core/Src/Lab1.c ****         }
- 645              		.loc 1 153 13 is_stmt 1 view .LVU209
- 646              	.LBB8:
- 153:Core/Src/Lab1.c ****         }
- 647              		.loc 1 153 17 view .LVU210
- 648              	.LVL22:
- 153:Core/Src/Lab1.c ****         }
- 649              		.loc 1 153 21 is_stmt 0 view .LVU211
- 650 0192 0023     		movs	r3, #0
- 153:Core/Src/Lab1.c ****         }
- 651              		.loc 1 153 13 view .LVU212
- 652 0194 00E0     		b	.L47
- 653              	.LVL23:
- 654              	.L48:
- 153:Core/Src/Lab1.c ****         }
- 655              		.loc 1 153 41 is_stmt 1 discriminator 3 view .LVU213
- 656 0196 0133     		adds	r3, r3, #1
- 657              	.LVL24:
- 658              	.L47:
- 153:Core/Src/Lab1.c ****         }
- 659              		.loc 1 153 30 discriminator 1 view .LVU214
- 660 0198 244A     		ldr	r2, .L68+16
- 661 019a 9342     		cmp	r3, r2
- 662 019c FBDD     		ble	.L48
- 663 019e 63E7     		b	.L44
- 664              	.LVL25:
- 665              	.L67:
- 153:Core/Src/Lab1.c ****         }
- 666              		.loc 1 153 30 is_stmt 0 discriminator 1 view .LVU215
- 667              	.LBE8:
- 157:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 668              		.loc 1 157 13 is_stmt 1 view .LVU216
- 669 01a0 214A     		ldr	r2, .L68+12
- 670 01a2 9369     		ldr	r3, [r2, #24]
- 671 01a4 43F08043 		orr	r3, r3, #1073741824
- 672 01a8 9361     		str	r3, [r2, #24]
- 158:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
- 673              		.loc 1 158 13 view .LVU217
- 674              	.LBB9:
- 158:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
- 675              		.loc 1 158 17 view .LVU218
- 676              	.LVL26:
- 158:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
- 677              		.loc 1 158 21 is_stmt 0 view .LVU219
- 678 01aa 0023     		movs	r3, #0
- 158:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
- 679              		.loc 1 158 13 view .LVU220
- 680 01ac 00E0     		b	.L50
- 681              	.LVL27:
- 682              	.L51:
- 158:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
- 683              		.loc 1 158 41 is_stmt 1 discriminator 3 view .LVU221
- 684 01ae 0133     		adds	r3, r3, #1
- 685              	.LVL28:
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 18
-
-
- 686              	.L50:
- 158:Core/Src/Lab1.c ****             SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);
- 687              		.loc 1 158 30 discriminator 1 view .LVU222
- 688 01b0 1E4A     		ldr	r2, .L68+16
- 689 01b2 9342     		cmp	r3, r2
- 690 01b4 FBDD     		ble	.L51
- 691              	.LBE9:
- 159:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 692              		.loc 1 159 13 view .LVU223
- 693 01b6 1C4A     		ldr	r2, .L68+12
- 694 01b8 9369     		ldr	r3, [r2, #24]
- 695              	.LVL29:
- 159:Core/Src/Lab1.c ****             for(int i = 0; i < 100000; i++);
- 696              		.loc 1 159 13 is_stmt 0 view .LVU224
- 697 01ba 43F48043 		orr	r3, r3, #16384
- 698 01be 9361     		str	r3, [r2, #24]
- 160:Core/Src/Lab1.c ****         }
- 699              		.loc 1 160 13 is_stmt 1 view .LVU225
- 700              	.LBB10:
- 160:Core/Src/Lab1.c ****         }
- 701              		.loc 1 160 17 view .LVU226
- 702              	.LVL30:
- 160:Core/Src/Lab1.c ****         }
- 703              		.loc 1 160 21 is_stmt 0 view .LVU227
- 704 01c0 0023     		movs	r3, #0
- 160:Core/Src/Lab1.c ****         }
- 705              		.loc 1 160 13 view .LVU228
- 706 01c2 00E0     		b	.L52
- 707              	.LVL31:
- 708              	.L53:
- 160:Core/Src/Lab1.c ****         }
- 709              		.loc 1 160 41 is_stmt 1 discriminator 3 view .LVU229
- 710 01c4 0133     		adds	r3, r3, #1
- 711              	.LVL32:
- 712              	.L52:
- 160:Core/Src/Lab1.c ****         }
- 713              		.loc 1 160 30 discriminator 1 view .LVU230
- 714 01c6 194A     		ldr	r2, .L68+16
- 715 01c8 9342     		cmp	r3, r2
- 716 01ca FBDD     		ble	.L53
- 717 01cc 54E7     		b	.L49
- 718              	.LVL33:
- 719              	.L55:
- 160:Core/Src/Lab1.c ****         }
- 720              		.loc 1 160 30 is_stmt 0 discriminator 1 view .LVU231
- 721              	.LBE10:
- 722              	.LBB11:
- 723              		.loc 1 162 37 is_stmt 1 discriminator 3 view .LVU232
- 724 01ce 0133     		adds	r3, r3, #1
- 725              	.LVL34:
- 726              	.L54:
- 727              		.loc 1 162 26 discriminator 1 view .LVU233
- 728 01d0 174A     		ldr	r2, .L68+20
- 729 01d2 9342     		cmp	r3, r2
- 730 01d4 FBDD     		ble	.L55
- 731              	.LVL35:
- 732              	.L56:
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 19
-
-
- 733              		.loc 1 162 26 is_stmt 0 discriminator 1 view .LVU234
- 734              	.LBE11:
-  65:Core/Src/Lab1.c ****     {
- 735              		.loc 1 65 5 is_stmt 1 view .LVU235
-  67:Core/Src/Lab1.c ****         {
- 736              		.loc 1 67 9 view .LVU236
-  67:Core/Src/Lab1.c ****         {
- 737              		.loc 1 67 12 is_stmt 0 view .LVU237
- 738 01d6 114B     		ldr	r3, .L68
- 739 01d8 1B69     		ldr	r3, [r3, #16]
-  67:Core/Src/Lab1.c ****         {
- 740              		.loc 1 67 11 view .LVU238
- 741 01da 13F0010F 		tst	r3, #1
- 742 01de 3FF418AF 		beq	.L24
-  69:Core/Src/Lab1.c ****             {
- 743              		.loc 1 69 13 is_stmt 1 view .LVU239
-  69:Core/Src/Lab1.c ****             {
- 744              		.loc 1 69 16 is_stmt 0 view .LVU240
- 745 01e2 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
-  69:Core/Src/Lab1.c ****             {
- 746              		.loc 1 69 24 view .LVU241
- 747 01e4 134B     		ldr	r3, .L68+24
- 748 01e6 A3FB0253 		umull	r5, r3, r3, r2
- 749 01ea 9B08     		lsrs	r3, r3, #2
- 750 01ec 03EB4303 		add	r3, r3, r3, lsl #1
- 751 01f0 A2EB4303 		sub	r3, r2, r3, lsl #1
- 752 01f4 DBB2     		uxtb	r3, r3
- 753 01f6 052B     		cmp	r3, #5
- 754 01f8 3FF60BAF 		bhi	.L24
- 755 01fc 01A2     		adr	r2, .L26
- 756 01fe 52F823F0 		ldr	pc, [r2, r3, lsl #2]
- 757 0202 00BF     		.p2align 2
- 758              	.L26:
- 759 0204 0B000000 		.word	.L31+1
- 760 0208 7D000000 		.word	.L30+1
- 761 020c 87000000 		.word	.L29+1
- 762 0210 91000000 		.word	.L28+1
- 763 0214 9B000000 		.word	.L27+1
- 764 0218 A5000000 		.word	.L25+1
- 765              		.p2align 1
- 766              	.L69:
- 767              		.align	2
- 768              	.L68:
- 769 021c 00080240 		.word	1073874944
- 770 0220 000C0240 		.word	1073875968
- 771 0224 00100240 		.word	1073876992
- 772 0228 00040240 		.word	1073873920
- 773 022c 9F860100 		.word	99999
- 774 0230 DF930400 		.word	299999
- 775 0234 ABAAAAAA 		.word	-1431655765
- 776              		.cfi_endproc
- 777              	.LFE131:
- 779              		.text
- 780              	.Letext0:
- 781              		.file 2 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/mach
- 782              		.file 3 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
- 783              		.file 4 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 20
-
-
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s 			page 21
+ 851 0224 00040240 		.word	1073873920
+ 852 0228 9F860100 		.word	99999
+ 853              	.LBE12:
+ 854              		.cfi_endproc
+ 855              	.LFE131:
+ 857              		.text
+ 858              	.Letext0:
+ 859              		.file 2 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/mach
+ 860              		.file 3 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
+ 861              		.file 4 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429ZI/stm32f429xx.h"
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 Lab1.c
-C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s:21     .text.Variant_6:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s:27     .text.Variant_6:00000000 Variant_6
-C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s:259    .text.Variant_6:000000fc $d
-C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s:269    .text.extra_task:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s:275    .text.extra_task:00000000 extra_task
-C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s:759    .text.extra_task:00000204 $d
-C:\Users\lenovo\AppData\Local\Temp\ccfmWzWt.s:769    .text.extra_task:0000021c $d
+C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s:21     .text.Variant_6:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s:27     .text.Variant_6:00000000 Variant_6
+C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s:326    .text.Variant_6:00000144 $d
+C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s:335    .text.extra_task:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s:341    .text.extra_task:00000000 extra_task
+C:\Users\lenovo\AppData\Local\Temp\ccKaX03o.s:847    .text.extra_task:00000214 $d
 
 NO UNDEFINED SYMBOLS

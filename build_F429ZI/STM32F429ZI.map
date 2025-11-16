@@ -143,8 +143,6 @@ Discarded input sections
  .text          0x00000000        0x0 build_F429ZI/Lab2.o
  .data          0x00000000        0x0 build_F429ZI/Lab2.o
  .bss           0x00000000        0x0 build_F429ZI/Lab2.o
- .bss.last_led_en
-                0x00000000        0x1 build_F429ZI/Lab2.o
  .text          0x00000000       0x14 build_F429ZI/startup_stm32f429xx.o
  .data          0x00000000        0x0 build_F429ZI/startup_stm32f429xx.o
  .bss           0x00000000        0x0 build_F429ZI/startup_stm32f429xx.o
@@ -672,32 +670,19 @@ LOAD C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/g
                 0x08000a24                        PROVIDE (__fini_array_end = .)
                 0x08000a24                        _sidata = LOADADDR (.data)
 
-.data           0x20000000        0x8 load address 0x08000a24
+.data           0x20000000        0x0 load address 0x08000a24
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
  *(.data*)
- .data.flag6    0x20000000        0x1 build_F429ZI/Lab2.o
-                0x20000000                flag6
- .data.flag5    0x20000001        0x1 build_F429ZI/Lab2.o
-                0x20000001                flag5
- .data.flag4    0x20000002        0x1 build_F429ZI/Lab2.o
-                0x20000002                flag4
- .data.flag3    0x20000003        0x1 build_F429ZI/Lab2.o
-                0x20000003                flag3
- .data.flag2    0x20000004        0x1 build_F429ZI/Lab2.o
-                0x20000004                flag2
- .data.flag1    0x20000005        0x1 build_F429ZI/Lab2.o
-                0x20000005                flag1
-                0x20000008                        . = ALIGN (0x4)
- *fill*         0x20000006        0x2 
-                0x20000008                        _edata = .
-                0x08000a2c                        _siccmram = LOADADDR (.ccmram)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+                0x08000a24                        _siccmram = LOADADDR (.ccmram)
 
-.igot.plt       0x20000008        0x0 load address 0x08000a2c
- .igot.plt      0x20000008        0x0 C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.igot.plt       0x20000000        0x0 load address 0x08000a24
+ .igot.plt      0x20000000        0x0 C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.ccmram         0x10000000        0x0 load address 0x08000a2c
+.ccmram         0x10000000        0x0 load address 0x08000a24
                 0x10000000                        . = ALIGN (0x4)
                 0x10000000                        _sccmram = .
  *(.ccmram)
@@ -706,77 +691,93 @@ LOAD C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/g
                 0x10000000                        _eccmram = .
                 0x10000000                        . = ALIGN (0x4)
 
-.bss            0x20000008       0x5c
-                0x20000008                        _sbss = .
-                0x20000008                        __bss_start__ = _sbss
+.bss            0x20000000       0x70
+                0x20000000                        _sbss = .
+                0x20000000                        __bss_start__ = _sbss
  *(.bss)
  *(.bss*)
  .bss.completed.1
-                0x20000008        0x1 C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
- *fill*         0x20000009        0x3 
- .bss.object.0  0x2000000c       0x18 C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
- .bss.blink     0x20000024        0xc build_F429ZI/main.o
-                0x20000024                blink
+                0x20000000        0x1 C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ *fill*         0x20000001        0x3 
+ .bss.object.0  0x20000004       0x18 C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .bss.blink     0x2000001c        0xc build_F429ZI/main.o
+                0x2000001c                blink
  .bss.GlobalTickCount
-                0x20000030        0x4 build_F429ZI/main.o
-                0x20000030                GlobalTickCount
+                0x20000028        0x4 build_F429ZI/main.o
+                0x20000028                GlobalTickCount
  .bss.num_led_blink
-                0x20000034        0x1 build_F429ZI/main.o
-                0x20000034                num_led_blink
- .bss.led_en    0x20000035        0x1 build_F429ZI/main.o
-                0x20000035                led_en
- *fill*         0x20000036        0x2 
+                0x2000002c        0x1 build_F429ZI/main.o
+                0x2000002c                num_led_blink
+ .bss.led_en    0x2000002d        0x1 build_F429ZI/main.o
+                0x2000002d                led_en
+ *fill*         0x2000002e        0x2 
  .bss.last_time2.0
-                0x20000038        0x4 build_F429ZI/it_handlers.o
+                0x20000030        0x4 build_F429ZI/it_handlers.o
  .bss.last_time1.1
-                0x2000003c        0x4 build_F429ZI/it_handlers.o
+                0x20000034        0x4 build_F429ZI/it_handlers.o
  .bss.Hold_time_but2
-                0x20000040        0x4 build_F429ZI/it_handlers.o
-                0x20000040                Hold_time_but2
+                0x20000038        0x4 build_F429ZI/it_handlers.o
+                0x20000038                Hold_time_but2
  .bss.Hold_time_but1
-                0x20000044        0x4 build_F429ZI/it_handlers.o
-                0x20000044                Hold_time_but1
+                0x2000003c        0x4 build_F429ZI/it_handlers.o
+                0x2000003c                Hold_time_but1
  .bss.Last_state_but2
-                0x20000048        0x1 build_F429ZI/it_handlers.o
-                0x20000048                Last_state_but2
+                0x20000040        0x1 build_F429ZI/it_handlers.o
+                0x20000040                Last_state_but2
  .bss.Last_state_but1
-                0x20000049        0x1 build_F429ZI/it_handlers.o
-                0x20000049                Last_state_but1
- *fill*         0x2000004a        0x2 
+                0x20000041        0x1 build_F429ZI/it_handlers.o
+                0x20000041                Last_state_but1
+ .bss.flag6     0x20000042        0x1 build_F429ZI/Lab2.o
+                0x20000042                flag6
+ *fill*         0x20000043        0x1 
  .bss.last_blinking6
-                0x2000004c        0x4 build_F429ZI/Lab2.o
-                0x2000004c                last_blinking6
+                0x20000044        0x4 build_F429ZI/Lab2.o
+                0x20000044                last_blinking6
+ .bss.flag5     0x20000048        0x1 build_F429ZI/Lab2.o
+                0x20000048                flag5
+ *fill*         0x20000049        0x3 
  .bss.last_blinking5
-                0x20000050        0x4 build_F429ZI/Lab2.o
-                0x20000050                last_blinking5
+                0x2000004c        0x4 build_F429ZI/Lab2.o
+                0x2000004c                last_blinking5
+ .bss.flag4     0x20000050        0x1 build_F429ZI/Lab2.o
+                0x20000050                flag4
+ *fill*         0x20000051        0x3 
  .bss.last_blinking4
                 0x20000054        0x4 build_F429ZI/Lab2.o
                 0x20000054                last_blinking4
+ .bss.flag3     0x20000058        0x1 build_F429ZI/Lab2.o
+                0x20000058                flag3
+ *fill*         0x20000059        0x3 
  .bss.last_blinking3
-                0x20000058        0x4 build_F429ZI/Lab2.o
-                0x20000058                last_blinking3
- .bss.last_blinking2
                 0x2000005c        0x4 build_F429ZI/Lab2.o
-                0x2000005c                last_blinking2
+                0x2000005c                last_blinking3
+ .bss.flag2     0x20000060        0x1 build_F429ZI/Lab2.o
+                0x20000060                flag2
+ *fill*         0x20000061        0x3 
+ .bss.last_blinking2
+                0x20000064        0x4 build_F429ZI/Lab2.o
+                0x20000064                last_blinking2
+ .bss.flag1     0x20000068        0x1 build_F429ZI/Lab2.o
+                0x20000068                flag1
+ *fill*         0x20000069        0x3 
  .bss.last_blinking1
-                0x20000060        0x4 build_F429ZI/Lab2.o
-                0x20000060                last_blinking1
+                0x2000006c        0x4 build_F429ZI/Lab2.o
+                0x2000006c                last_blinking1
  *(COMMON)
-                0x20000064                        . = ALIGN (0x4)
-                0x20000064                        _ebss = .
-                0x20000064                        __bss_end__ = _ebss
+                0x20000070                        . = ALIGN (0x4)
+                0x20000070                        _ebss = .
+                0x20000070                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000064      0x604
-                0x20000068                        . = ALIGN (0x8)
- *fill*         0x20000064        0x4 
+                0x20000070      0x600
+                0x20000070                        . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
-                0x20000068                        PROVIDE (_end = .)
-                0x20000268                        . = (. + _Min_Heap_Size)
- *fill*         0x20000068      0x200 
-                0x20000668                        . = (. + _Min_Stack_Size)
- *fill*         0x20000268      0x400 
-                0x20000668                        . = ALIGN (0x8)
+                0x20000070                        PROVIDE (_end = .)
+                0x20000270                        . = (. + _Min_Heap_Size)
+ *fill*         0x20000070      0x200 
+                0x20000670                        . = (. + _Min_Stack_Size)
+ *fill*         0x20000270      0x400 
+                0x20000670                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -822,13 +823,13 @@ LOAD C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/g
  .comment       0x00000039       0x3a build_F429ZI/Lab2.o
  .comment       0x00000039       0x3a C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
 
-.debug_info     0x00000000     0x1bc8
+.debug_info     0x00000000     0x1bb5
  .debug_info    0x00000000      0x5ce build_F429ZI/system_stm32f4xx.o
  .debug_info    0x000005ce      0x1d4 build_F429ZI/main.o
  .debug_info    0x000007a2      0xd03 build_F429ZI/init_lab2.o
  .debug_info    0x000014a5      0x30e build_F429ZI/it_handlers.o
- .debug_info    0x000017b3      0x3e5 build_F429ZI/Lab2.o
- .debug_info    0x00001b98       0x30 build_F429ZI/startup_stm32f429xx.o
+ .debug_info    0x000017b3      0x3d2 build_F429ZI/Lab2.o
+ .debug_info    0x00001b85       0x30 build_F429ZI/startup_stm32f429xx.o
 
 .debug_abbrev   0x00000000      0x63f
  .debug_abbrev  0x00000000      0x11b build_F429ZI/system_stm32f4xx.o
@@ -867,22 +868,22 @@ LOAD C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/g
  .debug_ranges  0x000000e8       0x88 build_F429ZI/Lab2.o
  .debug_ranges  0x00000170       0x20 build_F429ZI/startup_stm32f429xx.o
 
-.debug_line     0x00000000      0xf37
+.debug_line     0x00000000      0xf36
  .debug_line    0x00000000      0x29a build_F429ZI/system_stm32f4xx.o
  .debug_line    0x0000029a      0x15b build_F429ZI/main.o
  .debug_line    0x000003f5      0x37b build_F429ZI/init_lab2.o
- .debug_line    0x00000770      0x30b build_F429ZI/it_handlers.o
- .debug_line    0x00000a7b      0x432 build_F429ZI/Lab2.o
- .debug_line    0x00000ead       0x8a build_F429ZI/startup_stm32f429xx.o
+ .debug_line    0x00000770      0x30a build_F429ZI/it_handlers.o
+ .debug_line    0x00000a7a      0x432 build_F429ZI/Lab2.o
+ .debug_line    0x00000eac       0x8a build_F429ZI/startup_stm32f429xx.o
 
-.debug_str      0x00000000      0xcae
- .debug_str     0x00000000      0xcae build_F429ZI/system_stm32f4xx.o
+.debug_str      0x00000000      0xca9
+ .debug_str     0x00000000      0xca9 build_F429ZI/system_stm32f4xx.o
                                 0x369 (size before relaxing)
- .debug_str     0x00000cae      0x1fe build_F429ZI/main.o
- .debug_str     0x00000cae      0xa4d build_F429ZI/init_lab2.o
- .debug_str     0x00000cae      0x29f build_F429ZI/it_handlers.o
- .debug_str     0x00000cae      0x2bb build_F429ZI/Lab2.o
- .debug_str     0x00000cae       0x73 build_F429ZI/startup_stm32f429xx.o
+ .debug_str     0x00000ca9      0x1fe build_F429ZI/main.o
+ .debug_str     0x00000ca9      0xa4d build_F429ZI/init_lab2.o
+ .debug_str     0x00000ca9      0x29f build_F429ZI/it_handlers.o
+ .debug_str     0x00000ca9      0x2af build_F429ZI/Lab2.o
+ .debug_str     0x00000ca9       0x73 build_F429ZI/startup_stm32f429xx.o
 
 .debug_frame    0x00000000      0x134
  .debug_frame   0x00000000       0x30 build_F429ZI/system_stm32f4xx.o
@@ -1213,7 +1214,6 @@ last_blinking3                                    build_F429ZI/Lab2.o
 last_blinking4                                    build_F429ZI/Lab2.o
 last_blinking5                                    build_F429ZI/Lab2.o
 last_blinking6                                    build_F429ZI/Lab2.o
-last_led_en                                       build_F429ZI/Lab2.o
 led_en                                            build_F429ZI/main.o
                                                   build_F429ZI/it_handlers.o
 main                                              build_F429ZI/main.o

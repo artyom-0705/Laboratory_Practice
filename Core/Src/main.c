@@ -1,22 +1,22 @@
 #include "../Inc/init_lab2.h"
 #include "Lab2.h"
 
-uint8_t led_en = 0;                 // Переменная хранящая сколько светодиодов включено
-uint8_t num_led_blink = 0;          // Переменная хранящая номер светодиода, частота которого настраивается
-uint32_t GlobalTickCount = 0;       // Переменная таймер
-uint8_t blink[6][2] = {0};          // Матрица для хранения номера диапозона частоты и номера самой частоты мигания лампочек
+uint8_t led_en = 0;                                         // Переменная хранящая сколько светодиодов включено
+uint8_t num_led_blink = 0;                                  // Переменная хранящая номер светодиода, частота которого настраивается
+uint32_t GlobalTickCount = 0;                               // Переменная таймер
+uint8_t blink[6][2] = {0};                                  // Матрица для хранения номера диапазона частоты и номера самой частоты мигания лампочек
 
 
 
 int main(void)
 {
-    RCC_init_clocking();
-    GPIO_Init_Led_and_button();
-    ITR_init();
-    SysTick_Init();
+    RCC_init_clocking();                                    // Настройка тактирования микроконтроллера
+    GPIO_Init_Led_and_button();                             // Настройка портов GPIO (включение шин и настрока портов светодиодов)
+    ITR_init();                                             // Настройка прерывания по кнопкам (PC12 и PC13)
+    SysTick_Init();                                         // Настройка системного таймера
 
     while (1)
     {
-       blinking_func(&led_en, blink, &GlobalTickCount);
+       blinking_func(&led_en, blink, &GlobalTickCount);     // Основная функция, выполняющая задание согласно варианту 6
     }
 }

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
   34              		@ link register save eliminated.
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 2
 
 
   35              		.loc 1 24 1 is_stmt 0 view .LVU1
@@ -96,7 +96,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
   63              		.loc 1 28 8 view .LVU12
   64 0014 ABB1     		cbz	r3, .L2
   29:Core/Src/Lab2.c ****     {
-  30:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking1) > delay1)   // Проверка прошла ли �
+  30:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking1) >= delay1)   // Проверка прошла ли 
   65              		.loc 1 30 9 is_stmt 1 view .LVU13
   66              		.loc 1 30 14 is_stmt 0 view .LVU14
   67 0016 1368     		ldr	r3, [r2]
@@ -106,7 +106,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
   71 001c 5B1B     		subs	r3, r3, r5
   72              		.loc 1 30 12 view .LVU16
   73 001e A342     		cmp	r3, r4
-  74 0020 0FD9     		bls	.L2
+  74 0020 0FD3     		bcc	.L2
   31:Core/Src/Lab2.c ****         {
   32:Core/Src/Lab2.c ****             if (flag1 == 1)                                 // Если светодиод вклю
   75              		.loc 1 32 13 is_stmt 1 view .LVU17
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
   81 0028 00F0CE80 		beq	.L22
   33:Core/Src/Lab2.c ****             {
   34:Core/Src/Lab2.c ****                 LED1_OFF;
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 3
 
 
   35:Core/Src/Lab2.c ****                 flag1 = 0;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  120              		.loc 1 50 18 is_stmt 0 view .LVU36
  121 004c 03EB4303 		add	r3, r3, r3, lsl #1
  122              	.LVL10:
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 4
 
 
  123              		.loc 1 50 18 view .LVU37
@@ -188,7 +188,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  127              		.loc 1 50 18 view .LVU38
  128 0054 34F81340 		ldrh	r4, [r4, r3, lsl #1]
  129              	.LVL12:
-  51:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking2) > delay2)
+  51:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking2) >= delay2)
  130              		.loc 1 51 9 is_stmt 1 view .LVU39
  131              		.loc 1 51 14 is_stmt 0 view .LVU40
  132 0058 1368     		ldr	r3, [r2]
@@ -198,7 +198,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  136 005e 5B1B     		subs	r3, r3, r5
  137              		.loc 1 51 12 view .LVU42
  138 0060 A342     		cmp	r3, r4
- 139 0062 0FD9     		bls	.L5
+ 139 0062 0FD3     		bcc	.L5
   52:Core/Src/Lab2.c ****         {
   53:Core/Src/Lab2.c ****             if (flag2 == 1)                                 // Если светодиод вклю
  140              		.loc 1 53 13 is_stmt 1 view .LVU43
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  164 007e 1468     		ldr	r4, [r2]
  165              		.loc 1 63 28 view .LVU53
  166 0080 704B     		ldr	r3, .L28+16
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 5
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 5
 
 
  167 0082 1C60     		str	r4, [r3]
@@ -280,7 +280,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  195              		.loc 1 71 18 view .LVU65
  196 0096 34F81340 		ldrh	r4, [r4, r3, lsl #1]
  197              	.LVL20:
-  72:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking3) > delay3)   // Проверка прошла ли �
+  72:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking3) >= delay3)   // Проверка прошла ли 
  198              		.loc 1 72 9 is_stmt 1 view .LVU66
  199              		.loc 1 72 14 is_stmt 0 view .LVU67
  200 009a 1368     		ldr	r3, [r2]
@@ -290,7 +290,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  204 00a0 5B1B     		subs	r3, r3, r5
  205              		.loc 1 72 12 view .LVU69
  206 00a2 A342     		cmp	r3, r4
- 207 00a4 0FD9     		bls	.L8
+ 207 00a4 0FD3     		bcc	.L8
   73:Core/Src/Lab2.c ****         {
   74:Core/Src/Lab2.c ****             if (flag3 == 1)                                 // Если светодиод вклю
  208              		.loc 1 74 13 is_stmt 1 view .LVU70
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  210 00a6 6A4B     		ldr	r3, .L28+28
  211 00a8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  212              		.loc 1 74 16 view .LVU72
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 6
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 6
 
 
  213 00aa 012B     		cmp	r3, #1
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
   91:Core/Src/Lab2.c ****         freq = blink[3][1];                                 // Переменная храняща�
  251              		.loc 1 91 9 is_stmt 1 view .LVU87
  252              		.loc 1 91 14 is_stmt 0 view .LVU88
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 7
 
 
  253 00ce CC79     		ldrb	r4, [r1, #7]	@ zero_extendqisi2
@@ -375,7 +375,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  263              		.loc 1 92 18 view .LVU92
  264 00d8 34F81340 		ldrh	r4, [r4, r3, lsl #1]
  265              	.LVL28:
-  93:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking4) > delay4)   // Проверка прошла ли �
+  93:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking4) >= delay4)   // Проверка прошла ли 
  266              		.loc 1 93 9 is_stmt 1 view .LVU93
  267              		.loc 1 93 14 is_stmt 0 view .LVU94
  268 00dc 1368     		ldr	r3, [r2]
@@ -385,7 +385,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  272 00e2 5B1B     		subs	r3, r3, r5
  273              		.loc 1 93 12 view .LVU96
  274 00e4 A342     		cmp	r3, r4
- 275 00e6 0FD9     		bls	.L11
+ 275 00e6 0FD3     		bcc	.L11
   94:Core/Src/Lab2.c ****         {
   95:Core/Src/Lab2.c ****             if (flag4 == 1)                                 // Если светодиод вклю
  276              		.loc 1 95 13 is_stmt 1 view .LVU97
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  295 00fe 0124     		movs	r4, #1
  296 0100 1C70     		strb	r4, [r3]
  297              	.L13:
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 8
 
 
  104:Core/Src/Lab2.c ****             }
@@ -467,7 +467,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  331              		.loc 1 113 18 view .LVU119
  332 011a 34F81340 		ldrh	r4, [r4, r3, lsl #1]
  333              	.LVL36:
- 114:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking5) > delay5)   // Проверка прошла ли �
+ 114:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking5) >= delay5)   // Проверка прошла ли 
  334              		.loc 1 114 9 is_stmt 1 view .LVU120
  335              		.loc 1 114 14 is_stmt 0 view .LVU121
  336 011e 1368     		ldr	r3, [r2]
@@ -477,8 +477,8 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  340 0124 5B1B     		subs	r3, r3, r5
  341              		.loc 1 114 12 view .LVU123
  342 0126 A342     		cmp	r3, r4
- 343 0128 0ED9     		bls	.L14
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 9
+ 343 0128 0ED3     		bcc	.L14
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 9
 
 
  115:Core/Src/Lab2.c ****         {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  382              	.LBB6:
  131:Core/Src/Lab2.c ****     {
  132:Core/Src/Lab2.c ****         range = blink[5][0];                                // Переменная храняща�
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 10
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 10
 
 
  383              		.loc 1 132 9 is_stmt 1 view .LVU139
@@ -562,7 +562,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  399              		.loc 1 134 18 view .LVU146
  400 015a 31F81310 		ldrh	r1, [r1, r3, lsl #1]
  401              	.LVL44:
- 135:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking6) > delay6)   // Проверка прошла ли �
+ 135:Core/Src/Lab2.c ****         if ((*GlobalTickCount - last_blinking6) >= delay6)   // Проверка прошла ли 
  402              		.loc 1 135 9 is_stmt 1 view .LVU147
  403              		.loc 1 135 14 is_stmt 0 view .LVU148
  404 015e 1368     		ldr	r3, [r2]
@@ -572,7 +572,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  408 0164 1B1B     		subs	r3, r3, r4
  409              		.loc 1 135 12 view .LVU150
  410 0166 8B42     		cmp	r3, r1
- 411 0168 0ED9     		bls	.L17
+ 411 0168 0ED3     		bcc	.L17
  136:Core/Src/Lab2.c ****         {
  137:Core/Src/Lab2.c ****             if (flag6 == 1)                                 // Если светодиод вклю
  412              		.loc 1 137 13 is_stmt 1 view .LVU151
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  425 017a 8B61     		str	r3, [r1, #24]
  426              	.LVL46:
  427              		.loc 1 144 24 is_stmt 1 view .LVU156
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 11
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 11
 
 
  145:Core/Src/Lab2.c ****                 flag6 = 1;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  471              		.loc 1 155 17 view .LVU173
  156:Core/Src/Lab2.c ****         LED5_OFF;
  472              		.loc 1 156 9 view .LVU174
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 12
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 12
 
 
  473 01b4 9A69     		ldr	r2, [r3, #24]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  517 01dc A369     		ldr	r3, [r4, #24]
  518 01de 43F40003 		orr	r3, r3, #8388608
  519 01e2 A361     		str	r3, [r4, #24]
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 13
 
 
  520              	.LVL54:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  561              		.loc 1 97 25 is_stmt 1 view .LVU198
   98:Core/Src/Lab2.c ****                 flag4 = 0;
  562              		.loc 1 98 17 view .LVU199
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 14
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 14
 
 
   98:Core/Src/Lab2.c ****                 flag4 = 0;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  604 022c 0E4B     		ldr	r3, .L28+52
  605 022e 0021     		movs	r1, #0
  606 0230 1970     		strb	r1, [r3]
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 15
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 15
 
 
  607 0232 A6E7     		b	.L19
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  674 0000 00       		.space	1
  675              		.global	last_blinking4
  676              		.section	.bss.last_blinking4,"aw",%nobits
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 16
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 16
 
 
  677              		.align	2
@@ -936,39 +936,39 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 1
  723              		.file 2 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/mach
  724              		.file 3 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
  725              		.file 4 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h"
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s 			page 17
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 Lab2.c
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:21     .text.blinking_func:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:27     .text.blinking_func:00000000 blinking_func
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:611    .text.blinking_func:00000234 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:633    .rodata.delay_table:00000000 delay_table
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:719    .bss.last_blinking1:00000000 last_blinking1
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:712    .bss.flag1:00000000 flag1
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:706    .bss.last_blinking2:00000000 last_blinking2
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:699    .bss.flag2:00000000 flag2
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:693    .bss.last_blinking3:00000000 last_blinking3
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:686    .bss.flag3:00000000 flag3
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:680    .bss.last_blinking4:00000000 last_blinking4
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:673    .bss.flag4:00000000 flag4
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:667    .bss.last_blinking5:00000000 last_blinking5
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:660    .bss.flag5:00000000 flag5
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:654    .bss.last_blinking6:00000000 last_blinking6
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:647    .bss.flag6:00000000 flag6
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:630    .rodata.delay_table:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:648    .bss.flag6:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:651    .bss.last_blinking6:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:661    .bss.flag5:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:664    .bss.last_blinking5:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:674    .bss.flag4:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:677    .bss.last_blinking4:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:687    .bss.flag3:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:690    .bss.last_blinking3:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:700    .bss.flag2:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:703    .bss.last_blinking2:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:713    .bss.flag1:00000000 $d
-C:\Users\lenovo\AppData\Local\Temp\ccMZH7qA.s:716    .bss.last_blinking1:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:21     .text.blinking_func:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:27     .text.blinking_func:00000000 blinking_func
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:611    .text.blinking_func:00000234 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:633    .rodata.delay_table:00000000 delay_table
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:719    .bss.last_blinking1:00000000 last_blinking1
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:712    .bss.flag1:00000000 flag1
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:706    .bss.last_blinking2:00000000 last_blinking2
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:699    .bss.flag2:00000000 flag2
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:693    .bss.last_blinking3:00000000 last_blinking3
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:686    .bss.flag3:00000000 flag3
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:680    .bss.last_blinking4:00000000 last_blinking4
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:673    .bss.flag4:00000000 flag4
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:667    .bss.last_blinking5:00000000 last_blinking5
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:660    .bss.flag5:00000000 flag5
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:654    .bss.last_blinking6:00000000 last_blinking6
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:647    .bss.flag6:00000000 flag6
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:630    .rodata.delay_table:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:648    .bss.flag6:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:651    .bss.last_blinking6:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:661    .bss.flag5:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:664    .bss.last_blinking5:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:674    .bss.flag4:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:677    .bss.last_blinking4:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:687    .bss.flag3:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:690    .bss.last_blinking3:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:700    .bss.flag2:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:703    .bss.last_blinking2:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:713    .bss.flag1:00000000 $d
+C:\Users\lenovo\AppData\Local\Temp\ccRO9V9h.s:716    .bss.last_blinking1:00000000 $d
 
 NO UNDEFINED SYMBOLS

@@ -1,9 +1,9 @@
-#include "init_lab2.h"
+#include "init_lab3.h"
 
 void GPIO_Init_Led_and_button(void)
 {
 
-    SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN); // Включение тактирования GPIOB и GPIOC
+    SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN | RCC_AHB1ENR_GPIOEEN); // Включение тактирования GPIOB и GPIOC
 
     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE8_0);              // Настройка пина PB8 на выход, регистр GPIOx_MODER
     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_8);             // Установление PB8 в режим pull-push, регистр OTYPER
@@ -53,68 +53,59 @@ void RCC_init_clocking(void) // Настройка тактирования
     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) == RESET);           // Ожидание включения PLL
 }
 
-void ITR_init(void)                                                                             // Настройка прерывания кнопки
+void ITR_init(void)                                                                          // Настройка прерывания кнопки
 {
-    SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN);                                                // Включение тактирования SYSCFG - необходим для настройки EXTI
+    SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN);                                             // Включение тактирования SYSCFG - необходим для настройки EXTI
 
-    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC);         // Настройка EXTI13 на PC13
+    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC);      // Настройка EXTI13 на PC13
 
-    SET_BIT(EXTI->IMR, EXTI_IMR_MR13);                                          // Разрешает прерывания по линиям PC13
-    SET_BIT(EXTI->RTSR, EXTI_RTSR_TR13);                                       // Настраиваем триггер по нарастанию фронта для кнопок (переход от 0 к 1)
-    SET_BIT(EXTI->FTSR, EXTI_FTSR_TR13);                                       // Настраиваем триггер по спадающему фронту для кнопок (переход от 1 к 0)
+    SET_BIT(EXTI->IMR, EXTI_IMR_MR13);                                                       // Разрешает прерывания по линиям PC13
+    SET_BIT(EXTI->RTSR, EXTI_RTSR_TR13);                                                     // Настраиваем триггер по нарастанию фронта для кнопок (переход от 0 к 1)
+    SET_BIT(EXTI->FTSR, EXTI_FTSR_TR13);                                                     // Настраиваем триггер по спадающему фронту для кнопок (переход от 1 к 0)
 
-    NVIC_SetPriority(EXTI15_10_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));    // Устанавливаем приоритет прерывания (высший)
-    NVIC_EnableIRQ(EXTI15_10_IRQn);                                                             // Включаем прерывания в контроллере NVIC (теперь процессор будет их обрабатывать)
+    NVIC_SetPriority(EXTI15_10_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0)); // Устанавливаем приоритет прерывания (высший)
+    NVIC_EnableIRQ(EXTI15_10_IRQn);                                                          // Включаем прерывания в контроллере NVIC (теперь процессор будет их обрабатывать)
 }
 
 void TIM1_PWM_PE14(void)
 {
-    SET_BIT(RCC->APB2ENR, RCC_APB2ENR_TIM1EN);
-    SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOEEN);
-
-    // Настройка PE14 как альтернативной функции (TIM1_CH4)
-    MODIFY_REG(GPIOE->MODER, GPIO_MODER_MODER14_Msk, GPIO_MODER_MODER14_1);
-    MODIFY_REG(GPIOE->AFR[1], GPIO_AFRH_AFSEL14_Msk, 1 << GPIO_AFRH_AFSEL14_Pos);
+    SET_BIT(RCC->APB2ENR, RCC_APB2ENR_TIM1EN);                                               // Включаем тактирование TIM1 (шина APB2)
     
-    // Остановка таймера
-    CLEAR_BIT(TIM1->CR1, TIM_CR1_CEN);
+    MODIFY_REG(GPIOE->MODER, GPIO_MODER_MODER14_Msk, GPIO_MODER_MODER14_1);                  // Устанавливаем PE14 на альтернативную функцию
+    MODIFY_REG(GPIOE->AFR[1], GPIO_AFRH_AFSEL14_Msk, 1 << GPIO_AFRH_AFSEL14_Pos);            // Устанавливаем альтернативную функцию 1 (TIM1_CH4)
+ 
+    CLEAR_BIT(TIM1->CR1, TIM_CR1_CEN);                                                       // Останавливаем таймер пере его настройкой, для безопасности
     
-    // Настройка для 1 кГц при 180 MHz
-    TIM1->PSC = 179;       // Делитель 180
-    TIM1->ARR = 999;       // Период 1000
-    TIM1->CCR4 = 1000;      // 50% скважность
+    TIM1->PSC = 179;                                                                         // Настройка таймера предделителя таймера 180 (для 1кГц)
+    TIM1->ARR = 999;                                                                         // Устанавливааем период таймера в 1000 тиков (для 1кГц)
+    TIM1->CCR4 = 0;                                                                          // Скважность в начальный момент устанавливаем 0% 
     
-    // Настройка канала 4 (в CCMR2)
-    TIM1->CCMR2 |= TIM_CCMR2_OC4PE;
-    TIM1->CCMR2 &= ~TIM_CCMR2_OC4M_Msk;
-    TIM1->CCMR2 |= (6 << TIM_CCMR2_OC4M_Pos);
+    TIM1->CCMR2 |= TIM_CCMR2_OC4PE;                                                          // Включение режима предзагрузки для канала 4 таймера TIM1
+    TIM1->CCMR2 &= ~TIM_CCMR2_OC4M_Msk;                                                      // Сброс битов режима выхода (OC4M)
+    TIM1->CCMR2 |= (6 << TIM_CCMR2_OC4M_Pos);                                                // Установка режима PWM mode 1 (110 в двоичном виде)
     
-    // Включение канала 4
-    SET_BIT(TIM1->CCER, TIM_CCER_CC4E);
+    SET_BIT(TIM1->CCER, TIM_CCER_CC4E);                                                      // Включение канала 4 (разрешение выхода)
     
-    // Включение основного выхода
-    SET_BIT(TIM1->BDTR, TIM_BDTR_MOE);
+    SET_BIT(TIM1->BDTR, TIM_BDTR_MOE);                                                       // Включение основного выхода
     
-    // Запуск таймера
-    SET_BIT(TIM1->CR1, TIM_CR1_CEN);
+    SET_BIT(TIM1->CR1, TIM_CR1_CEN);                                                         // Запуск таймера
 }
 
 void TIM3_Init(void)
 {
-    SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM3EN);
-    CLEAR_BIT(TIM3->CR1, TIM_CR1_CEN);
+    SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM3EN);                                               // Включение тактирования TIM3 (шина APB1)
+    CLEAR_BIT(TIM3->CR1, TIM_CR1_CEN);                                                       // Остановка таймера для настройки, для безопасности
 
-    // Правильный расчет для 50 мс:
-    // 90 MHz / (44999 + 1) = 2000 Гц (период 0.5 мс)
-    // Для 50 мс нужно: 50 / 0.5 = 100 тиков
-    MODIFY_REG(TIM3->PSC, TIM_PSC_PSC_Msk, 8999UL);  // PSC = 44999 (делитель 45000)
-    MODIFY_REG(TIM3->ARR, TIM_ARR_ARR_Msk, 499UL);     // ARR = 99 (100 тиков)
+    MODIFY_REG(TIM3->PSC, TIM_PSC_PSC_Msk, 89UL);                                            // Частота таймера 90МГц, настроим для срабатывания каждую 1 мс (1 кГц), PSC = 89 (делитель 90)
+    MODIFY_REG(TIM3->ARR, TIM_ARR_ARR_Msk, 999UL);                                           // ARR = 999 (1000 тиков)
     
-    SET_BIT(TIM3->CR1, TIM_CR1_ARPE);
-    SET_BIT(TIM3->EGR, TIM_EGR_UG);
-    SET_BIT(TIM3->DIER, TIM_DIER_UIE);
+    SET_BIT(TIM3->CR1, TIM_CR1_ARPE);                                                        // Включение автообновления регистра ARR (буферизация)
+    SET_BIT(TIM3->EGR, TIM_EGR_UG);                                                          // Сбрасываем счетчик и применяем буферизованные значения (PSC, ARR)
+    SET_BIT(TIM3->DIER, TIM_DIER_UIE);                                                       // Разрешаем прерывание по переполнению
     
-    NVIC_SetPriority(TIM3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 1, 0));
-    NVIC_EnableIRQ(TIM3_IRQn);
-    SET_BIT(TIM3->CR1, TIM_CR1_CEN);
+    NVIC_SetPriority(TIM3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 1, 0));      // Установка приоритета 1 и подприоритета 0
+    NVIC_EnableIRQ(TIM3_IRQn);                                                               // Разрешение прерывания от TIM3 в контроллере
+
+    TIM3->CNT = 0;                                                                           // Сброс счетчика в 0
+    SET_BIT(TIM3->CR1, TIM_CR1_CEN);                                                         // Запуск таймера
 }

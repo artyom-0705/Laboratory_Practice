@@ -1,4 +1,4 @@
-build_F429ZI/it_handlers.o: Core/Src/it_handlers.c Core/Inc/init_lab3.h \
+build_F429ZI/init_lab3.o: Core/Src/init_lab3.c Core/Inc/init_lab3.h \
  Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h \
  CMSIS/Include/../include/core_cm4.h \
  CMSIS/Include/../include/cmsis_version.h \

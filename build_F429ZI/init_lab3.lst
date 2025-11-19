@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -15,11 +15,11 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
   12              		.eabi_attribute 30, 1
   13              		.eabi_attribute 34, 1
   14              		.eabi_attribute 18, 4
-  15              		.file	"init_lab2.c"
+  15              		.file	"init_lab3.c"
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.file 1 "Core/Src/init_lab2.c"
+  19              		.file 1 "Core/Src/init_lab3.c"
   20              		.section	.text.NVIC_EncodePriority,"ax",%progbits
   21              		.align	1
   22              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
   27:CMSIS/Include/../include/core_cm4.h **** #elif defined (__clang__)
   28:CMSIS/Include/../include/core_cm4.h ****   #pragma clang system_header   /* treat file as system include file */
   29:CMSIS/Include/../include/core_cm4.h **** #endif
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 2
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 2
 
 
   30:CMSIS/Include/../include/core_cm4.h **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
   84:CMSIS/Include/../include/core_cm4.h ****   #else
   85:CMSIS/Include/../include/core_cm4.h ****     #define __FPU_USED         0U
   86:CMSIS/Include/../include/core_cm4.h ****   #endif
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 3
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 3
 
 
   87:CMSIS/Include/../include/core_cm4.h **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  141:CMSIS/Include/../include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
  142:CMSIS/Include/../include/core_cm4.h ****       #define __FPU_USED       0U
  143:CMSIS/Include/../include/core_cm4.h ****     #endif
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 4
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 4
 
 
  144:CMSIS/Include/../include/core_cm4.h ****   #else
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  198:CMSIS/Include/../include/core_cm4.h ****     #define __NVIC_PRIO_BITS          3U
  199:CMSIS/Include/../include/core_cm4.h ****     #warning "__NVIC_PRIO_BITS not defined in device header file; using default!"
  200:CMSIS/Include/../include/core_cm4.h ****   #endif
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 5
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 5
 
 
  201:CMSIS/Include/../include/core_cm4.h **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  255:CMSIS/Include/../include/core_cm4.h **** 
  256:CMSIS/Include/../include/core_cm4.h **** /**
  257:CMSIS/Include/../include/core_cm4.h ****   \brief  Union type to access the Application Program Status Register (APSR).
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 6
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 6
 
 
  258:CMSIS/Include/../include/core_cm4.h ****  */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  312:CMSIS/Include/../include/core_cm4.h **** 
  313:CMSIS/Include/../include/core_cm4.h **** /**
  314:CMSIS/Include/../include/core_cm4.h ****   \brief  Union type to access the Special-Purpose Program Status Registers (xPSR).
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 7
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 7
 
 
  315:CMSIS/Include/../include/core_cm4.h ****  */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  369:CMSIS/Include/../include/core_cm4.h ****   \brief  Union type to access the Control Registers (CONTROL).
  370:CMSIS/Include/../include/core_cm4.h ****  */
  371:CMSIS/Include/../include/core_cm4.h **** typedef union
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 8
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 8
 
 
  372:CMSIS/Include/../include/core_cm4.h **** {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  426:CMSIS/Include/../include/core_cm4.h **** 
  427:CMSIS/Include/../include/core_cm4.h **** /*@} end of group CMSIS_NVIC */
  428:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 9
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 9
 
 
  429:CMSIS/Include/../include/core_cm4.h **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  483:CMSIS/Include/../include/core_cm4.h **** #define SCB_ICSR_NMIPENDSET_Msk            (1UL << SCB_ICSR_NMIPENDSET_Pos)               /*!< SCB 
  484:CMSIS/Include/../include/core_cm4.h **** 
  485:CMSIS/Include/../include/core_cm4.h **** #define SCB_ICSR_PENDSVSET_Pos             28U                                            /*!< SCB 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 10
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 10
 
 
  486:CMSIS/Include/../include/core_cm4.h **** #define SCB_ICSR_PENDSVSET_Msk             (1UL << SCB_ICSR_PENDSVSET_Pos)                /*!< SCB 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  540:CMSIS/Include/../include/core_cm4.h **** #define SCB_SCR_SEVONPEND_Msk              (1UL << SCB_SCR_SEVONPEND_Pos)                 /*!< SCB 
  541:CMSIS/Include/../include/core_cm4.h **** 
  542:CMSIS/Include/../include/core_cm4.h **** #define SCB_SCR_SLEEPDEEP_Pos               2U                                            /*!< SCB 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 11
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 11
 
 
  543:CMSIS/Include/../include/core_cm4.h **** #define SCB_SCR_SLEEPDEEP_Msk              (1UL << SCB_SCR_SLEEPDEEP_Pos)                 /*!< SCB 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  597:CMSIS/Include/../include/core_cm4.h **** 
  598:CMSIS/Include/../include/core_cm4.h **** #define SCB_SHCSR_SVCALLACT_Pos             7U                                            /*!< SCB 
  599:CMSIS/Include/../include/core_cm4.h **** #define SCB_SHCSR_SVCALLACT_Msk            (1UL << SCB_SHCSR_SVCALLACT_Pos)               /*!< SCB 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 12
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 12
 
 
  600:CMSIS/Include/../include/core_cm4.h **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  654:CMSIS/Include/../include/core_cm4.h **** 
  655:CMSIS/Include/../include/core_cm4.h **** #define SCB_CFSR_PRECISERR_Pos            (SCB_CFSR_BUSFAULTSR_Pos + 1U)                  /*!< SCB 
  656:CMSIS/Include/../include/core_cm4.h **** #define SCB_CFSR_PRECISERR_Msk            (1UL << SCB_CFSR_PRECISERR_Pos)                 /*!< SCB 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 13
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 13
 
 
  657:CMSIS/Include/../include/core_cm4.h **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  711:CMSIS/Include/../include/core_cm4.h ****   \defgroup CMSIS_SCnSCB System Controls not in SCB (SCnSCB)
  712:CMSIS/Include/../include/core_cm4.h ****   \brief    Type definitions for the System Control and ID Register not in the SCB
  713:CMSIS/Include/../include/core_cm4.h ****   @{
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 14
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 14
 
 
  714:CMSIS/Include/../include/core_cm4.h ****  */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  768:CMSIS/Include/../include/core_cm4.h **** #define SysTick_CTRL_COUNTFLAG_Pos         16U                                            /*!< SysT
  769:CMSIS/Include/../include/core_cm4.h **** #define SysTick_CTRL_COUNTFLAG_Msk         (1UL << SysTick_CTRL_COUNTFLAG_Pos)            /*!< SysT
  770:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 15
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 15
 
 
  771:CMSIS/Include/../include/core_cm4.h **** #define SysTick_CTRL_CLKSOURCE_Pos          2U                                            /*!< SysT
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  825:CMSIS/Include/../include/core_cm4.h ****         uint32_t RESERVED3[29U];
  826:CMSIS/Include/../include/core_cm4.h ****   __OM  uint32_t IWR;                    /*!< Offset: 0xEF8 ( /W)  ITM Integration Write Register *
  827:CMSIS/Include/../include/core_cm4.h ****   __IM  uint32_t IRR;                    /*!< Offset: 0xEFC (R/ )  ITM Integration Read Register */
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 16
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 16
 
 
  828:CMSIS/Include/../include/core_cm4.h ****   __IOM uint32_t IMCR;                   /*!< Offset: 0xF00 (R/W)  ITM Integration Mode Control Reg
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  882:CMSIS/Include/../include/core_cm4.h **** 
  883:CMSIS/Include/../include/core_cm4.h **** /* ITM Integration Read Register Definitions */
  884:CMSIS/Include/../include/core_cm4.h **** #define ITM_IRR_ATREADYM_Pos                0U                                            /*!< ITM 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 17
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 17
 
 
  885:CMSIS/Include/../include/core_cm4.h **** #define ITM_IRR_ATREADYM_Msk               (1UL /*<< ITM_IRR_ATREADYM_Pos*/)              /*!< ITM 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  939:CMSIS/Include/../include/core_cm4.h **** } DWT_Type;
  940:CMSIS/Include/../include/core_cm4.h **** 
  941:CMSIS/Include/../include/core_cm4.h **** /* DWT Control Register Definitions */
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 18
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 18
 
 
  942:CMSIS/Include/../include/core_cm4.h **** #define DWT_CTRL_NUMCOMP_Pos               28U                                         /*!< DWT CTR
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  996:CMSIS/Include/../include/core_cm4.h **** /* DWT CPI Count Register Definitions */
  997:CMSIS/Include/../include/core_cm4.h **** #define DWT_CPICNT_CPICNT_Pos               0U                                         /*!< DWT CPI
  998:CMSIS/Include/../include/core_cm4.h **** #define DWT_CPICNT_CPICNT_Msk              (0xFFUL /*<< DWT_CPICNT_CPICNT_Pos*/)       /*!< DWT CPI
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 19
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 19
 
 
  999:CMSIS/Include/../include/core_cm4.h **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1053:CMSIS/Include/../include/core_cm4.h ****   \defgroup CMSIS_TPI     Trace Port Interface (TPI)
 1054:CMSIS/Include/../include/core_cm4.h ****   \brief    Type definitions for the Trace Port Interface (TPI)
 1055:CMSIS/Include/../include/core_cm4.h ****   @{
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 20
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 20
 
 
 1056:CMSIS/Include/../include/core_cm4.h ****  */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1110:CMSIS/Include/../include/core_cm4.h **** /* TPI Formatter and Flush Control Register Definitions */
 1111:CMSIS/Include/../include/core_cm4.h **** #define TPI_FFCR_TrigIn_Pos                 8U                                         /*!< TPI FFC
 1112:CMSIS/Include/../include/core_cm4.h **** #define TPI_FFCR_TrigIn_Msk                (0x1UL << TPI_FFCR_TrigIn_Pos)              /*!< TPI FFC
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 21
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 21
 
 
 1113:CMSIS/Include/../include/core_cm4.h **** 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1167:CMSIS/Include/../include/core_cm4.h **** #define TPI_FIFO1_ITM1_Msk                 (0xFFUL << TPI_FIFO1_ITM1_Pos)              /*!< TPI FIF
 1168:CMSIS/Include/../include/core_cm4.h **** 
 1169:CMSIS/Include/../include/core_cm4.h **** #define TPI_FIFO1_ITM0_Pos                  0U                                         /*!< TPI FIF
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 22
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 22
 
 
 1170:CMSIS/Include/../include/core_cm4.h **** #define TPI_FIFO1_ITM0_Msk                 (0xFFUL /*<< TPI_FIFO1_ITM0_Pos*/)          /*!< TPI FIF
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1224:CMSIS/Include/../include/core_cm4.h **** {
 1225:CMSIS/Include/../include/core_cm4.h ****   __IM  uint32_t TYPE;                   /*!< Offset: 0x000 (R/ )  MPU Type Register */
 1226:CMSIS/Include/../include/core_cm4.h ****   __IOM uint32_t CTRL;                   /*!< Offset: 0x004 (R/W)  MPU Control Register */
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 23
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 23
 
 
 1227:CMSIS/Include/../include/core_cm4.h ****   __IOM uint32_t RNR;                    /*!< Offset: 0x008 (R/W)  MPU Region RNRber Register */
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1281:CMSIS/Include/../include/core_cm4.h **** #define MPU_RASR_AP_Pos                    24U                                            /*!< MPU 
 1282:CMSIS/Include/../include/core_cm4.h **** #define MPU_RASR_AP_Msk                    (0x7UL << MPU_RASR_AP_Pos)                     /*!< MPU 
 1283:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 24
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 24
 
 
 1284:CMSIS/Include/../include/core_cm4.h **** #define MPU_RASR_TEX_Pos                   19U                                            /*!< MPU 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1338:CMSIS/Include/../include/core_cm4.h **** 
 1339:CMSIS/Include/../include/core_cm4.h **** #define FPU_FPCCR_BFRDY_Pos                 6U                                            /*!< FPCC
 1340:CMSIS/Include/../include/core_cm4.h **** #define FPU_FPCCR_BFRDY_Msk                (1UL << FPU_FPCCR_BFRDY_Pos)                   /*!< FPCC
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 25
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 25
 
 
 1341:CMSIS/Include/../include/core_cm4.h **** 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1395:CMSIS/Include/../include/core_cm4.h **** 
 1396:CMSIS/Include/../include/core_cm4.h **** #define FPU_MVFR0_A_SIMD_registers_Pos      0U                                            /*!< MVFR
 1397:CMSIS/Include/../include/core_cm4.h **** #define FPU_MVFR0_A_SIMD_registers_Msk     (0xFUL /*<< FPU_MVFR0_A_SIMD_registers_Pos*/)  /*!< MVFR
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 26
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 26
 
 
 1398:CMSIS/Include/../include/core_cm4.h **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1452:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DHCSR_S_REGRDY_Pos       16U                                            /*!< Core
 1453:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DHCSR_S_REGRDY_Msk       (1UL << CoreDebug_DHCSR_S_REGRDY_Pos)          /*!< Core
 1454:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 27
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 27
 
 
 1455:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DHCSR_C_SNAPSTALL_Pos     5U                                            /*!< Core
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1509:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DEMCR_VC_NOCPERR_Msk     (1UL << CoreDebug_DEMCR_VC_NOCPERR_Pos)        /*!< Core
 1510:CMSIS/Include/../include/core_cm4.h **** 
 1511:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DEMCR_VC_MMERR_Pos        4U                                            /*!< Core
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 28
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 28
 
 
 1512:CMSIS/Include/../include/core_cm4.h **** #define CoreDebug_DEMCR_VC_MMERR_Msk       (1UL << CoreDebug_DEMCR_VC_MMERR_Pos)          /*!< Core
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1566:CMSIS/Include/../include/core_cm4.h **** #define NVIC                ((NVIC_Type      *)     NVIC_BASE     )   /*!< NVIC configuration struc
 1567:CMSIS/Include/../include/core_cm4.h **** #define ITM                 ((ITM_Type       *)     ITM_BASE      )   /*!< ITM configuration struct
 1568:CMSIS/Include/../include/core_cm4.h **** #define DWT                 ((DWT_Type       *)     DWT_BASE      )   /*!< DWT configuration struct
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 29
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 29
 
 
 1569:CMSIS/Include/../include/core_cm4.h **** #define TPI                 ((TPI_Type       *)     TPI_BASE      )   /*!< TPI configuration struct
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1623:CMSIS/Include/../include/core_cm4.h ****   #define NVIC_SystemReset            __NVIC_SystemReset
 1624:CMSIS/Include/../include/core_cm4.h **** #endif /* CMSIS_NVIC_VIRTUAL */
 1625:CMSIS/Include/../include/core_cm4.h **** 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 30
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 30
 
 
 1626:CMSIS/Include/../include/core_cm4.h **** #ifdef CMSIS_VECTAB_VIRTUAL
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1680:CMSIS/Include/../include/core_cm4.h **** 
 1681:CMSIS/Include/../include/core_cm4.h **** 
 1682:CMSIS/Include/../include/core_cm4.h **** /**
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 31
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 31
 
 
 1683:CMSIS/Include/../include/core_cm4.h ****   \brief   Enable Interrupt
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1737:CMSIS/Include/../include/core_cm4.h ****   \details Reads the NVIC pending register and returns the pending bit for the specified device spe
 1738:CMSIS/Include/../include/core_cm4.h ****   \param [in]      IRQn  Device specific interrupt number.
 1739:CMSIS/Include/../include/core_cm4.h ****   \return             0  Interrupt status is not pending.
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 32
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 32
 
 
 1740:CMSIS/Include/../include/core_cm4.h ****   \return             1  Interrupt status is pending.
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1794:CMSIS/Include/../include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetActive(IRQn_Type IRQn)
 1795:CMSIS/Include/../include/core_cm4.h **** {
 1796:CMSIS/Include/../include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 33
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 33
 
 
 1797:CMSIS/Include/../include/core_cm4.h ****   {
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1851:CMSIS/Include/../include/core_cm4.h **** 
 1852:CMSIS/Include/../include/core_cm4.h **** /**
 1853:CMSIS/Include/../include/core_cm4.h ****   \brief   Encode Priority
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 34
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 34
 
 
 1854:CMSIS/Include/../include/core_cm4.h ****   \details Encodes the priority for an interrupt with the given priority group,
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
   64              		.loc 2 1873 30 is_stmt 0 view .LVU14
   65 001c 4FF0FF3E 		mov	lr, #-1
   66 0020 0EFA0CF0 		lsl	r0, lr, ip
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 35
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 35
 
 
   67              	.LVL4:
@@ -2073,53 +2073,53 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
   93              		.thumb_func
   95              	GPIO_Init_Led_and_button:
   96              	.LFB130:
-   1:Core/Src/init_lab2.c **** #include "init_lab2.h"
-   2:Core/Src/init_lab2.c **** 
-   3:Core/Src/init_lab2.c **** void GPIO_Init_Led_and_button(void)
-   4:Core/Src/init_lab2.c **** {
+   1:Core/Src/init_lab3.c **** #include "init_lab3.h"
+   2:Core/Src/init_lab3.c **** 
+   3:Core/Src/init_lab3.c **** void GPIO_Init_Led_and_button(void)
+   4:Core/Src/init_lab3.c **** {
   97              		.loc 1 4 1 is_stmt 1 view -0
   98              		.cfi_startproc
   99              		@ args = 0, pretend = 0, frame = 0
  100              		@ frame_needed = 0, uses_anonymous_args = 0
  101              		@ link register save eliminated.
-   5:Core/Src/init_lab2.c **** 
-   6:Core/Src/init_lab2.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN | RCC_AHB1ENR_GPIOEEN); // Вк
+   5:Core/Src/init_lab3.c **** 
+   6:Core/Src/init_lab3.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN | RCC_AHB1ENR_GPIOEEN); // Вк
  102              		.loc 1 6 5 view .LVU21
  103 0000 0D4A     		ldr	r2, .L6
  104 0002 136B     		ldr	r3, [r2, #48]
  105 0004 43F01603 		orr	r3, r3, #22
  106 0008 1363     		str	r3, [r2, #48]
-   7:Core/Src/init_lab2.c **** 
-   8:Core/Src/init_lab2.c ****     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE8_0);              // Настройка пина PB8 на
+   7:Core/Src/init_lab3.c **** 
+   8:Core/Src/init_lab3.c ****     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE8_0);              // Настройка пина PB8 на
  107              		.loc 1 8 5 view .LVU22
  108 000a 0C4B     		ldr	r3, .L6+4
  109 000c 1A68     		ldr	r2, [r3]
  110 000e 42F48032 		orr	r2, r2, #65536
  111 0012 1A60     		str	r2, [r3]
-   9:Core/Src/init_lab2.c ****     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_8);             // Установление PB8 в ре
+   9:Core/Src/init_lab3.c ****     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_8);             // Установление PB8 в ре
  112              		.loc 1 9 5 view .LVU23
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 36
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 36
 
 
  113 0014 5A68     		ldr	r2, [r3, #4]
  114 0016 22F48072 		bic	r2, r2, #256
  115 001a 5A60     		str	r2, [r3, #4]
-  10:Core/Src/init_lab2.c ****     SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR8_0);      // Устанавливаем скор�
+  10:Core/Src/init_lab3.c ****     SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR8_0);      // Устанавливаем скор�
  116              		.loc 1 10 5 view .LVU24
  117 001c 9A68     		ldr	r2, [r3, #8]
  118 001e 42F48032 		orr	r2, r2, #65536
  119 0022 9A60     		str	r2, [r3, #8]
-  11:Core/Src/init_lab2.c ****     CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD8_0);            // Отключаем подтягив�
+  11:Core/Src/init_lab3.c ****     CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD8_0);            // Отключаем подтягив�
  120              		.loc 1 11 5 view .LVU25
  121 0024 DA68     		ldr	r2, [r3, #12]
  122 0026 22F48032 		bic	r2, r2, #65536
  123 002a DA60     		str	r2, [r3, #12]
-  12:Core/Src/init_lab2.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR8);                    // Установление на пин
+  12:Core/Src/init_lab3.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR8);                    // Установление на пин
  124              		.loc 1 12 5 view .LVU26
  125 002c 9A69     		ldr	r2, [r3, #24]
  126 002e 42F08072 		orr	r2, r2, #16777216
  127 0032 9A61     		str	r2, [r3, #24]
-  13:Core/Src/init_lab2.c **** }
+  13:Core/Src/init_lab3.c **** }
  128              		.loc 1 13 1 is_stmt 0 view .LVU27
  129 0034 7047     		bx	lr
  130              	.L7:
@@ -2137,28 +2137,28 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  143              		.thumb_func
  145              	RCC_init_clocking:
  146              	.LFB131:
-  14:Core/Src/init_lab2.c **** 
-  15:Core/Src/init_lab2.c **** void RCC_init_clocking(void) // Настройка тактирования
-  16:Core/Src/init_lab2.c **** {
+  14:Core/Src/init_lab3.c **** 
+  15:Core/Src/init_lab3.c **** void RCC_init_clocking(void) // Настройка тактирования
+  16:Core/Src/init_lab3.c **** {
  147              		.loc 1 16 1 is_stmt 1 view -0
  148              		.cfi_startproc
  149              		@ args = 0, pretend = 0, frame = 0
  150              		@ frame_needed = 0, uses_anonymous_args = 0
  151              		@ link register save eliminated.
-  17:Core/Src/init_lab2.c ****     /*----------------Произведем очистку регистров RCC, с целью н�
-  18:Core/Src/init_lab2.c ****     MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, 0x80U);                  // Настройка внутре
+  17:Core/Src/init_lab3.c ****     /*----------------Произведем очистку регистров RCC, с целью н�
+  18:Core/Src/init_lab3.c ****     MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, 0x80U);                  // Настройка внутре
  152              		.loc 1 18 5 view .LVU29
  153 0000 3B4A     		ldr	r2, .L14
  154 0002 1368     		ldr	r3, [r2]
  155 0004 23F0F803 		bic	r3, r3, #248
  156 0008 43F08003 		orr	r3, r3, #128
  157 000c 1360     		str	r3, [r2]
-  19:Core/Src/init_lab2.c ****     CLEAR_REG(RCC->CFGR);                                        // Очистка регистра
+  19:Core/Src/init_lab3.c ****     CLEAR_REG(RCC->CFGR);                                        // Очистка регистра
  158              		.loc 1 19 5 view .LVU30
  159 000e 0023     		movs	r3, #0
  160 0010 9360     		str	r3, [r2, #8]
-  20:Core/Src/init_lab2.c ****     while (READ_BIT(RCC->CFGR, RCC_CFGR_SWS) != RESET);          // Проверка очистки
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 37
+  20:Core/Src/init_lab3.c ****     while (READ_BIT(RCC->CFGR, RCC_CFGR_SWS) != RESET);          // Проверка очистки
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 37
 
 
  161              		.loc 1 20 5 view .LVU31
@@ -2170,13 +2170,13 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  167              		.loc 1 20 46 discriminator 1 view .LVU34
  168 0016 13F00C0F 		tst	r3, #12
  169 001a FAD1     		bne	.L9
-  21:Core/Src/init_lab2.c ****     CLEAR_BIT(RCC->CR, RCC_CR_PLLON);                            // Очистка бита PLLON (
+  21:Core/Src/init_lab3.c ****     CLEAR_BIT(RCC->CR, RCC_CR_PLLON);                            // Очистка бита PLLON (
  170              		.loc 1 21 5 is_stmt 1 view .LVU35
  171 001c 344A     		ldr	r2, .L14
  172 001e 1368     		ldr	r3, [r2]
  173 0020 23F08073 		bic	r3, r3, #16777216
  174 0024 1360     		str	r3, [r2]
-  22:Core/Src/init_lab2.c ****     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) != RESET);           // Проверка был ли о
+  22:Core/Src/init_lab3.c ****     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) != RESET);           // Проверка был ли о
  175              		.loc 1 22 5 view .LVU36
  176              	.L10:
  177              		.loc 1 22 45 discriminator 1 view .LVU37
@@ -2186,13 +2186,13 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  181              		.loc 1 22 45 discriminator 1 view .LVU39
  182 002a 13F0007F 		tst	r3, #33554432
  183 002e FAD1     		bne	.L10
-  23:Core/Src/init_lab2.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEON | RCC_CR_CSSON);             // Очистка бита CSSON �
+  23:Core/Src/init_lab3.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEON | RCC_CR_CSSON);             // Очистка бита CSSON �
  184              		.loc 1 23 5 is_stmt 1 view .LVU40
  185 0030 2F4A     		ldr	r2, .L14
  186 0032 1368     		ldr	r3, [r2]
  187 0034 23F41023 		bic	r3, r3, #589824
  188 0038 1360     		str	r3, [r2]
-  24:Core/Src/init_lab2.c ****     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) != RESET);           // Проверка был ли о
+  24:Core/Src/init_lab3.c ****     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) != RESET);           // Проверка был ли о
  189              		.loc 1 24 5 view .LVU41
  190              	.L11:
  191              		.loc 1 24 45 discriminator 1 view .LVU42
@@ -2202,23 +2202,23 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  195              		.loc 1 24 45 discriminator 1 view .LVU44
  196 003e 13F4003F 		tst	r3, #131072
  197 0042 FAD1     		bne	.L11
-  25:Core/Src/init_lab2.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP);                           // Очистка бита HSEBYP 
+  25:Core/Src/init_lab3.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP);                           // Очистка бита HSEBYP 
  198              		.loc 1 25 5 is_stmt 1 view .LVU45
  199 0044 2A4B     		ldr	r3, .L14
  200 0046 1A68     		ldr	r2, [r3]
  201 0048 22F48022 		bic	r2, r2, #262144
  202 004c 1A60     		str	r2, [r3]
-  26:Core/Src/init_lab2.c **** 
-  27:Core/Src/init_lab2.c ****     /*---------------------------------------Настройка регистра RCC_CR------------
-  28:Core/Src/init_lab2.c ****     SET_BIT(RCC->CR, RCC_CR_HSEON);                              // Запускаем внешни
+  26:Core/Src/init_lab3.c **** 
+  27:Core/Src/init_lab3.c ****     /*---------------------------------------Настройка регистра RCC_CR------------
+  28:Core/Src/init_lab3.c ****     SET_BIT(RCC->CR, RCC_CR_HSEON);                              // Запускаем внешни
  203              		.loc 1 28 5 view .LVU46
  204 004e 1A68     		ldr	r2, [r3]
  205 0050 42F48032 		orr	r2, r2, #65536
  206 0054 1A60     		str	r2, [r3]
-  29:Core/Src/init_lab2.c ****     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) == RESET);           // Ждём пока запуст�
+  29:Core/Src/init_lab3.c ****     while (READ_BIT(RCC->CR, RCC_CR_HSERDY) == RESET);           // Ждём пока запуст�
  207              		.loc 1 29 5 view .LVU47
  208              	.L12:
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 38
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 38
 
 
  209              		.loc 1 29 45 discriminator 1 view .LVU48
@@ -2228,101 +2228,101 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  213              		.loc 1 29 45 discriminator 1 view .LVU50
  214 005a 13F4003F 		tst	r3, #131072
  215 005e FAD0     		beq	.L12
-  30:Core/Src/init_lab2.c ****     SET_BIT(RCC->CR, RCC_CR_CSSON);                              // Запускаем систем
+  30:Core/Src/init_lab3.c ****     SET_BIT(RCC->CR, RCC_CR_CSSON);                              // Запускаем систем
  216              		.loc 1 30 5 is_stmt 1 view .LVU51
  217 0060 234B     		ldr	r3, .L14
  218 0062 1A68     		ldr	r2, [r3]
  219 0064 42F40022 		orr	r2, r2, #524288
  220 0068 1A60     		str	r2, [r3]
-  31:Core/Src/init_lab2.c ****     SET_BIT(RCC->CR, RCC_CR_HSEBYP);                             // Использование вн
+  31:Core/Src/init_lab3.c ****     SET_BIT(RCC->CR, RCC_CR_HSEBYP);                             // Использование вн
  221              		.loc 1 31 5 view .LVU52
  222 006a 1A68     		ldr	r2, [r3]
  223 006c 42F48022 		orr	r2, r2, #262144
  224 0070 1A60     		str	r2, [r3]
-  32:Core/Src/init_lab2.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSION);                            // Выключаем внутре
+  32:Core/Src/init_lab3.c ****     CLEAR_BIT(RCC->CR, RCC_CR_HSION);                            // Выключаем внутре
  225              		.loc 1 32 5 view .LVU53
  226 0072 1A68     		ldr	r2, [r3]
  227 0074 22F00102 		bic	r2, r2, #1
  228 0078 1A60     		str	r2, [r3]
-  33:Core/Src/init_lab2.c **** 
-  34:Core/Src/init_lab2.c ****     /*----------------------------------------Настройка регистров PLL------------
-  35:Core/Src/init_lab2.c ****     CLEAR_REG(RCC->PLLCFGR);                                                                       
+  33:Core/Src/init_lab3.c **** 
+  34:Core/Src/init_lab3.c ****     /*----------------------------------------Настройка регистров PLL------------
+  35:Core/Src/init_lab3.c ****     CLEAR_REG(RCC->PLLCFGR);                                                                       
  229              		.loc 1 35 5 view .LVU54
  230 007a 0022     		movs	r2, #0
  231 007c 5A60     		str	r2, [r3, #4]
-  36:Core/Src/init_lab2.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLSRC_HSE);                                                 
+  36:Core/Src/init_lab3.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLSRC_HSE);                                                 
  232              		.loc 1 36 5 view .LVU55
  233 007e 5A68     		ldr	r2, [r3, #4]
  234 0080 42F48002 		orr	r2, r2, #4194304
  235 0084 5A60     		str	r2, [r3, #4]
-  37:Core/Src/init_lab2.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLM_2);                                                     
+  37:Core/Src/init_lab3.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLM_2);                                                     
  236              		.loc 1 37 5 view .LVU56
  237 0086 5A68     		ldr	r2, [r3, #4]
  238 0088 42F00402 		orr	r2, r2, #4
  239 008c 5A60     		str	r2, [r3, #4]
-  38:Core/Src/init_lab2.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_3 | RCC_PLLCFGR_PLLN_5 | RCC_PLLCFGR_PLLN_6 | RCC_PLLCFG
+  38:Core/Src/init_lab3.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLN_3 | RCC_PLLCFGR_PLLN_5 | RCC_PLLCFGR_PLLN_6 | RCC_PLLCFG
  240              		.loc 1 38 5 view .LVU57
  241 008e 5A68     		ldr	r2, [r3, #4]
  242 0090 42F4B442 		orr	r2, r2, #23040
  243 0094 5A60     		str	r2, [r3, #4]
-  39:Core/Src/init_lab2.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_0);                                                     
+  39:Core/Src/init_lab3.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLP_0);                                                     
  244              		.loc 1 39 5 view .LVU58
  245 0096 5A68     		ldr	r2, [r3, #4]
  246 0098 42F48032 		orr	r2, r2, #65536
  247 009c 5A60     		str	r2, [r3, #4]
-  40:Core/Src/init_lab2.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLQ_0 | RCC_PLLCFGR_PLLQ_1 | RCC_PLLCFGR_PLLQ_2 | RCC_PLLCFG
+  40:Core/Src/init_lab3.c ****     SET_BIT(RCC->PLLCFGR, RCC_PLLCFGR_PLLQ_0 | RCC_PLLCFGR_PLLQ_1 | RCC_PLLCFGR_PLLQ_2 | RCC_PLLCFG
  248              		.loc 1 40 5 view .LVU59
  249 009e 5A68     		ldr	r2, [r3, #4]
  250 00a0 42F07062 		orr	r2, r2, #251658240
  251 00a4 5A60     		str	r2, [r3, #4]
-  41:Core/Src/init_lab2.c **** 
-  42:Core/Src/init_lab2.c ****     SET_BIT(RCC->CFGR, RCC_CFGR_SW_PLL);                         // Источник системн
+  41:Core/Src/init_lab3.c **** 
+  42:Core/Src/init_lab3.c ****     SET_BIT(RCC->CFGR, RCC_CFGR_SW_PLL);                         // Источник системн
  252              		.loc 1 42 5 view .LVU60
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 39
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 39
 
 
  253 00a6 9A68     		ldr	r2, [r3, #8]
  254 00a8 42F00202 		orr	r2, r2, #2
  255 00ac 9A60     		str	r2, [r3, #8]
-  43:Core/Src/init_lab2.c ****     CLEAR_BIT(RCC->CFGR, RCC_CFGR_HPRE_DIV1);                    // Делитель AHB1 уста�
+  43:Core/Src/init_lab3.c ****     CLEAR_BIT(RCC->CFGR, RCC_CFGR_HPRE_DIV1);                    // Делитель AHB1 уста�
  256              		.loc 1 43 5 view .LVU61
  257 00ae 9A68     		ldr	r2, [r3, #8]
  258 00b0 9A60     		str	r2, [r3, #8]
-  44:Core/Src/init_lab2.c ****     SET_BIT(RCC->CFGR, RCC_CFGR_PPRE1_DIV4);                     // Делитель APB1 уста�
+  44:Core/Src/init_lab3.c ****     SET_BIT(RCC->CFGR, RCC_CFGR_PPRE1_DIV4);                     // Делитель APB1 уста�
  259              		.loc 1 44 5 view .LVU62
  260 00b2 9A68     		ldr	r2, [r3, #8]
  261 00b4 42F4A052 		orr	r2, r2, #5120
  262 00b8 9A60     		str	r2, [r3, #8]
-  45:Core/Src/init_lab2.c ****     SET_BIT(RCC->CFGR, RCC_CFGR_PPRE2_DIV2);                     // Делитель APB2 уста�
+  45:Core/Src/init_lab3.c ****     SET_BIT(RCC->CFGR, RCC_CFGR_PPRE2_DIV2);                     // Делитель APB2 уста�
  263              		.loc 1 45 5 view .LVU63
  264 00ba 9A68     		ldr	r2, [r3, #8]
  265 00bc 42F40042 		orr	r2, r2, #32768
  266 00c0 9A60     		str	r2, [r3, #8]
-  46:Core/Src/init_lab2.c ****     CLEAR_BIT(RCC->CFGR, RCC_CFGR_MCO2);                         // Выход  MCO2 для Sysclk
+  46:Core/Src/init_lab3.c ****     CLEAR_BIT(RCC->CFGR, RCC_CFGR_MCO2);                         // Выход  MCO2 для Sysclk
  267              		.loc 1 46 5 view .LVU64
  268 00c2 9A68     		ldr	r2, [r3, #8]
  269 00c4 22F04042 		bic	r2, r2, #-1073741824
  270 00c8 9A60     		str	r2, [r3, #8]
-  47:Core/Src/init_lab2.c ****     SET_BIT(RCC->CFGR, RCC_CFGR_MCO2PRE_1 | RCC_CFGR_MCO2PRE_2); // Делитель для MCO2 у
+  47:Core/Src/init_lab3.c ****     SET_BIT(RCC->CFGR, RCC_CFGR_MCO2PRE_1 | RCC_CFGR_MCO2PRE_2); // Делитель для MCO2 у
  271              		.loc 1 47 5 view .LVU65
  272 00ca 9A68     		ldr	r2, [r3, #8]
  273 00cc 42F04052 		orr	r2, r2, #805306368
  274 00d0 9A60     		str	r2, [r3, #8]
-  48:Core/Src/init_lab2.c **** 
-  49:Core/Src/init_lab2.c ****     /*--------------------------------Устанавливаем задержку для памят
-  50:Core/Src/init_lab2.c ****     SET_BIT(FLASH->ACR, FLASH_ACR_LATENCY_5WS);                  // Задержка памяти F
+  48:Core/Src/init_lab3.c **** 
+  49:Core/Src/init_lab3.c ****     /*--------------------------------Устанавливаем задержку для памят
+  50:Core/Src/init_lab3.c ****     SET_BIT(FLASH->ACR, FLASH_ACR_LATENCY_5WS);                  // Задержка памяти F
  275              		.loc 1 50 5 view .LVU66
  276 00d2 0849     		ldr	r1, .L14+4
  277 00d4 0A68     		ldr	r2, [r1]
  278 00d6 42F00502 		orr	r2, r2, #5
  279 00da 0A60     		str	r2, [r1]
-  51:Core/Src/init_lab2.c **** 
-  52:Core/Src/init_lab2.c ****     SET_BIT(RCC->CR, RCC_CR_PLLON);                              // Включение PLL
+  51:Core/Src/init_lab3.c **** 
+  52:Core/Src/init_lab3.c ****     SET_BIT(RCC->CR, RCC_CR_PLLON);                              // Включение PLL
  280              		.loc 1 52 5 view .LVU67
  281 00dc 1A68     		ldr	r2, [r3]
  282 00de 42F08072 		orr	r2, r2, #16777216
  283 00e2 1A60     		str	r2, [r3]
-  53:Core/Src/init_lab2.c ****     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) == RESET);           // Ожидание включен
+  53:Core/Src/init_lab3.c ****     while (READ_BIT(RCC->CR, RCC_CR_PLLRDY) == RESET);           // Ожидание включен
  284              		.loc 1 53 5 view .LVU68
  285              	.L13:
  286              		.loc 1 53 45 discriminator 1 view .LVU69
@@ -2332,13 +2332,13 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  290              		.loc 1 53 45 discriminator 1 view .LVU71
  291 00e8 13F0007F 		tst	r3, #33554432
  292 00ec FAD0     		beq	.L13
-  54:Core/Src/init_lab2.c **** }
+  54:Core/Src/init_lab3.c **** }
  293              		.loc 1 54 1 view .LVU72
  294 00ee 7047     		bx	lr
  295              	.L15:
  296              		.align	2
  297              	.L14:
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 40
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 40
 
 
  298 00f0 00380240 		.word	1073887232
@@ -2353,9 +2353,9 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  308              		.thumb_func
  310              	ITR_init:
  311              	.LFB132:
-  55:Core/Src/init_lab2.c **** 
-  56:Core/Src/init_lab2.c **** void ITR_init(void)                                                                          // Н�
-  57:Core/Src/init_lab2.c **** {
+  55:Core/Src/init_lab3.c **** 
+  56:Core/Src/init_lab3.c **** void ITR_init(void)                                                                          // Н�
+  57:Core/Src/init_lab3.c **** {
  312              		.loc 1 57 1 is_stmt 1 view -0
  313              		.cfi_startproc
  314              		@ args = 0, pretend = 0, frame = 0
@@ -2365,40 +2365,40 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  318              		.cfi_def_cfa_offset 8
  319              		.cfi_offset 3, -8
  320              		.cfi_offset 14, -4
-  58:Core/Src/init_lab2.c ****     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN);                                             // В�
+  58:Core/Src/init_lab3.c ****     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN);                                             // В�
  321              		.loc 1 58 5 view .LVU74
  322 0002 154A     		ldr	r2, .L18
  323 0004 536C     		ldr	r3, [r2, #68]
  324 0006 43F48043 		orr	r3, r3, #16384
  325 000a 5364     		str	r3, [r2, #68]
-  59:Core/Src/init_lab2.c **** 
-  60:Core/Src/init_lab2.c ****     MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC);      // Н�
+  59:Core/Src/init_lab3.c **** 
+  60:Core/Src/init_lab3.c ****     MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC);      // Н�
  326              		.loc 1 60 5 view .LVU75
  327 000c A2F58032 		sub	r2, r2, #65536
  328 0010 5369     		ldr	r3, [r2, #20]
  329 0012 23F0F003 		bic	r3, r3, #240
  330 0016 43F02003 		orr	r3, r3, #32
  331 001a 5361     		str	r3, [r2, #20]
-  61:Core/Src/init_lab2.c **** 
-  62:Core/Src/init_lab2.c ****     SET_BIT(EXTI->IMR, EXTI_IMR_MR13);                                                       // Р�
+  61:Core/Src/init_lab3.c **** 
+  62:Core/Src/init_lab3.c ****     SET_BIT(EXTI->IMR, EXTI_IMR_MR13);                                                       // Р�
  332              		.loc 1 62 5 view .LVU76
  333 001c 0F4B     		ldr	r3, .L18+4
  334 001e 1A68     		ldr	r2, [r3]
  335 0020 42F40052 		orr	r2, r2, #8192
  336 0024 1A60     		str	r2, [r3]
-  63:Core/Src/init_lab2.c ****     SET_BIT(EXTI->RTSR, EXTI_RTSR_TR13);                                                     // Н�
+  63:Core/Src/init_lab3.c ****     SET_BIT(EXTI->RTSR, EXTI_RTSR_TR13);                                                     // Н�
  337              		.loc 1 63 5 view .LVU77
  338 0026 9A68     		ldr	r2, [r3, #8]
  339 0028 42F40052 		orr	r2, r2, #8192
  340 002c 9A60     		str	r2, [r3, #8]
-  64:Core/Src/init_lab2.c ****     SET_BIT(EXTI->FTSR, EXTI_FTSR_TR13);                                                     // Н�
+  64:Core/Src/init_lab3.c ****     SET_BIT(EXTI->FTSR, EXTI_FTSR_TR13);                                                     // Н�
  341              		.loc 1 64 5 view .LVU78
  342 002e DA68     		ldr	r2, [r3, #12]
  343 0030 42F40052 		orr	r2, r2, #8192
  344 0034 DA60     		str	r2, [r3, #12]
-  65:Core/Src/init_lab2.c **** 
-  66:Core/Src/init_lab2.c ****     NVIC_SetPriority(EXTI15_10_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0)); // У�
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 41
+  65:Core/Src/init_lab3.c **** 
+  66:Core/Src/init_lab3.c ****     NVIC_SetPriority(EXTI15_10_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0)); // У�
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 41
 
 
  345              		.loc 1 66 5 view .LVU79
@@ -2446,7 +2446,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  377              		.loc 2 1820 46 view .LVU90
  378              	.LBE17:
  379              	.LBE16:
-  67:Core/Src/init_lab2.c ****     NVIC_EnableIRQ(EXTI15_10_IRQn);                                                          // В�
+  67:Core/Src/init_lab3.c ****     NVIC_EnableIRQ(EXTI15_10_IRQn);                                                          // В�
  380              		.loc 1 67 5 is_stmt 1 view .LVU91
  381              	.LBB18:
  382              	.LBI18:
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
 1692:CMSIS/Include/../include/core_cm4.h ****   }
  386              		.loc 2 1692 5 view .LVU94
 1692:CMSIS/Include/../include/core_cm4.h ****   }
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 42
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 42
 
 
  387              		.loc 2 1692 43 is_stmt 0 view .LVU95
@@ -2469,7 +2469,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  391              		.loc 2 1692 43 view .LVU96
  392              	.LBE19:
  393              	.LBE18:
-  68:Core/Src/init_lab2.c **** }
+  68:Core/Src/init_lab3.c **** }
  394              		.loc 1 68 1 view .LVU97
  395 0056 08BD     		pop	{r3, pc}
  396              	.L19:
@@ -2489,104 +2489,104 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  411              		.thumb_func
  413              	TIM1_PWM_PE14:
  414              	.LFB133:
-  69:Core/Src/init_lab2.c **** 
-  70:Core/Src/init_lab2.c **** void TIM1_PWM_PE14(void)
-  71:Core/Src/init_lab2.c **** {
+  69:Core/Src/init_lab3.c **** 
+  70:Core/Src/init_lab3.c **** void TIM1_PWM_PE14(void)
+  71:Core/Src/init_lab3.c **** {
  415              		.loc 1 71 1 is_stmt 1 view -0
  416              		.cfi_startproc
  417              		@ args = 0, pretend = 0, frame = 0
  418              		@ frame_needed = 0, uses_anonymous_args = 0
  419              		@ link register save eliminated.
-  72:Core/Src/init_lab2.c ****     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_TIM1EN);                                               // В�
+  72:Core/Src/init_lab3.c ****     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_TIM1EN);                                               // В�
  420              		.loc 1 72 5 view .LVU99
  421 0000 1B4A     		ldr	r2, .L21
  422 0002 536C     		ldr	r3, [r2, #68]
  423 0004 43F00103 		orr	r3, r3, #1
  424 0008 5364     		str	r3, [r2, #68]
-  73:Core/Src/init_lab2.c ****     
-  74:Core/Src/init_lab2.c ****     MODIFY_REG(GPIOE->MODER, GPIO_MODER_MODER14_Msk, GPIO_MODER_MODER14_1);                  // У�
+  73:Core/Src/init_lab3.c ****     
+  74:Core/Src/init_lab3.c ****     MODIFY_REG(GPIOE->MODER, GPIO_MODER_MODER14_Msk, GPIO_MODER_MODER14_1);                  // У�
  425              		.loc 1 74 5 view .LVU100
  426 000a A2F52052 		sub	r2, r2, #10240
  427 000e 1368     		ldr	r3, [r2]
  428 0010 23F04053 		bic	r3, r3, #805306368
  429 0014 43F00053 		orr	r3, r3, #536870912
  430 0018 1360     		str	r3, [r2]
-  75:Core/Src/init_lab2.c ****     MODIFY_REG(GPIOE->AFR[1], GPIO_AFRH_AFSEL14_Msk, 1 << GPIO_AFRH_AFSEL14_Pos);            // У�
+  75:Core/Src/init_lab3.c ****     MODIFY_REG(GPIOE->AFR[1], GPIO_AFRH_AFSEL14_Msk, 1 << GPIO_AFRH_AFSEL14_Pos);            // У�
  431              		.loc 1 75 5 view .LVU101
  432 001a 536A     		ldr	r3, [r2, #36]
  433 001c 23F07063 		bic	r3, r3, #251658240
  434 0020 43F08073 		orr	r3, r3, #16777216
  435 0024 5362     		str	r3, [r2, #36]
-  76:Core/Src/init_lab2.c ****  
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 43
+  76:Core/Src/init_lab3.c ****  
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 43
 
 
-  77:Core/Src/init_lab2.c ****     CLEAR_BIT(TIM1->CR1, TIM_CR1_CEN);                                                       // О�
+  77:Core/Src/init_lab3.c ****     CLEAR_BIT(TIM1->CR1, TIM_CR1_CEN);                                                       // О�
  436              		.loc 1 77 5 view .LVU102
  437 0026 134B     		ldr	r3, .L21+4
  438 0028 1A68     		ldr	r2, [r3]
  439 002a 22F00102 		bic	r2, r2, #1
  440 002e 1A60     		str	r2, [r3]
-  78:Core/Src/init_lab2.c ****     
-  79:Core/Src/init_lab2.c ****     TIM1->PSC = 179;                                                                         // Н�
+  78:Core/Src/init_lab3.c ****     
+  79:Core/Src/init_lab3.c ****     TIM1->PSC = 179;                                                                         // Н�
  441              		.loc 1 79 5 view .LVU103
  442              		.loc 1 79 15 is_stmt 0 view .LVU104
  443 0030 B322     		movs	r2, #179
  444 0032 9A62     		str	r2, [r3, #40]
-  80:Core/Src/init_lab2.c ****     TIM1->ARR = 999;                                                                         // У�
+  80:Core/Src/init_lab3.c ****     TIM1->ARR = 999;                                                                         // У�
  445              		.loc 1 80 5 is_stmt 1 view .LVU105
  446              		.loc 1 80 15 is_stmt 0 view .LVU106
  447 0034 40F2E732 		movw	r2, #999
  448 0038 DA62     		str	r2, [r3, #44]
-  81:Core/Src/init_lab2.c ****     TIM1->CCR4 = 0;                                                                          // С�
+  81:Core/Src/init_lab3.c ****     TIM1->CCR4 = 0;                                                                          // С�
  449              		.loc 1 81 5 is_stmt 1 view .LVU107
  450              		.loc 1 81 16 is_stmt 0 view .LVU108
  451 003a 0022     		movs	r2, #0
  452 003c 1A64     		str	r2, [r3, #64]
-  82:Core/Src/init_lab2.c ****     
-  83:Core/Src/init_lab2.c ****     TIM1->CCMR2 |= TIM_CCMR2_OC4PE;                                                          // В�
+  82:Core/Src/init_lab3.c ****     
+  83:Core/Src/init_lab3.c ****     TIM1->CCMR2 |= TIM_CCMR2_OC4PE;                                                          // В�
  453              		.loc 1 83 5 is_stmt 1 view .LVU109
  454              		.loc 1 83 9 is_stmt 0 view .LVU110
  455 003e DA69     		ldr	r2, [r3, #28]
  456              		.loc 1 83 17 view .LVU111
  457 0040 42F40062 		orr	r2, r2, #2048
  458 0044 DA61     		str	r2, [r3, #28]
-  84:Core/Src/init_lab2.c ****     TIM1->CCMR2 &= ~TIM_CCMR2_OC4M_Msk;                                                      // С�
+  84:Core/Src/init_lab3.c ****     TIM1->CCMR2 &= ~TIM_CCMR2_OC4M_Msk;                                                      // С�
  459              		.loc 1 84 5 is_stmt 1 view .LVU112
  460              		.loc 1 84 9 is_stmt 0 view .LVU113
  461 0046 DA69     		ldr	r2, [r3, #28]
  462              		.loc 1 84 17 view .LVU114
  463 0048 22F4E042 		bic	r2, r2, #28672
  464 004c DA61     		str	r2, [r3, #28]
-  85:Core/Src/init_lab2.c ****     TIM1->CCMR2 |= (6 << TIM_CCMR2_OC4M_Pos);                                                // У�
+  85:Core/Src/init_lab3.c ****     TIM1->CCMR2 |= (6 << TIM_CCMR2_OC4M_Pos);                                                // У�
  465              		.loc 1 85 5 is_stmt 1 view .LVU115
  466              		.loc 1 85 9 is_stmt 0 view .LVU116
  467 004e DA69     		ldr	r2, [r3, #28]
  468              		.loc 1 85 17 view .LVU117
  469 0050 42F4C042 		orr	r2, r2, #24576
  470 0054 DA61     		str	r2, [r3, #28]
-  86:Core/Src/init_lab2.c ****     
-  87:Core/Src/init_lab2.c ****     SET_BIT(TIM1->CCER, TIM_CCER_CC4E);                                                      // В�
+  86:Core/Src/init_lab3.c ****     
+  87:Core/Src/init_lab3.c ****     SET_BIT(TIM1->CCER, TIM_CCER_CC4E);                                                      // В�
  471              		.loc 1 87 5 is_stmt 1 view .LVU118
  472 0056 1A6A     		ldr	r2, [r3, #32]
  473 0058 42F48052 		orr	r2, r2, #4096
  474 005c 1A62     		str	r2, [r3, #32]
-  88:Core/Src/init_lab2.c ****     
-  89:Core/Src/init_lab2.c ****     SET_BIT(TIM1->BDTR, TIM_BDTR_MOE);                                                       // В�
+  88:Core/Src/init_lab3.c ****     
+  89:Core/Src/init_lab3.c ****     SET_BIT(TIM1->BDTR, TIM_BDTR_MOE);                                                       // В�
  475              		.loc 1 89 5 view .LVU119
  476 005e 5A6C     		ldr	r2, [r3, #68]
  477 0060 42F40042 		orr	r2, r2, #32768
  478 0064 5A64     		str	r2, [r3, #68]
-  90:Core/Src/init_lab2.c ****     
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 44
+  90:Core/Src/init_lab3.c ****     
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 44
 
 
-  91:Core/Src/init_lab2.c ****     SET_BIT(TIM1->CR1, TIM_CR1_CEN);                                                         // З�
+  91:Core/Src/init_lab3.c ****     SET_BIT(TIM1->CR1, TIM_CR1_CEN);                                                         // З�
  479              		.loc 1 91 5 view .LVU120
  480 0066 1A68     		ldr	r2, [r3]
  481 0068 42F00102 		orr	r2, r2, #1
  482 006c 1A60     		str	r2, [r3]
-  92:Core/Src/init_lab2.c **** }
+  92:Core/Src/init_lab3.c **** }
  483              		.loc 1 92 1 is_stmt 0 view .LVU121
  484 006e 7047     		bx	lr
  485              	.L22:
@@ -2604,9 +2604,9 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  498              		.thumb_func
  500              	TIM3_Init:
  501              	.LFB134:
-  93:Core/Src/init_lab2.c **** 
-  94:Core/Src/init_lab2.c **** void TIM3_Init(void)
-  95:Core/Src/init_lab2.c **** {
+  93:Core/Src/init_lab3.c **** 
+  94:Core/Src/init_lab3.c **** void TIM3_Init(void)
+  95:Core/Src/init_lab3.c **** {
  502              		.loc 1 95 1 is_stmt 1 view -0
  503              		.cfi_startproc
  504              		@ args = 0, pretend = 0, frame = 0
@@ -2616,51 +2616,51 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  508              		.cfi_def_cfa_offset 8
  509              		.cfi_offset 4, -8
  510              		.cfi_offset 14, -4
-  96:Core/Src/init_lab2.c ****     SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM3EN);                                               // В�
+  96:Core/Src/init_lab3.c ****     SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM3EN);                                               // В�
  511              		.loc 1 96 5 view .LVU123
  512 0002 1B4A     		ldr	r2, .L25
  513 0004 136C     		ldr	r3, [r2, #64]
  514 0006 43F00203 		orr	r3, r3, #2
  515 000a 1364     		str	r3, [r2, #64]
-  97:Core/Src/init_lab2.c ****     CLEAR_BIT(TIM3->CR1, TIM_CR1_CEN);                                                       // О�
+  97:Core/Src/init_lab3.c ****     CLEAR_BIT(TIM3->CR1, TIM_CR1_CEN);                                                       // О�
  516              		.loc 1 97 5 view .LVU124
  517 000c 194C     		ldr	r4, .L25+4
  518 000e 2368     		ldr	r3, [r4]
  519 0010 23F00103 		bic	r3, r3, #1
  520 0014 2360     		str	r3, [r4]
-  98:Core/Src/init_lab2.c **** 
-  99:Core/Src/init_lab2.c ****     MODIFY_REG(TIM3->PSC, TIM_PSC_PSC_Msk, 89UL);                                            // Ч�
+  98:Core/Src/init_lab3.c **** 
+  99:Core/Src/init_lab3.c ****     MODIFY_REG(TIM3->PSC, TIM_PSC_PSC_Msk, 89UL);                                            // Ч�
  521              		.loc 1 99 5 view .LVU125
  522 0016 A36A     		ldr	r3, [r4, #40]
  523 0018 6FF30F03 		bfc	r3, #0, #16
  524 001c 43F05903 		orr	r3, r3, #89
  525 0020 A362     		str	r3, [r4, #40]
- 100:Core/Src/init_lab2.c ****     MODIFY_REG(TIM3->ARR, TIM_ARR_ARR_Msk, 999UL);                                           // ARR
+ 100:Core/Src/init_lab3.c ****     MODIFY_REG(TIM3->ARR, TIM_ARR_ARR_Msk, 999UL);                                           // ARR
  526              		.loc 1 100 5 view .LVU126
  527 0022 E36A     		ldr	r3, [r4, #44]
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 45
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 45
 
 
  528 0024 40F2E733 		movw	r3, #999
  529 0028 E362     		str	r3, [r4, #44]
- 101:Core/Src/init_lab2.c ****     
- 102:Core/Src/init_lab2.c ****     SET_BIT(TIM3->CR1, TIM_CR1_ARPE);                                                        // В�
+ 101:Core/Src/init_lab3.c ****     
+ 102:Core/Src/init_lab3.c ****     SET_BIT(TIM3->CR1, TIM_CR1_ARPE);                                                        // В�
  530              		.loc 1 102 5 view .LVU127
  531 002a 2368     		ldr	r3, [r4]
  532 002c 43F08003 		orr	r3, r3, #128
  533 0030 2360     		str	r3, [r4]
- 103:Core/Src/init_lab2.c ****     SET_BIT(TIM3->EGR, TIM_EGR_UG);                                                          // С�
+ 103:Core/Src/init_lab3.c ****     SET_BIT(TIM3->EGR, TIM_EGR_UG);                                                          // С�
  534              		.loc 1 103 5 view .LVU128
  535 0032 6369     		ldr	r3, [r4, #20]
  536 0034 43F00103 		orr	r3, r3, #1
  537 0038 6361     		str	r3, [r4, #20]
- 104:Core/Src/init_lab2.c ****     SET_BIT(TIM3->DIER, TIM_DIER_UIE);                                                       // Р�
+ 104:Core/Src/init_lab3.c ****     SET_BIT(TIM3->DIER, TIM_DIER_UIE);                                                       // Р�
  538              		.loc 1 104 5 view .LVU129
  539 003a E368     		ldr	r3, [r4, #12]
  540 003c 43F00103 		orr	r3, r3, #1
  541 0040 E360     		str	r3, [r4, #12]
- 105:Core/Src/init_lab2.c ****     
- 106:Core/Src/init_lab2.c ****     NVIC_SetPriority(TIM3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 1, 0));      // У�
+ 105:Core/Src/init_lab3.c ****     
+ 106:Core/Src/init_lab3.c ****     NVIC_SetPriority(TIM3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 1, 0));      // У�
  542              		.loc 1 106 5 view .LVU130
  543              	.LBB20:
  544              	.LBI20:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  568              		.loc 2 1820 48 view .LVU139
  569 0054 C0B2     		uxtb	r0, r0
 1820:CMSIS/Include/../include/core_cm4.h ****   }
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 46
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 46
 
 
  570              		.loc 2 1820 46 view .LVU140
@@ -2709,7 +2709,7 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  574              		.loc 2 1820 46 view .LVU141
  575              	.LBE23:
  576              	.LBE22:
- 107:Core/Src/init_lab2.c ****     NVIC_EnableIRQ(TIM3_IRQn);                                                               // Р�
+ 107:Core/Src/init_lab3.c ****     NVIC_EnableIRQ(TIM3_IRQn);                                                               // Р�
  577              		.loc 1 107 5 is_stmt 1 view .LVU142
  578              	.LBB24:
  579              	.LBI24:
@@ -2729,18 +2729,18 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  588              		.loc 2 1692 43 view .LVU147
  589              	.LBE25:
  590              	.LBE24:
- 108:Core/Src/init_lab2.c **** 
- 109:Core/Src/init_lab2.c ****     TIM3->CNT = 0;                                                                           // С�
+ 108:Core/Src/init_lab3.c **** 
+ 109:Core/Src/init_lab3.c ****     TIM3->CNT = 0;                                                                           // С�
  591              		.loc 1 109 5 is_stmt 1 view .LVU148
  592              		.loc 1 109 15 is_stmt 0 view .LVU149
  593 0062 0023     		movs	r3, #0
  594 0064 6362     		str	r3, [r4, #36]
- 110:Core/Src/init_lab2.c ****     SET_BIT(TIM3->CR1, TIM_CR1_CEN);                                                         // З�
+ 110:Core/Src/init_lab3.c ****     SET_BIT(TIM3->CR1, TIM_CR1_CEN);                                                         // З�
  595              		.loc 1 110 5 is_stmt 1 view .LVU150
  596 0066 2368     		ldr	r3, [r4]
  597 0068 43F00103 		orr	r3, r3, #1
  598 006c 2360     		str	r3, [r4]
- 111:Core/Src/init_lab2.c **** }...
+ 111:Core/Src/init_lab3.c **** }...
  599              		.loc 1 111 1 is_stmt 0 view .LVU151
  600 006e 10BD     		pop	{r4, pc}
  601              	.L26:
@@ -2758,30 +2758,30 @@ ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 1
  614              		.file 4 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/mach
  615              		.file 5 "C:/Private/Study/DMPT/Tools/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/
  616              		.file 6 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 47
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 47
 
 
-ARM GAS  C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s 			page 48
+ARM GAS  C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s 			page 48
 
 
 DEFINED SYMBOLS
-                            *ABS*:00000000 init_lab2.c
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:21     .text.NVIC_EncodePriority:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:26     .text.NVIC_EncodePriority:00000000 NVIC_EncodePriority
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:89     .text.GPIO_Init_Led_and_button:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:95     .text.GPIO_Init_Led_and_button:00000000 GPIO_Init_Led_and_button
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:133    .text.GPIO_Init_Led_and_button:00000038 $d
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:139    .text.RCC_init_clocking:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:145    .text.RCC_init_clocking:00000000 RCC_init_clocking
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:298    .text.RCC_init_clocking:000000f0 $d
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:304    .text.ITR_init:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:310    .text.ITR_init:00000000 ITR_init
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:399    .text.ITR_init:00000058 $d
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:407    .text.TIM1_PWM_PE14:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:413    .text.TIM1_PWM_PE14:00000000 TIM1_PWM_PE14
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:488    .text.TIM1_PWM_PE14:00000070 $d
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:494    .text.TIM3_Init:00000000 $t
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:500    .text.TIM3_Init:00000000 TIM3_Init
-C:\Users\lenovo\AppData\Local\Temp\ccqE14hN.s:604    .text.TIM3_Init:00000070 $d
+                            *ABS*:00000000 init_lab3.c
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:21     .text.NVIC_EncodePriority:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:26     .text.NVIC_EncodePriority:00000000 NVIC_EncodePriority
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:89     .text.GPIO_Init_Led_and_button:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:95     .text.GPIO_Init_Led_and_button:00000000 GPIO_Init_Led_and_button
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:133    .text.GPIO_Init_Led_and_button:00000038 $d
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:139    .text.RCC_init_clocking:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:145    .text.RCC_init_clocking:00000000 RCC_init_clocking
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:298    .text.RCC_init_clocking:000000f0 $d
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:304    .text.ITR_init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:310    .text.ITR_init:00000000 ITR_init
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:399    .text.ITR_init:00000058 $d
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:407    .text.TIM1_PWM_PE14:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:413    .text.TIM1_PWM_PE14:00000000 TIM1_PWM_PE14
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:488    .text.TIM1_PWM_PE14:00000070 $d
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:494    .text.TIM3_Init:00000000 $t
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:500    .text.TIM3_Init:00000000 TIM3_Init
+C:\Users\lenovo\AppData\Local\Temp\cc3Iit0h.s:604    .text.TIM3_Init:00000070 $d
 
 NO UNDEFINED SYMBOLS

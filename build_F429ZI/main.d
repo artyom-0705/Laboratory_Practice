@@ -7,7 +7,7 @@ build_F429ZI/main.o: Core/Src/main.c Core/Src/../Inc/init_lab2.h \
  CMSIS/Include/../include/mpu_armv7.h \
  CMSIS/Devices/STM32F4xx/Inc/system_stm32f4xx.h \
  Core/Src/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h \
- CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h Core/Inc/Lab2.h
+ CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h
 Core/Src/../Inc/init_lab2.h:
 Core/Src/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h:
 CMSIS/Include/../include/core_cm4.h:
@@ -18,4 +18,3 @@ CMSIS/Include/../include/mpu_armv7.h:
 CMSIS/Devices/STM32F4xx/Inc/system_stm32f4xx.h:
 Core/Src/../Inc/../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h:
 CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h:
-Core/Inc/Lab2.h:

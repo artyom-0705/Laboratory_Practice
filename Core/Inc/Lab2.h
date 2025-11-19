@@ -1,1 +1,0 @@
-void blinking_func(uint8_t *led_en, uint8_t blink[][2], uint32_t *GlobalTickCount);         // Прототип функции выполняющей задание

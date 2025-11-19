@@ -137,7 +137,6 @@ $(SYS) \
 Core/Src/main.c \
 Core/Src/init_lab2.c \
 Core/Src/it_handlers.c \
-Core/Src/Lab2.c \
 
 # ASM sources
 ASM_SOURCES =  \

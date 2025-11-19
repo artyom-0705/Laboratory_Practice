@@ -20,3 +20,5 @@ void GPIO_Init_Led_and_button(void);                                  // Про�
 void RCC_init_clocking(void);                                         // Прототип функции настройки тактирования микроконтроллера
 void ITR_init(void);                                                  // Прототип функции настройки прерываний по кнопке
 void SysTick_Init(void);                                              // Прототип функции настройки системного счетчика 
+void TIM1_PWM_PE14(void);
+void TIM3_Init(void);

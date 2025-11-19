@@ -16,44 +16,10 @@ extern uint8_t blink[6][2];                                                     
 
 void EXTI15_10_IRQHandler(void)                                                                 // Функция обработчик прерывания по кнопкам PC12 и PC13
 {
-    
-    if (READ_BIT(EXTI->PR, EXTI_PR_PR12))                                                       // Обработка прерывания кнопки PC12 (первая кнопка)
-    {
-        static uint32_t last_time1 = 0;                                                         // Переменная хранящая время изменения состояния кнопки
-        if ((GlobalTickCount - last_time1) > 50)                                                // Избавление от дребезга кнопки (50 мс)
-        {
-            uint8_t Current_state_but1 = (READ_BIT(GPIOC->IDR, GPIO_IDR_ID12) != 0);            // Переменная хранящая состояние кнопки
-            
-            if (Current_state_but1 == 1 && Last_state_but1 == 0)                                // Если сейчас кнопка нажата, а ранее не была нажата меняем состояние кнопки, то перезаписываем последнее состояние кнопки
-            {
-                Last_state_but1 = 1;
-            }
-            else if (Current_state_but1 == 0 && Last_state_but1 == 1)                           // Если сейчас кнопка не нажата, а ранее была нажата, то перезаписываем последнее состояние кнопки и в зависимости от времени нажатия выполняем действие
-            {
-                Last_state_but1 = 0;
-                if (Hold_time_but1 < 2000)                                                      // Если кнопка была нажата менее 2 секунд, меняем частоту мигания (короткое нажатие)
-                {
-                    blink[num_led_blink][1] = (blink[num_led_blink][1] + 1) % 3;
-                }
-                else                                                                            // Иначе меняем количество включенных кнопок (длительное нажатие)
-                {
-                    led_en = (led_en + 1) % 7;                                                  
-                }
-                
-                Hold_time_but1 = 0;                                                             // Производим сброс переменной хранящей время нажатия кнопки
-            }
-            
-            last_time1 = GlobalTickCount;                                                       // Обновляем значение переменной для борьбы с дребезгом
-        }
-        SET_BIT(EXTI->PR, EXTI_PR_PR12);                                                        // Очищаем флаг прерывания на PC12                                                     
-    }
-
-
-
     if (READ_BIT(EXTI->PR, EXTI_PR_PR13))                                                       // Обработка прерывания кнопки PC13 (вторая кнопка)
     {
         static uint32_t last_time2 = 0;                                                         // Переменная хранящая время изменения состояния кнопки                
-        if ((GlobalTickCount - last_time2) > 50)                                                // Избавление от дребезга кнопки (50 мс)
+        if ((GlobalTickCount - last_time2) > 1)                                                // Избавление от дребезга кнопки (50 мс)
         {
             uint8_t Current_state_but2 = (READ_BIT(GPIOC->IDR, GPIO_IDR_ID13) != 0);            // Переменная хранящая состояние кнопки
 
@@ -65,7 +31,7 @@ void EXTI15_10_IRQHandler(void)                                                 
             {
                 Last_state_but2 = 0;
                 
-                if (Hold_time_but2 < 2000)                                                      // Если кнопка была нажата менее 2 секунд, меняем диапозон частот мигания (короткое нажатие)
+                if (Hold_time_but2 < 40)                                                      // Если кнопка была нажата менее 2 секунд, меняем диапозон частот мигания (короткое нажатие)
                 {
                     blink[num_led_blink][0] = (blink[num_led_blink][0] + 1) % 3;
                 }
@@ -84,19 +50,17 @@ void EXTI15_10_IRQHandler(void)                                                 
     }
 }
 
-
-
-void SysTick_Handler(void)                                                                      // Обработчик прерывания системного таймера
+void Set_PE14_PWM_DutyCycle(uint32_t duty_cycle_percent)
 {
-    GlobalTickCount++;                                                                          // Увеличивает счетчик (основной таймер)
-    
-    if (Last_state_but1)                                                                        // Если кнопка №1 нажата, происходит увеличение переменной для борьбы с дребезгом
-    {
-        Hold_time_but1++;
-    }
-    
-    if (Last_state_but2)                                                                        // Если кнопка №2 нажата, происходит увеличение переменной для борьбы с дребезгом
-    {
-        Hold_time_but2++;
+    if (duty_cycle_percent > 100) duty_cycle_percent = 100;
+    uint32_t ccr4_value = (TIM1->ARR * duty_cycle_percent) / 100;
+    MODIFY_REG(TIM1->CCR4, TIM_CCR4_CCR4_Msk, ccr4_value);
+}
+
+void TIM3_IRQHandler(void)
+{
+    if (READ_BIT(TIM3->SR, TIM_SR_UIF)) {
+        GlobalTickCount++;
+        CLEAR_BIT(TIM3->SR, TIM_SR_UIF);
     }
 }

@@ -5,42 +5,11 @@ void GPIO_Init_Led_and_button(void)
 
     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN | RCC_AHB1ENR_GPIOCEN); // Включение тактирования GPIOB и GPIOC
 
-    /*-----------------------------------------Настройка светодиодов-----------------------------------------*/
-    SET_BIT(GPIOB->MODER, GPIO_MODER_MODE0_0);              // Настройка пина PB0 на выход, регистр GPIOx_MODER
-    CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_0);             // Установление PB0 в режим pull-push, регистр OTYPER
-    SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR0_0);      // Устанавливаем скорость бита PB0 (средняя), регистр OSPEEDR
-    CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD0_0);            // Отключаем подтягивающий резистор PB0, регистр PUPDR
-    SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0);                    // Установление на пине PB0 0, регистр GPIOx_BSRR
-
-    SET_BIT(GPIOB->MODER, GPIO_MODER_MODE7_0);              // Настройка пина PB7 на выход, регистр GPIOx_MODER
-    CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_7);             // Установление PB7 в режим pull-push, регистр OTYPER
-    SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR7_0);      // Устанавливаем скорость бита PB7 (средняя), регистр OSPEEDR
-    CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD7_0);            // Отключаем подтягивающий резистор PB7, регистр PUPDR
-    SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR7);                    // Установление на пине PB7 0, регистр GPIOx_BSRR
-
-    SET_BIT(GPIOB->MODER, GPIO_MODER_MODE14_0);             // Настройка пина PB14 на выход, регистр GPIOx_MODER
-    CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_14);            // Установление PB14 в режим pull-push, регистр OTYPER
-    SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR14_0);     // Устанавливаем скорость бита PB14 (средняя), регистр OSPEEDR
-    CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD14_0);           // Отключаем подтягивающий резистор PB14, регистр PUPDR
-    SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);                   // Установление на пине PB14 0, регистр GPIOx_BSRR
-
     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE8_0);              // Настройка пина PB8 на выход, регистр GPIOx_MODER
     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_8);             // Установление PB8 в режим pull-push, регистр OTYPER
     SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR8_0);      // Устанавливаем скорость бита PB8 (средняя), регистр OSPEEDR
     CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD8_0);            // Отключаем подтягивающий резистор PB8, регистр PUPDR
     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR8);                    // Установление на пине PB8 0, регистр GPIOx_BSRR
-
-    SET_BIT(GPIOB->MODER, GPIO_MODER_MODE9_0);              // Настройка пина PB9 на выход, регистр GPIOx_MODER
-    CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_9);             // Установление PB9 в режим pull-push, регистр OTYPER
-    SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR9_0);      // Устанавливаем скорость бита PB9 (средняя), регистр OSPEEDR
-    CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD9_0);            // Отключаем подтягивающий резистор PB9, регистр PUPDR
-    SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR9);                    // Установление на пине PB9 0, регистр GPIOx_BSRR
-
-    SET_BIT(GPIOB->MODER, GPIO_MODER_MODE15_0);             // Настройка пина PB15 на выход, регистр GPIOx_MODER
-    CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT_15);            // Установление PB15 в режим pull-push, регистр OTYPER
-    SET_BIT(GPIOB->OSPEEDR, GPIO_OSPEEDER_OSPEEDR15_0);     // Устанавливаем скорость бита PB15 (средняя), регистр OSPEEDR
-    CLEAR_BIT(GPIOB->PUPDR, GPIO_PUPDR_PUPD15_0);           // Отключаем подтягивающий резистор PB15, регистр PUPDR
-    SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR15);                   // Установление на пине PB15 0, регистр GPIOx_BSRR
 }
 
 void RCC_init_clocking(void) // Настройка тактирования
@@ -88,25 +57,64 @@ void ITR_init(void)                                                             
 {
     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN);                                                // Включение тактирования SYSCFG - необходим для настройки EXTI
 
-    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC);         // Настройка EXTI13 на PC13 (EXTICR[3] соответствует EXTI12-15, выбираем порт C для линии 13) (кнопка №1)
-    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI12_Msk, SYSCFG_EXTICR4_EXTI12_PC);         // Настройка EXTI12 на PC12 (EXTICR[3] соответствует EXTI12-15, выбираем порт C для линии 12) (кнопка №2)
+    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC);         // Настройка EXTI13 на PC13
 
-    SET_BIT(EXTI->IMR, EXTI_IMR_MR12 | EXTI_IMR_MR13);                                          // Разрешает прерывания по линиям PC12 и PC13
-    SET_BIT(EXTI->RTSR, EXTI_RTSR_TR12 | EXTI_RTSR_TR13);                                       // Настраиваем триггер по нарастанию фронта для кнопок (переход от 0 к 1)
-    SET_BIT(EXTI->FTSR, EXTI_FTSR_TR12 | EXTI_FTSR_TR13);                                       // Настраиваем триггер по спадающему фронту для кнопок (переход от 1 к 0)
+    SET_BIT(EXTI->IMR, EXTI_IMR_MR13);                                          // Разрешает прерывания по линиям PC13
+    SET_BIT(EXTI->RTSR, EXTI_RTSR_TR13);                                       // Настраиваем триггер по нарастанию фронта для кнопок (переход от 0 к 1)
+    SET_BIT(EXTI->FTSR, EXTI_FTSR_TR13);                                       // Настраиваем триггер по спадающему фронту для кнопок (переход от 1 к 0)
 
     NVIC_SetPriority(EXTI15_10_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));    // Устанавливаем приоритет прерывания (высший)
     NVIC_EnableIRQ(EXTI15_10_IRQn);                                                             // Включаем прерывания в контроллере NVIC (теперь процессор будет их обрабатывать)
 }
 
-void SysTick_Init(void)                                                                         // Настройка системного таймера (SysTick) для генерации прерываний каждую 1 мс
+void TIM1_PWM_PE14(void)
 {
-    CLEAR_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);                                          // Выключение таймера перед настройкой (безопасность)
-    SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);                                           // Разрешение прерываний счетчика при достижении нуля
-    SET_BIT(SysTick->CTRL, SysTick_CTRL_CLKSOURCE_Msk);                                         // Устанавливаем источник тактирования AHB (180 МГц) без деления
-    MODIFY_REG(SysTick->LOAD, SysTick_LOAD_RELOAD_Msk,
-               179999 << SysTick_LOAD_RELOAD_Pos);                                              // Настраиваем счетчик что бы он считал с 179999, что соотвествует частоте 1 кГц (1 мс)
-    MODIFY_REG(SysTick->VAL, SysTick_VAL_CURRENT_Msk,
-               179999 << SysTick_VAL_CURRENT_Pos);                                              // Сброс счетчика в начальное состояние
-    SET_BIT(SysTick->CTRL, SysTick_CTRL_ENABLE_Msk);                                            // Включение SysTick таймера
+    SET_BIT(RCC->APB2ENR, RCC_APB2ENR_TIM1EN);
+    SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOEEN);
+
+    // Настройка PE14 как альтернативной функции (TIM1_CH4)
+    MODIFY_REG(GPIOE->MODER, GPIO_MODER_MODER14_Msk, GPIO_MODER_MODER14_1);
+    MODIFY_REG(GPIOE->AFR[1], GPIO_AFRH_AFSEL14_Msk, 1 << GPIO_AFRH_AFSEL14_Pos);
+    
+    // Остановка таймера
+    CLEAR_BIT(TIM1->CR1, TIM_CR1_CEN);
+    
+    // Настройка для 1 кГц при 180 MHz
+    TIM1->PSC = 179;       // Делитель 180
+    TIM1->ARR = 999;       // Период 1000
+    TIM1->CCR4 = 1000;      // 50% скважность
+    
+    // Настройка канала 4 (в CCMR2)
+    TIM1->CCMR2 |= TIM_CCMR2_OC4PE;
+    TIM1->CCMR2 &= ~TIM_CCMR2_OC4M_Msk;
+    TIM1->CCMR2 |= (6 << TIM_CCMR2_OC4M_Pos);
+    
+    // Включение канала 4
+    SET_BIT(TIM1->CCER, TIM_CCER_CC4E);
+    
+    // Включение основного выхода
+    SET_BIT(TIM1->BDTR, TIM_BDTR_MOE);
+    
+    // Запуск таймера
+    SET_BIT(TIM1->CR1, TIM_CR1_CEN);
+}
+
+void TIM3_Init(void)
+{
+    SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM3EN);
+    CLEAR_BIT(TIM3->CR1, TIM_CR1_CEN);
+
+    // Правильный расчет для 50 мс:
+    // 90 MHz / (44999 + 1) = 2000 Гц (период 0.5 мс)
+    // Для 50 мс нужно: 50 / 0.5 = 100 тиков
+    MODIFY_REG(TIM3->PSC, TIM_PSC_PSC_Msk, 8999UL);  // PSC = 44999 (делитель 45000)
+    MODIFY_REG(TIM3->ARR, TIM_ARR_ARR_Msk, 499UL);     // ARR = 99 (100 тиков)
+    
+    SET_BIT(TIM3->CR1, TIM_CR1_ARPE);
+    SET_BIT(TIM3->EGR, TIM_EGR_UG);
+    SET_BIT(TIM3->DIER, TIM_DIER_UIE);
+    
+    NVIC_SetPriority(TIM3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 1, 0));
+    NVIC_EnableIRQ(TIM3_IRQn);
+    SET_BIT(TIM3->CR1, TIM_CR1_CEN);
 }

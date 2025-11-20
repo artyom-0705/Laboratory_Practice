@@ -88,8 +88,8 @@ void ITR_init(void)                                                             
 {
     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_SYSCFGEN);                                                // Включение тактирования SYSCFG - необходим для настройки EXTI
 
-    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC);         // Настройка EXTI13 на PC13 (EXTICR[3] соответствует EXTI12-15, выбираем порт C для линии 13) (кнопка №1)
-    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI12_Msk, SYSCFG_EXTICR4_EXTI12_PC);         // Настройка EXTI12 на PC12 (EXTICR[3] соответствует EXTI12-15, выбираем порт C для линии 12) (кнопка №2)
+    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI13_Msk, SYSCFG_EXTICR4_EXTI13_PC);         // Настройка EXTI13 на PC13 (EXTICR[3] соответствует EXTI12-15, выбираем порт C для линии 13) (кнопка №2)
+    MODIFY_REG(SYSCFG->EXTICR[3], SYSCFG_EXTICR4_EXTI12_Msk, SYSCFG_EXTICR4_EXTI12_PC);         // Настройка EXTI12 на PC12 (EXTICR[3] соответствует EXTI12-15, выбираем порт C для линии 12) (кнопка №1)
 
     SET_BIT(EXTI->IMR, EXTI_IMR_MR12 | EXTI_IMR_MR13);                                          // Разрешает прерывания по линиям PC12 и PC13
     SET_BIT(EXTI->RTSR, EXTI_RTSR_TR12 | EXTI_RTSR_TR13);                                       // Настраиваем триггер по нарастанию фронта для кнопок (переход от 0 к 1)
